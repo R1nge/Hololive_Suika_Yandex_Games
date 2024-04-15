@@ -8,11 +8,10 @@ namespace _Assets.Scripts.Gameplay
     public class Suika : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] private PolygonColliderOptimizer polygonColliderOptimizer;
         [SerializeField] private float originalScale;
         [SerializeField] protected float gravityScale = 100;
         [SerializeField] protected Rigidbody2D Rigidbody2D;
-        public PolygonColliderOptimizer PolygonColliderOptimizer => polygonColliderOptimizer;
+        [SerializeField] protected CircleCollider2D CircleCollider2D;
         public bool HasLanded => _landed;
         public bool HasDropped => _dropped;
 
@@ -27,7 +26,6 @@ namespace _Assets.Scripts.Gameplay
         private bool _landed;
         private bool _dropped;
         private bool _collided;
-        [Inject] protected ContinueGameService ContinueGameService;
         [Inject] protected CollisionService CollisionService;
 
         public void SetIndex(int index) => Index = index;
@@ -35,7 +33,6 @@ namespace _Assets.Scripts.Gameplay
         public void Drop()
         {
             _dropped = true;
-            ContinueGameService.AddSuika(this);
         }
 
         private void Update()
@@ -93,7 +90,6 @@ namespace _Assets.Scripts.Gameplay
             }
 
             transform.localScale = endLocalScale;
-            polygonColliderOptimizer.OptimizePolygonCollider(.01f);
         }
 
         public void Scale(float duration)
