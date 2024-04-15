@@ -1,0 +1,2 @@
+Build path: C:/Users/R1nge/Documents/UnityProjects/Unity_2D_VContainer_MorpehECS_UniTask_StateMachine_Yandex_Games/Build/Yandex
+Build number: 8
