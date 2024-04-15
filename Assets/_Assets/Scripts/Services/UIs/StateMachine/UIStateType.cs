@@ -4,6 +4,9 @@
     {
         None = 0,
         Loading = 1,
-        Game = 2
+        MainMenu = 2,
+        Settings = 3,
+        Game = 4,
+        GameOver = 5
     }
 }
