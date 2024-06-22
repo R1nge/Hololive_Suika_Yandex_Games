@@ -38,6 +38,14 @@ MonoBehaviour:
     m_Localized: Time Rush
     m_Metadata:
       m_Items: []
+  - m_Id: 111472375422976
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111629502439424
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

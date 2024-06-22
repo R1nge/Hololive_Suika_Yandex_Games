@@ -28,6 +28,8 @@ namespace _Assets.Scripts.CompositionRoot
 
             builder.Register<MainMenuUIController>(Lifetime.Singleton);
             builder.Register<GameSelectionUIController>(Lifetime.Singleton);
+            builder.Register<InGameUIController>(Lifetime.Singleton);
+            builder.Register<PauseMenuUIController>(Lifetime.Singleton);
             
             builder.Register<UIStatesFactory>(Lifetime.Singleton);
             builder.Register<UIStateMachine>(Lifetime.Singleton);

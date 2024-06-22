@@ -14,6 +14,12 @@ namespace _Assets.Scripts.Configs
             index = Mathf.Clamp(index - 1, 0, suikas.Length - 1);
             return suikas[index].Points;
         }
+        
+        public AudioClip GetSound(int index)
+        {
+            index = Mathf.Clamp(index - 1, 0, suikas.Length - 1);
+            return suikas[index].Sound;
+        }
 
         public bool HasPrefab(int index) => suikas[index].Prefab != null;
 
@@ -22,11 +28,13 @@ namespace _Assets.Scripts.Configs
         {
             public Suika Prefab;
             public int Points;
+            public AudioClip Sound;
 
-            public SuikaData(Suika prefab, int points)
+            public SuikaData(Suika prefab, int points, AudioClip sound)
             {
                 Prefab = prefab;
                 Points = points;
+                Sound = sound;
             }
         } 
     }

@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1714189555824604434, guid: e067147a1160be848807e082a671272d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9a7483ccd7c354d49bf1ccfbd4820617, type: 2}
     - target: {fileID: 2846772492180938035, guid: e067147a1160be848807e082a671272d, type: 3}
       propertyPath: m_Name
       value: Suika5

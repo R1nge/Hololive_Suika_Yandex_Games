@@ -1,5 +1,6 @@
 ﻿using System;
 using _Assets.Scripts.Gameplay;
+using _Assets.Scripts.Services.Audio;
 using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.StateMachine.States;
 using _Assets.Scripts.Services.UIs.StateMachine;
@@ -16,10 +17,11 @@ namespace _Assets.Scripts.Services.StateMachine
         private readonly SuikasFactory _suikasFactory;
         private readonly PlayerInput _playerInput;
         private readonly ResetService _resetService;
+        private readonly AudioService _audioService;
 
         private GameStatesFactory(UIStateMachine uiStateMachine, YandexService yandexService,
             ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory,
-            PlayerInput playerInput, ResetService resetService)
+            PlayerInput playerInput, ResetService resetService, AudioService audioService)
         {
             _uiStateMachine = uiStateMachine;
             _yandexService = yandexService;
@@ -28,6 +30,7 @@ namespace _Assets.Scripts.Services.StateMachine
             _suikasFactory = suikasFactory;
             _playerInput = playerInput;
             _resetService = resetService;
+            _audioService = audioService;
         }
 
         public IAsyncState CreateAsyncState(GameStateType gameStateType, GameStateMachine gameStateMachine)
@@ -35,7 +38,7 @@ namespace _Assets.Scripts.Services.StateMachine
             switch (gameStateType)
             {
                 case GameStateType.Init:
-                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput);
+                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput, _audioService);
                 case GameStateType.Endless:
                     return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory,
                         _playerInput, _resetService);

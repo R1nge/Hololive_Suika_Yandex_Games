@@ -13,10 +13,22 @@ MonoBehaviour:
   m_Name: Song Config
   m_EditorClassIdentifier: 
   songs:
-  - volume: 0
+  - volume: 1
     title: 
-    audioClip: {fileID: 0}
-  sounds:
-  - volume: 0
+    audioClip: {fileID: 8300000, guid: 5c093aa555ec5b741960e8e59aaeacd7, type: 3}
+  - volume: 1
     title: 
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: d1c69b82ed320004a8193f4cde0fa5d5, type: 3}
+  - volume: 1
+    title: 
+    audioClip: {fileID: 8300000, guid: 1daeffeb92159b94190fbef2f772bc20, type: 3}
+  - volume: 1
+    title: 
+    audioClip: {fileID: 8300000, guid: c3e9a76310f85c14cb3495237484b216, type: 3}
+  - volume: 1
+    title: 
+    audioClip: {fileID: 8300000, guid: c3d095b3c5a70c748a5fe89e36c7ad72, type: 3}
+  - volume: 1
+    title: 
+    audioClip: {fileID: 8300000, guid: 3e9d752cd98a25546be7b6d36b86dffb, type: 3}
+  sounds: []

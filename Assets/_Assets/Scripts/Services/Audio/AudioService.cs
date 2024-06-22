@@ -23,9 +23,12 @@ namespace _Assets.Scripts.Services.Audio
         private CancellationTokenSource _cancellationSource = new();
         private bool _paused;
         private bool _init;
+        
 
         private float _vfxVolume;
+        public float VfxVolume => _vfxVolume;
         private float _musicVolume;
+        public float MusicVolume => _musicVolume;
         public event Action OnSongChanged;
 
         public string GetSongName() => _configProvider.SoundsConfig.GetSong(_lastSongIndex).title;
@@ -55,11 +58,13 @@ namespace _Assets.Scripts.Services.Audio
 
         public void ChangeMusicVolume(float volume)
         {
+            _musicVolume = volume;
             musicSource.volume = volume;
         }
 
         public void ChangeSoundVolume(float volume)
         {
+            _vfxVolume = volume;
             mergeSource.volume = volume;
         }
 
@@ -178,12 +183,12 @@ namespace _Assets.Scripts.Services.Audio
 
             var index = _mergeSoundsQueue.Max();
 
-            var audioData = _configProvider.SoundsConfig.GetSound(index);
+            var clip = _configProvider.SuikaConfig.GetSound(index);
 
             mergeSource.volume = _vfxVolume;
-            mergeSource.clip = audioData.audioClip;
+            mergeSource.clip = clip;
             mergeSource.Play();
-            await UniTask.Delay((int)(audioData.audioClip.length * 1000), cancellationToken: _cancellationSource.Token);
+            await UniTask.Delay((int)(clip.length * 1000), cancellationToken: _cancellationSource.Token);
             _queueIsPlaying = false;
             _mergeSoundsQueue.Clear();
         }

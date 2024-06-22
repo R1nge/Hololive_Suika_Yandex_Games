@@ -17,7 +17,7 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
             switch (uiStateType)
             {
                 case UIStateType.Loading:
-                    return new UILoadingState(_uiFactory, uiStateMachine);
+                    return new UILoadingState(_uiFactory);
                 case UIStateType.MainMenu:
                     return new UIMainMenuState(_uiFactory);
                 case UIStateType.GameModeSelection:
