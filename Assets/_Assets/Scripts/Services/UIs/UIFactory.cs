@@ -25,20 +25,15 @@ namespace _Assets.Scripts.Services.UIs
                 case UIStateType.None:
                     break;
                 case UIStateType.Loading:
-                    _objectResolver.Instantiate(_configProvider.UIConfig.LoadingUI);
-                    break;
+                    return _objectResolver.Instantiate(_configProvider.UIConfig.LoadingUI);
                 case UIStateType.MainMenu:
-                    _objectResolver.Instantiate(_configProvider.UIConfig.MainMenuUI);
-                    break;
+                    return _objectResolver.Instantiate(_configProvider.UIConfig.MainMenuUI);
                 case UIStateType.Settings:
-                    _objectResolver.Instantiate(_configProvider.UIConfig.SettingsUI);
-                    break;
+                    return _objectResolver.Instantiate(_configProvider.UIConfig.SettingsUI);
                 case UIStateType.Game:
-                    _objectResolver.Instantiate(_configProvider.UIConfig.GameUI);
-                    break;
+                    return _objectResolver.Instantiate(_configProvider.UIConfig.GameUI);
                 case UIStateType.GameOver:
-                    _objectResolver.Instantiate(_configProvider.UIConfig.GameOverUI);
-                    break;
+                    return _objectResolver.Instantiate(_configProvider.UIConfig.GameOverUI);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(uiStateType), uiStateType, null);
             }
