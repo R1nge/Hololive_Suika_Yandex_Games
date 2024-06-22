@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7630103580905089391}
   - component: {fileID: 460165676209178419}
   m_Layer: 5
-  m_Name: Timed
+  m_Name: TimeRush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -682,6 +682,7 @@ GameObject:
   - component: {fileID: 2080720677632671430}
   - component: {fileID: 587381748661324573}
   - component: {fileID: -8594872312354839995}
+  - component: {fileID: 5553150046013931348}
   m_Layer: 5
   m_Name: GameModeSelection
   m_TagString: Untagged
@@ -784,3 +785,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5553150046013931348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134135243074798241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0430b3006548430b9240aa4beebe0f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endless: {fileID: 8703805622689806821}
+  timeRush: {fileID: 460165676209178419}

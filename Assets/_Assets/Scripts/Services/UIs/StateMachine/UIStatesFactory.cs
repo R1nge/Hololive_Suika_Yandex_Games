@@ -24,8 +24,8 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
                     return new UIGameModeSelectionState(_uiFactory);
                 case UIStateType.Settings:
                     return new UISettingsState(_uiFactory);
-                case UIStateType.Game:
-                    return new UIGameState(_uiFactory);
+                case UIStateType.Endless:
+                    return new UIEndlessState(_uiFactory);
                 case UIStateType.GameOver:
                     return new UIGameOverState(_uiFactory);
                 default:

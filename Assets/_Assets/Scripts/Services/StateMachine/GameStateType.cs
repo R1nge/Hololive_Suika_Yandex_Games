@@ -4,7 +4,9 @@
     {
         None = 0,
         Init = 1,
-        Game = 2,
-        GameOver = 3
+        Endless = 2,
+        TimeRush = 3,
+        GameOverEndless = 4,
+        GameOverTimeRush = 5
     }
 }

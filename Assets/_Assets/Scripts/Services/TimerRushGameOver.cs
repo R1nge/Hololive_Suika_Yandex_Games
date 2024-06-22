@@ -22,7 +22,7 @@ namespace _Assets.Scripts.Services
 
         private void GameOver(float time)
         {
-            _gameStateMachine.SwitchState(GameStateType.GameOver).Forget();
+            _gameStateMachine.SwitchState(GameStateType.GameOverTimeRush).Forget();
         }
     }
 }

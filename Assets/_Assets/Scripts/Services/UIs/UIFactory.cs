@@ -32,7 +32,7 @@ namespace _Assets.Scripts.Services.UIs
                     return _objectResolver.Instantiate(_configProvider.UIConfig.SettingsUI);
                 case UIStateType.GameModeSelection:
                     return _objectResolver.Instantiate(_configProvider.UIConfig.GameModeSelectionUI);
-                case UIStateType.Game:
+                case UIStateType.Endless:
                     return _objectResolver.Instantiate(_configProvider.UIConfig.GameUI);
                 case UIStateType.GameOver:
                     return _objectResolver.Instantiate(_configProvider.UIConfig.GameOverUI);

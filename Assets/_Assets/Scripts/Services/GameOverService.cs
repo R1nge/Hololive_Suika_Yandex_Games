@@ -18,7 +18,7 @@ namespace _Assets.Scripts.Services
 
         public void Initialize() => _gameOverTimer.OnTimerEnded += GameOver;
 
-        private void GameOver() => _gameStateMachine.SwitchState(GameStateType.GameOver).Forget();
+        private void GameOver() => _gameStateMachine.SwitchState(GameStateType.GameOverEndless).Forget();
 
         public void Dispose() => _gameOverTimer.OnTimerEnded -= GameOver;
     }

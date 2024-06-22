@@ -9,7 +9,7 @@ namespace _Assets.Scripts.Services.StateMachine
             States = new Dictionary<GameStateType, IAsyncState>
             {
                 { GameStateType.Init, gameStatesFactory.CreateAsyncState(GameStateType.Init, this) },
-                { GameStateType.Game, gameStatesFactory.CreateAsyncState(GameStateType.Game, this) }
+                { GameStateType.Endless, gameStatesFactory.CreateAsyncState(GameStateType.Endless, this) }
             };
         }
     }
