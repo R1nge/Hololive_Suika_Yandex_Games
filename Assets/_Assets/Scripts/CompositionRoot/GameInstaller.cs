@@ -24,6 +24,8 @@ namespace _Assets.Scripts.CompositionRoot
             builder.RegisterComponent(coroutineRunner);
             builder.RegisterComponent(audioService);
 
+            builder.Register<CollisionService>(Lifetime.Singleton);
+
             builder.Register<MainMenuUIController>(Lifetime.Singleton);
             builder.Register<GameSelectionUIController>(Lifetime.Singleton);
             

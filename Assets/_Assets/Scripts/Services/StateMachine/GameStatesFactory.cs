@@ -14,14 +14,16 @@ namespace _Assets.Scripts.Services.StateMachine
         private readonly ContainerFactory _containerFactory;
         private readonly PlayerFactory _playerFactory;
         private readonly SuikasFactory _suikasFactory;
+        private readonly PlayerInput _playerInput;
 
-        private GameStatesFactory(UIStateMachine uiStateMachine, YandexService yandexService, ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory)
+        private GameStatesFactory(UIStateMachine uiStateMachine, YandexService yandexService, ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory, PlayerInput playerInput)
         {
             _uiStateMachine = uiStateMachine;
             _yandexService = yandexService;
             _containerFactory = containerFactory;
             _playerFactory = playerFactory;
             _suikasFactory = suikasFactory;
+            _playerInput = playerInput;
         }
 
         public IAsyncState CreateAsyncState(GameStateType gameStateType, GameStateMachine gameStateMachine)
@@ -29,9 +31,9 @@ namespace _Assets.Scripts.Services.StateMachine
             switch (gameStateType)
             {
                 case GameStateType.Init:
-                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService);
+                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput);
                 case GameStateType.Endless:
-                    return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _suikasFactory);
+                    return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _suikasFactory, _playerInput);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gameStateType), gameStateType, null);
             }

@@ -13,25 +13,25 @@ MonoBehaviour:
   m_Name: Suika Config
   m_EditorClassIdentifier: 
   suikas:
-  - Prefab: {fileID: 0}
+  - Prefab: {fileID: 6272130718641524366, guid: 336b270bfe857b44bb15b1aa9e32bb0b, type: 3}
     Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
-  - Prefab: {fileID: 0}
-    Points: 0
+  - Prefab: {fileID: 6272130718641524366, guid: a29868db143b5fa498769a8a9b007580, type: 3}
+    Points: 10
+  - Prefab: {fileID: 6272130718641524366, guid: b415f59892569274db8de6da3dfef39a, type: 3}
+    Points: 25
+  - Prefab: {fileID: 6272130718641524366, guid: ab9bd36a8ef1fcf46a2de863cf675fdc, type: 3}
+    Points: 50
+  - Prefab: {fileID: 6272130718641524366, guid: 5b782bf2d476fa349b8e77813bcda1e9, type: 3}
+    Points: 100
+  - Prefab: {fileID: 6272130718641524366, guid: 8ee2ae7cd5ceabc4b8b34656b00c6281, type: 3}
+    Points: 200
+  - Prefab: {fileID: 6272130718641524366, guid: 1d27a10591e24ba429774debf1159b41, type: 3}
+    Points: 500
+  - Prefab: {fileID: 6272130718641524366, guid: c33ec2b2057449249bdf0578e69832a4, type: 3}
+    Points: 1000
+  - Prefab: {fileID: 6272130718641524366, guid: 727ae1ae233b18044902a9da17d6a551, type: 3}
+    Points: 2000
+  - Prefab: {fileID: 6272130718641524366, guid: 0935105515926364ca5c322ec422acba, type: 3}
+    Points: 5000
+  - Prefab: {fileID: 6272130718641524366, guid: 86415847d66af784cb50d619db9bfc55, type: 3}
+    Points: 10000

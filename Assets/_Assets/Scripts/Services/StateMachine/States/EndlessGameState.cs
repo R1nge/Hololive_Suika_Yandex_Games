@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Services.Factories;
+﻿using _Assets.Scripts.Gameplay;
+using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -12,14 +13,16 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly ContainerFactory _containerFactory;
         private readonly PlayerFactory _playerFactory;
         private readonly SuikasFactory _suikasFactory;
+        private readonly PlayerInput _playerInput;
 
-        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory)
+        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory, PlayerInput playerInput)
         {
             _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
             _containerFactory = containerFactory;
             _playerFactory = playerFactory;
             _suikasFactory = suikasFactory;
+            _playerInput = playerInput;
         }
 
         public async UniTask Enter()
@@ -27,7 +30,9 @@ namespace _Assets.Scripts.Services.StateMachine.States
             await _uiStateMachine.SwitchState(UIStateType.Endless);
             _containerFactory.Create();
             var player = _playerFactory.Create();
+            player.GetComponent<PlayerController>().SpawnSuika();
             _suikasFactory.CreateKinematic(player.transform.position, player.transform);
+            _playerInput.Enable();
         }
 
         public async UniTask Exit()

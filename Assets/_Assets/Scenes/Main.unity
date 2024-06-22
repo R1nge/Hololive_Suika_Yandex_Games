@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 2068673862}
-  containerPrefab: {fileID: 9025773311256134411, guid: d1adfd96ee1a6b6428b28a426e31fdb9, type: 3}
+  containerPrefab: {fileID: 4406057353122722133, guid: a01041006f6a11a47a1666cd918dea8f, type: 3}
   spawnPoint: {fileID: 1746376700}
 --- !u!114 &977201597
 MonoBehaviour:
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60cae4ec6674a8a9dcafa3c64074de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6902383355899434406, guid: 6cf39c515b4e62b4ebea6d58d4d8fb58, type: 3}
+  playerPrefab: {fileID: 5942790986368489923, guid: 7c97af1033c94924495e1bf9065981a1, type: 3}
   spawnPoint: {fileID: 856035024}
 --- !u!114 &977201599
 MonoBehaviour:
@@ -870,7 +870,7 @@ GameObject:
   - component: {fileID: 2068673861}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -943,7 +943,7 @@ Transform:
   m_GameObject: {fileID: 2068673860}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
