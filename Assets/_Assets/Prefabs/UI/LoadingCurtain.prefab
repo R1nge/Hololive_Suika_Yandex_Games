@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1373027418985952756}
   - component: {fileID: 2025948716027291650}
   - component: {fileID: 6240975119771549535}
+  - component: {fileID: 2488284347156013739}
   m_Layer: 5
   m_Name: LoadingCurtain
   m_TagString: Untagged
@@ -190,6 +191,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2488284347156013739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032346258083289967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3897eab261244ddb07fc5b7e2b361e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  loadingIcon: {fileID: 1110757618360236796}
 --- !u!1 &8765155749453806157
 GameObject:
   m_ObjectHideFlags: 0
