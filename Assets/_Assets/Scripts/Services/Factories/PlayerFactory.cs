@@ -15,7 +15,7 @@ namespace _Assets.Scripts.Services.Factories
         [Inject] private IObjectResolver _objectResolver;
         [Inject] private ResetService _resetService;
 
-        public async UniTask<GameObject> Create()
+        public GameObject Create()
         {
             var player = _objectResolver.Instantiate(playerPrefab, spawnPoint.position, Quaternion.identity);
             player.GetComponent<PlayerController>().Init();
