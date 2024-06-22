@@ -35,9 +35,9 @@ namespace _Assets.Scripts.CompositionRoot
 
             builder.Register<RandomNumberGenerator>(Lifetime.Singleton);
             
-            builder.Register<ComboService>(Lifetime.Singleton);
+            builder.Register<ComboService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<ResetService>(Lifetime.Singleton);
-            builder.Register<GameOverTimer>(Lifetime.Singleton);
+            builder.Register<GameOverTimer>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
             builder.Register<ScoreService>(Lifetime.Singleton);
 
             builder.RegisterComponent(playerInput);
@@ -47,6 +47,8 @@ namespace _Assets.Scripts.CompositionRoot
             
             builder.Register<GameStatesFactory>(Lifetime.Singleton);
             builder.Register<GameStateMachine>(Lifetime.Singleton);
+            
+            builder.Register<GameOverService>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
         }
     }
 }

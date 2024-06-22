@@ -12,17 +12,17 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly UIStateMachine _uiStateMachine;
         private readonly ContainerFactory _containerFactory;
         private readonly PlayerFactory _playerFactory;
-        private readonly SuikasFactory _suikasFactory;
         private readonly PlayerInput _playerInput;
+        private readonly ResetService _resetService;
 
-        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory, PlayerInput playerInput)
+        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory,PlayerInput playerInput, ResetService resetService)
         {
             _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
             _containerFactory = containerFactory;
             _playerFactory = playerFactory;
-            _suikasFactory = suikasFactory;
             _playerInput = playerInput;
+            _resetService = resetService;
         }
 
         public async UniTask Enter()
@@ -31,12 +31,12 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _containerFactory.Create();
             var player = _playerFactory.Create();
             player.GetComponent<PlayerController>().SpawnSuika();
-            //_suikasFactory.CreateKinematic(player.transform.position, player.transform);
             _playerInput.Enable();
         }
 
         public async UniTask Exit()
         {
+            _resetService.Reset();
         }
     }
 }
