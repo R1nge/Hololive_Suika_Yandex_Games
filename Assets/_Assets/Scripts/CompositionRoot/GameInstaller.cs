@@ -14,6 +14,8 @@ namespace _Assets.Scripts.CompositionRoot
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(coroutineRunner);
+
+            builder.Register<MainMenuUIController>(Lifetime.Singleton);
             
             builder.Register<UIStatesFactory>(Lifetime.Singleton);
             builder.Register<UIStateMachine>(Lifetime.Singleton);

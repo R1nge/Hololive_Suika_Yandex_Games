@@ -15,5 +15,6 @@ MonoBehaviour:
   loadingUI: {fileID: 3032346258083289967, guid: fee52867c02715140bced393ff8e59d1, type: 3}
   mainMenuUI: {fileID: 7134135243074798241, guid: b8aafa5f93976d24bb98b2c428d33b26, type: 3}
   settingsUI: {fileID: 5053666993901337002, guid: 41035092f4d17334b86547839b47b644, type: 3}
+  gameModeSelectionUI: {fileID: 7134135243074798241, guid: b69353ce3abc0dc47aa14f99605a8632, type: 3}
   gameUI: {fileID: 4895176568063786644, guid: 23075f8d198446c47b66e97221838493, type: 3}
   gameOverUI: {fileID: 6079994571766391290, guid: 60670635acf838b4ebd4c9fe2f96cc74, type: 3}

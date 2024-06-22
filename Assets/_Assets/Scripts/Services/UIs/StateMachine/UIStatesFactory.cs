@@ -20,6 +20,8 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
                     return new UILoadingState(_uiFactory, uiStateMachine);
                 case UIStateType.MainMenu:
                     return new UIMainMenuState(_uiFactory);
+                case UIStateType.GameModeSelection:
+                    return new UIGameModeSelectionState(_uiFactory);
                 case UIStateType.Settings:
                     return new UISettingsState(_uiFactory);
                 case UIStateType.Game:

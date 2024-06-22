@@ -6,6 +6,7 @@
         Loading = 1,
         MainMenu = 2,
         Settings = 3,
+        GameModeSelection = 6,
         Game = 4,
         GameOver = 5
     }
