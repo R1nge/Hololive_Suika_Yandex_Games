@@ -15,7 +15,7 @@ namespace _Assets.Scripts.Services.Yandex
         public async UniTask Init()
         {
             YandexGame.GameReadyAPI();
-            YandexGame.GetLeaderboard("leaderboard", 10, 9, 9, "100");
+            GetLeaderBoard("leaderboard", 10, 9, 9);
             YandexGame.OpenFullAdEvent += OnFullScreenAdShown;
             YandexGame.CloseFullAdEvent += OnFullScreenAdClosed;
             YandexGame.RewardVideoEvent += OnRewardVideo;
@@ -53,9 +53,9 @@ namespace _Assets.Scripts.Services.Yandex
             YandexGame.NewLeaderboardScores("leaderboard", score);
         }
 
-        public void GetLeaderBoard()
+        public void GetLeaderBoard(string leaderboardName,int maxResults, int quantityTop, int quantityAround, string photoSize = "100")
         {
-            YandexGame.GetLeaderboard("leaderboard", 10, 3, 3, "100");
+            YandexGame.GetLeaderboard(leaderboardName, maxResults, quantityTop, quantityAround, photoSize);
         }
     }
 }
