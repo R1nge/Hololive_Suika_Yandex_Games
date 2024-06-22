@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Suika Config
   m_EditorClassIdentifier: 
   suikas:
-  - Prefab: {fileID: 6272130718641524366, guid: 336b270bfe857b44bb15b1aa9e32bb0b, type: 3}
+  - Prefab: {fileID: 4895841075319701855, guid: 336b270bfe857b44bb15b1aa9e32bb0b, type: 3}
     Points: 0
   - Prefab: {fileID: 6272130718641524366, guid: a29868db143b5fa498769a8a9b007580, type: 3}
     Points: 10
