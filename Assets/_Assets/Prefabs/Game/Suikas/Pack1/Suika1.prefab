@@ -84,9 +84,54 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 2.56
       objectReference: {fileID: 0}
+    - target: {fileID: 6484787804627056754, guid: e067147a1160be848807e082a671272d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9a7483ccd7c354d49bf1ccfbd4820617, type: 2}
     m_RemovedComponents:
     - {fileID: 5025640543551179847, guid: e067147a1160be848807e082a671272d, type: 3}
+    - {fileID: 6243430202417607413, guid: e067147a1160be848807e082a671272d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2846772492180938035, guid: e067147a1160be848807e082a671272d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4895841075319701855}
   m_SourcePrefab: {fileID: 100100000, guid: e067147a1160be848807e082a671272d, type: 3}
+--- !u!50 &1613429175012968809 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1714189555824604434, guid: e067147a1160be848807e082a671272d, type: 3}
+  m_PrefabInstance: {fileID: 121046441693707387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1718669611719976983 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1619039663742882924, guid: e067147a1160be848807e082a671272d, type: 3}
+  m_PrefabInstance: {fileID: 121046441693707387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2751645940224237896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2846772492180938035, guid: e067147a1160be848807e082a671272d, type: 3}
+  m_PrefabInstance: {fileID: 121046441693707387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4895841075319701855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751645940224237896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc5a6e72bb64abf87fc8dc31727e1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1718669611719976983}
+  originalScale: 0.32
+  gravityScale: 100
+  Rigidbody2D: {fileID: 1613429175012968809}
+  CircleCollider2D: {fileID: 6363748169799353353}
+--- !u!58 &6363748169799353353 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6484787804627056754, guid: e067147a1160be848807e082a671272d, type: 3}
+  m_PrefabInstance: {fileID: 121046441693707387}
+  m_PrefabAsset: {fileID: 0}

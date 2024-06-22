@@ -86,8 +86,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6484787804627056754, guid: e067147a1160be848807e082a671272d, type: 3}
       propertyPath: m_Radius
-      value: 2.56
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6484787804627056754, guid: e067147a1160be848807e082a671272d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9a7483ccd7c354d49bf1ccfbd4820617, type: 2}
     m_RemovedComponents:
     - {fileID: 5025640543551179847, guid: e067147a1160be848807e082a671272d, type: 3}
     m_RemovedGameObjects: []
