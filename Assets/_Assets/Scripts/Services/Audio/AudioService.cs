@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading;
 using _Assets.Scripts.Configs;
-using _Assets.Scripts.Services.Datas.GameConfigs;
 using _Assets.Scripts.Services.Yandex;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Networking;
 using VContainer;
 using Random = UnityEngine.Random;
 
@@ -26,12 +23,12 @@ namespace _Assets.Scripts.Services.Audio
         private CancellationTokenSource _cancellationSource = new();
         private bool _paused;
         private bool _init;
+
+        private float _vfxVolume;
+        private float _musicVolume;
         public event Action OnSongChanged;
 
-        public string GetSongName()
-        {
-            return _configProvider.SongConfig.GetSong(_lastSongIndex).title;
-        }
+        public string GetSongName() => _configProvider.SoundsConfig.GetSong(_lastSongIndex).title;
 
         public bool IsMusicPlaying => musicSource.isPlaying && !_paused;
 
@@ -72,9 +69,9 @@ namespace _Assets.Scripts.Services.Audio
             musicSource.Pause();
         }
 
-        public async UniTask PlaySong(int index)
+        public void PlaySong(int index)
         {
-            if (_audioSettingsLoader.AudioData.MusicVolume <= 0)
+            if (_musicVolume <= 0)
             {
                 Debug.LogWarning("Music is disabled");
                 return;
@@ -91,66 +88,27 @@ namespace _Assets.Scripts.Services.Audio
             _paused = false;
             _lastSongIndex = index;
             musicSource.clip = null;
-            var audioData = _configProvider.CurrentConfig.SuikaAudios[index];
-            var extension = Path.GetExtension(audioData.Path);
+            var audioData = _configProvider.SoundsConfig.GetSong(index);
 
             _cancellationSource?.Cancel();
             _cancellationSource = new CancellationTokenSource();
 
-            try
-            {
-                switch (extension)
-                {
-                    case ".mp3":
-                        await DownloadAndPlaySong(audioData.Path, audioData.Volume, AudioType.MPEG,
-                            _cancellationSource.Token).SuppressCancellationThrow();
-                        break;
-                    case ".ogg":
-                        await DownloadAndPlaySong(audioData.Path, audioData.Volume, AudioType.OGGVORBIS,
-                            _cancellationSource.Token).SuppressCancellationThrow();
-                        break;
-                    case ".wav":
-                        await DownloadAndPlaySong(audioData.Path, audioData.Volume, AudioType.WAV,
-                            _cancellationSource.Token).SuppressCancellationThrow();
-                        break;
-                }
-            }
-            catch (OperationCanceledException)
-            {
-                Debug.LogWarning("Loading cancelled");
-            }
+            musicSource.clip = audioData.audioClip;
+            musicSource.volume = _musicVolume;
+            musicSource.Play();
+            OnSongChanged?.Invoke();
         }
 
-        public async UniTask PlayRandomSong()
+        public void PlayRandomSong()
         {
-            if (_audioSettingsLoader.AudioData.MusicVolume <= 0)
+            if (_musicVolume <= 0)
             {
                 Debug.LogWarning("Music is disabled");
                 return;
             }
 
-            var index = Random.Range(0, _configProvider.CurrentConfig.SuikaAudios.Length);
-            await PlaySong(index);
-        }
-
-        private async void Update()
-        {
-            if (!_init)
-            {
-                return;
-            }
-            
-            if (_paused)
-            {
-                return;
-            }
-
-            if (!Ended())
-            {
-                return;
-            }
-
-            //await PlayNextSong();
+            var index = Random.Range(0, _configProvider.SoundsConfig.SongsLength);
+            PlaySong(index);
         }
 
         private bool Ended()
@@ -158,33 +116,32 @@ namespace _Assets.Scripts.Services.Audio
             return musicSource.clip == null || musicSource.time >= musicSource.clip.length;
         }
 
-        public async UniTask PlaySelectedSong()
+        public void PlaySelectedSong()
         {
-            if (_audioSettingsLoader.AudioData.MusicVolume <= 0)
+            if (_musicVolume <= 0)
             {
                 Debug.LogWarning("Music is disabled");
                 return;
             }
 
-            await PlaySong(_lastSongIndex);
+            PlaySong(_lastSongIndex);
         }
 
-        public async UniTask PlayNextSong()
+        public void PlayNextSong()
         {
-            _lastSongIndex = (LastSongIndex + 1) % _configProvider.CurrentConfig.SuikaAudios.Length;
-            await PlaySong(_lastSongIndex);
+            _lastSongIndex = (LastSongIndex + 1) % _configProvider.SoundsConfig.SongsLength;
+            PlaySong(_lastSongIndex);
         }
 
-        public async UniTask PlayPreviousSong()
+        public void PlayPreviousSong()
         {
-            _lastSongIndex = (LastSongIndex - 1 + _configProvider.CurrentConfig.SuikaAudios.Length) %
-                             _configProvider.CurrentConfig.SuikaAudios.Length;
-            await PlaySong(_lastSongIndex);
+            _lastSongIndex = (LastSongIndex - 1 + _configProvider.SoundsConfig.SongsLength) % _configProvider.SoundsConfig.SongsLength;
+            PlaySong(_lastSongIndex);
         }
 
         public void AddToMergeSoundsQueue(int index)
         {
-            if (_audioSettingsLoader.AudioData.VFXVolume <= 0)
+            if (_vfxVolume <= 0)
             {
                 Debug.LogWarning("Sounds are disabled");
                 return;
@@ -205,7 +162,7 @@ namespace _Assets.Scripts.Services.Audio
 
             _queueIsPlaying = true;
 
-            if (_audioSettingsLoader.AudioData.VFXVolume <= 0)
+            if (_vfxVolume <= 0)
             {
                 Debug.LogWarning("Sounds are disabled");
                 return;
@@ -221,81 +178,16 @@ namespace _Assets.Scripts.Services.Audio
 
             var index = _mergeSoundsQueue.Max();
 
-            var audioData = _configProvider.CurrentConfig.MergeSoundsAudios[index];
-            var extension = Path.GetExtension(audioData.Path);
+            var audioData = _configProvider.SoundsConfig.GetSound(index);
 
-            switch (extension)
-            {
-                case ".mp3":
-                    await DownloadAndPlayMergeSound(audioData.Path, audioData.Volume, AudioType.MPEG,
-                        this.GetCancellationTokenOnDestroy());
-                    break;
-                case ".ogg":
-                    await DownloadAndPlayMergeSound(audioData.Path, audioData.Volume, AudioType.OGGVORBIS,
-                        this.GetCancellationTokenOnDestroy());
-                    break;
-                case ".wav":
-                    await DownloadAndPlayMergeSound(audioData.Path, audioData.Volume, AudioType.WAV,
-                        this.GetCancellationTokenOnDestroy());
-                    break;
-            }
-
+            mergeSource.volume = _vfxVolume;
+            mergeSource.clip = audioData.audioClip;
+            mergeSource.Play();
+            await UniTask.Delay((int)(audioData.audioClip.length * 1000), cancellationToken: _cancellationSource.Token);
             _queueIsPlaying = false;
             _mergeSoundsQueue.Clear();
         }
 
-        private async UniTask DownloadAndPlayMergeSound(string path, float volume, AudioType audioType,
-            CancellationToken cancellationToken)
-        {
-            var webRequest = new UnityWebRequest(path, "GET", new DownloadHandlerAudioClip(path, audioType), null);
-            await webRequest.SendWebRequest().WithCancellation(cancellationToken);
-            ((DownloadHandlerAudioClip)webRequest.downloadHandler).streamAudio = true;
-            var sound = DownloadHandlerAudioClip.GetContent(webRequest);
-            mergeSource.clip = sound;
-            mergeSource.clip.name = path;
-            mergeSource.volume = volume * _audioSettingsLoader.AudioData.VFXVolume;
-            mergeSource.Play();
-            webRequest.Dispose();
-        }
-
-        private async UniTask DownloadAndPlaySong(string path, float volume, AudioType audioType,
-            CancellationToken cancellationToken)
-        {
-            if (musicSource.clip == null)
-            {
-                var webRequest = new UnityWebRequest(path, "GET", new DownloadHandlerAudioClip(path, audioType), null);
-                await webRequest.SendWebRequest().WithCancellation(cancellationToken);
-                ((DownloadHandlerAudioClip)webRequest.downloadHandler).streamAudio = true;
-                var song = DownloadHandlerAudioClip.GetContent(webRequest);
-                musicSource.clip = song;
-                musicSource.clip.name = path;
-                musicSource.volume = volume * _audioSettingsLoader.AudioData.MusicVolume;
-                musicSource.Play();
-                OnSongChanged?.Invoke();
-                webRequest.Dispose();
-            }
-            else
-            {
-                if (musicSource.clip.name == path && musicSource.isPlaying)
-                {
-                    Debug.LogWarning("The same song is playing already, nothing to do");
-                }
-                else
-                {
-                    var webRequest =
-                        new UnityWebRequest(path, "GET", new DownloadHandlerAudioClip(path, audioType), null);
-                    await webRequest.SendWebRequest().WithCancellation(cancellationToken);
-                    ((DownloadHandlerAudioClip)webRequest.downloadHandler).streamAudio = true;
-                    var song = DownloadHandlerAudioClip.GetContent(webRequest);
-                    musicSource.clip = song;
-                    musicSource.clip.name = path;
-                    musicSource.volume = volume * _audioSettingsLoader.AudioData.MusicVolume;
-                    musicSource.Play();
-                    OnSongChanged?.Invoke();
-                    webRequest.Dispose();
-                }
-            }
-        }
 
         private void OnDestroy()
         {

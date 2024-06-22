@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Assets.Scripts.Configs
 {
-    [CreateAssetMenu(fileName = "FILENAME", menuName = "MENUNAME", order = 0)]
+    [CreateAssetMenu(fileName = "Suika Config", menuName = "Configs/Suika Config")]
     public class SuikaConfig : ScriptableObject
     {
         [SerializeField] private SuikaData[] suikas;

@@ -63,3 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiConfig: {fileID: 11400000, guid: c01c0ec4a5855f641b051cf97763b193, type: 2}
+  gameConfig: {fileID: 11400000, guid: e16e7f2ddf5bf664fa66f87a020d49f2, type: 2}
+  suikaConfig: {fileID: 0}
+  soundsConfig: {fileID: 11400000, guid: f58c94e0c8ab58340b4bc802c4d6c0fb, type: 2}

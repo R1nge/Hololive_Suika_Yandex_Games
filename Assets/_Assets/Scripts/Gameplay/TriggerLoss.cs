@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using _Assets.Scripts.Services;
-using _Assets.Scripts.Services.Datas.GameConfigs;
 using UnityEngine;
 using VContainer;
 
@@ -8,11 +7,11 @@ namespace _Assets.Scripts.Gameplay
 {
     public class TriggerLoss : MonoBehaviour
     {
+        [SerializeField] private float timeBeforeTrigger = 2f;
         private float _time;
         private List<Suika> _collidedSuikas = new(10);
         private bool _ended;
         [Inject] private GameOverTimer _gameOverTimer;
-        [Inject] private IConfigLoader _configLoader;
 
         private void Start() => _gameOverTimer.OnTimerEnded += TimerEnded;
 
@@ -24,7 +23,7 @@ namespace _Assets.Scripts.Gameplay
             {
                 _time += Time.deltaTime;
 
-                if (_time >= _configLoader.CurrentConfig.TimeBeforeTimerTrigger)
+                if (_time >= timeBeforeTrigger)
                 {
                     _gameOverTimer.StartTimer();
                 }

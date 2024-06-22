@@ -7,10 +7,10 @@ namespace _Assets.Scripts.Configs
         [SerializeField] private UIConfig uiConfig;
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private SuikaConfig suikaConfig;
-        [SerializeField] private SongConfig songConfig;
+        [SerializeField] private SoundsConfig soundsConfig;
         public UIConfig UIConfig => uiConfig;
         public GameConfig GameConfig => gameConfig;
         public SuikaConfig SuikaConfig => suikaConfig;
-        public SongConfig SongConfig => songConfig;
+        public SoundsConfig SoundsConfig => soundsConfig;
     }
 }
