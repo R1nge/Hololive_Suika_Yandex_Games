@@ -221,17 +221,7 @@ GameObject:
   - component: {fileID: 5121440166599057818}
   - component: {fileID: 4158945467950514511}
   - component: {fileID: 7399645372524691007}
-  - component: {fileID: 6734054910834265828}
-  - component: {fileID: 4891332224656460877}
-  - component: {fileID: 6978038715524759377}
-  - component: {fileID: 1001606333068575413}
-  - component: {fileID: 8864808444534128111}
-  - component: {fileID: 7039717398005300439}
-  - component: {fileID: 5005776653136596835}
   - component: {fileID: -5613062450416019382}
-  - component: {fileID: -896425226151228940}
-  - component: {fileID: 1311328749482806606}
-  - component: {fileID: 7685279855289141928}
   m_Layer: 5
   m_Name: InGameMenu
   m_TagString: Untagged
@@ -303,9 +293,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1891.1, y: 2440}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -328,110 +318,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6734054910834265828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511272399292451fab6d074a51718267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 2415538400450296602}
---- !u!114 &4891332224656460877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9751ed9cafc54ff38f29d125a0c8ebd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSuikaImage: {fileID: 6830554268094872067}
---- !u!114 &6978038715524759377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9672c8c8525d48b4b1d3f4dacf1e05b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 2117236483313395143}
---- !u!114 &1001606333068575413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2fa3151cebd49c6967a1309d2867031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inGameBackground: {fileID: 213243751727245070}
---- !u!114 &8864808444534128111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a7cf1833c04a1daa109db55e4d3f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inGameCanvas: {fileID: 5121440166599057818}
-  sortingOrder: -998
---- !u!114 &7039717398005300439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8c4c94471654c4eafc4b894c8149c80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pause: {fileID: 6283670603528914779}
---- !u!114 &5005776653136596835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9f0fab2bc7b48ccbadcf6ba83b08ee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comboText: {fileID: 6238338460659754435}
-  comboString:
-    m_TableReference:
-      m_TableCollectionName: GUID:6d2996f3d1a07134893ae219fd71489e
-    m_TableEntryReference:
-      m_KeyId: 50740462960640
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  references:
-    version: 2
-    RefIds: []
 --- !u!225 &-5613062450416019382
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -444,48 +330,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &-896425226151228940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1831e14798c42b1ab928832dff9b104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.5
-  canvasGroup: {fileID: -5613062450416019382}
-  background: {fileID: 0}
---- !u!114 &1311328749482806606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b276b5cc46b6472da57e253e1a7ffbfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 6
-  image: {fileID: 6785911432130605219}
---- !u!114 &7685279855289141928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4895176568063786644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e835e446bd564efcb40fd288198eb123, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: {fileID: 5130729059117909042}
 --- !u!1 &5672149226654021334
 GameObject:
   m_ObjectHideFlags: 0

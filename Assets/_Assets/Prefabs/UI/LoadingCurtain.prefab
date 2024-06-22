@@ -87,17 +87,14 @@ GameObject:
   - component: {fileID: 6111366913332565825}
   - component: {fileID: 1373027418985952756}
   - component: {fileID: 2025948716027291650}
-  - component: {fileID: 7008867482795505844}
-  - component: {fileID: 6771233864967224120}
   - component: {fileID: 6240975119771549535}
-  - component: {fileID: 1326556938597507299}
   m_Layer: 5
   m_Name: LoadingCurtain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6001367268107108380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -156,9 +153,9 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1891.1, y: 2440}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -181,36 +178,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7008867482795505844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032346258083289967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db83afd058544f0aa2f493573c9f236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 5988699504903397}
-  suikaIcon: {fileID: 8022173631104454669}
-  suikaTransform: {fileID: 3480998604200392227}
-  suikaRotationSpeed: 360
---- !u!114 &6771233864967224120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032346258083289967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a7cf1833c04a1daa109db55e4d3f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inGameCanvas: {fileID: 6111366913332565825}
-  sortingOrder: 999
 --- !u!225 &6240975119771549535
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -223,21 +190,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1326556938597507299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032346258083289967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1831e14798c42b1ab928832dff9b104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.5
-  canvasGroup: {fileID: 6240975119771549535}
-  background: {fileID: 0}
 --- !u!1 &8765155749453806157
 GameObject:
   m_ObjectHideFlags: 0
