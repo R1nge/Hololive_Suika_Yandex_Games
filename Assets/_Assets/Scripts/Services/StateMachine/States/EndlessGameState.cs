@@ -31,7 +31,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _containerFactory.Create();
             var player = _playerFactory.Create();
             player.GetComponent<PlayerController>().SpawnSuika();
-            _suikasFactory.CreateKinematic(player.transform.position, player.transform);
+            //_suikasFactory.CreateKinematic(player.transform.position, player.transform);
             _playerInput.Enable();
         }
 
