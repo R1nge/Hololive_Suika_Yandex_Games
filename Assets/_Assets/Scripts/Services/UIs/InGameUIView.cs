@@ -1,5 +1,6 @@
 ﻿using System;
 using _Assets.Scripts.Configs;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
@@ -8,10 +9,12 @@ namespace _Assets.Scripts.Services.UIs
 {
     public class InGameUIView : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private Image nextSuikaImage;
         [SerializeField] private Button pauseButton;
         [Inject] private InGameUIController _inGameUIController;
         [Inject] private RandomNumberGenerator _randomNumberGenerator;
+        [Inject] private ScoreService _scoreService;
         [Inject] private ConfigProvider _configProvider;
 
         private void Awake()
@@ -21,9 +24,13 @@ namespace _Assets.Scripts.Services.UIs
 
         private void Start()
         {
+            _scoreService.OnScoreChanged += ScoreChanged;
             _randomNumberGenerator.OnSuikaPicked += SuikaPicked;
+            ScoreChanged(0);
             SuikaPicked(0, 0, _randomNumberGenerator.Next);
         }
+        
+        private void ScoreChanged(int score) => scoreText.text = score.ToString();
 
         private void SuikaPicked(int previous, int current, int next)
         {
@@ -35,6 +42,7 @@ namespace _Assets.Scripts.Services.UIs
         private void OnDestroy()
         {
             pauseButton.onClick.RemoveListener(Pause);
+            _scoreService.OnScoreChanged -= ScoreChanged;
             _randomNumberGenerator.OnSuikaPicked -= SuikaPicked;
         }
     }
