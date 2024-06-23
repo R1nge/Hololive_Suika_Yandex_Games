@@ -15,45 +15,89 @@ MonoBehaviour:
   suikas:
   - Prefab: {fileID: 4895841075319701855, guid: 336b270bfe857b44bb15b1aa9e32bb0b, type: 3}
     Points: 0
-    Sound: {fileID: 8300000, guid: cdfd099c621459946b51ccd4d6ae38fb, type: 3}
+    Sound:
+      m_AssetGUID: cdfd099c621459946b51ccd4d6ae38fb
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: 5759114f15add1648b0083df1f9da0e7, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: a29868db143b5fa498769a8a9b007580, type: 3}
     Points: 10
-    Sound: {fileID: 8300000, guid: 6f9d497910f925c4dbce0fb432c132a0, type: 3}
+    Sound:
+      m_AssetGUID: 6f9d497910f925c4dbce0fb432c132a0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: 34bf834623123c643971708713ae0f5d, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: b415f59892569274db8de6da3dfef39a, type: 3}
     Points: 25
-    Sound: {fileID: 8300000, guid: d8e2378749ebd7b42918df6580c5edc4, type: 3}
+    Sound:
+      m_AssetGUID: d8e2378749ebd7b42918df6580c5edc4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: 8c630d6db3ffaf441a7d9364205af2f0, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: ab9bd36a8ef1fcf46a2de863cf675fdc, type: 3}
     Points: 50
-    Sound: {fileID: 8300000, guid: 3ef9c8a3fad4a9841a6e47b937630714, type: 3}
+    Sound:
+      m_AssetGUID: 3ef9c8a3fad4a9841a6e47b937630714
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: d8e0523552a132a4aa6d594a4051d4e8, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: 5b782bf2d476fa349b8e77813bcda1e9, type: 3}
     Points: 100
-    Sound: {fileID: 8300000, guid: 8d6012e273eb5ac449f14f15f245cf91, type: 3}
+    Sound:
+      m_AssetGUID: 8d6012e273eb5ac449f14f15f245cf91
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: 731b3922e6079424d9d669eddd608fa6, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: 8ee2ae7cd5ceabc4b8b34656b00c6281, type: 3}
     Points: 200
-    Sound: {fileID: 8300000, guid: a15bbabf26c8da14bb799c25e873a398, type: 3}
+    Sound:
+      m_AssetGUID: a15bbabf26c8da14bb799c25e873a398
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: 8da615eed7eaee8439a86eaf67631f46, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: 1d27a10591e24ba429774debf1159b41, type: 3}
     Points: 500
-    Sound: {fileID: 8300000, guid: 41d8f439a802f78458dd39b8331b346a, type: 3}
+    Sound:
+      m_AssetGUID: 41d8f439a802f78458dd39b8331b346a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: d4a4e92503b2ab243a6dc9a1a3adc29f, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: c33ec2b2057449249bdf0578e69832a4, type: 3}
     Points: 1000
-    Sound: {fileID: 8300000, guid: 64b30df735266b647b2cb3f8b2142e25, type: 3}
+    Sound:
+      m_AssetGUID: 64b30df735266b647b2cb3f8b2142e25
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: 9ec33fed1066c47499206a5158ceef50, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: 727ae1ae233b18044902a9da17d6a551, type: 3}
     Points: 2000
-    Sound: {fileID: 8300000, guid: ba8383d32312b514fa2f9e2dd414f4b3, type: 3}
+    Sound:
+      m_AssetGUID: ba8383d32312b514fa2f9e2dd414f4b3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: 0a8fe3b080bd4ac409eef445bfaf2ec5, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: 0935105515926364ca5c322ec422acba, type: 3}
     Points: 5000
-    Sound: {fileID: 8300000, guid: b1725904bc3fe69419c223d88d71d0f3, type: 3}
+    Sound:
+      m_AssetGUID: b1725904bc3fe69419c223d88d71d0f3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Sprite: {fileID: 21300000, guid: 2ea2868b87332824fbf3608994616ec3, type: 3}
   - Prefab: {fileID: 6272130718641524366, guid: 86415847d66af784cb50d619db9bfc55, type: 3}
     Points: 10000
-    Sound: {fileID: 8300000, guid: b7c8eff7fee3dba478f991d6be76d1e1, type: 3}
+    Sound:
+      m_AssetGUID: b7c8eff7fee3dba478f991d6be76d1e1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
     Sprite: {fileID: 21300000, guid: 5c7856ca3c12ae548850418198f4faaa, type: 3}

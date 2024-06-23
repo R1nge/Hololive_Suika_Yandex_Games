@@ -1,5 +1,7 @@
 ﻿using System;
 using _Assets.Scripts.Gameplay;
+using _Assets.Scripts.Misc;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace _Assets.Scripts.Configs
@@ -15,10 +17,11 @@ namespace _Assets.Scripts.Configs
             return suikas[index].Points;
         }
         
-        public AudioClip GetSound(int index)
+        public async UniTask<AudioClip> GetSound(int index)
         {
             index = Mathf.Clamp(index, 0, suikas.Length - 1);
-            return suikas[index].Sound;
+            var clip = await suikas[index].Sound.LoadAssetAsync();
+            return clip;
         }
         
         public Sprite GetSprite(int index)
@@ -34,10 +37,10 @@ namespace _Assets.Scripts.Configs
         {
             public Suika Prefab;
             public int Points;
-            public AudioClip Sound;
+            public AssetReferenceAudioClip Sound;
             public Sprite Sprite;
 
-            public SuikaData(Suika prefab, int points, AudioClip sound, Sprite sprite)
+            public SuikaData(Suika prefab, int points, AssetReferenceAudioClip sound, Sprite sprite)
             {
                 Prefab = prefab;
                 Points = points;

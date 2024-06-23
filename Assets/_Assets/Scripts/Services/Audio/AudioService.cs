@@ -190,7 +190,7 @@ namespace _Assets.Scripts.Services.Audio
 
             var index = _mergeSoundsQueue.Max();
 
-            var clip = _configProvider.SuikaConfig.GetSound(index);
+            var clip = await _configProvider.SuikaConfig.GetSound(index);
 
             mergeSource.volume = _vfxVolume;
             mergeSource.clip = clip;
