@@ -58,11 +58,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1619039663742882924, guid: e067147a1160be848807e082a671272d, type: 3}
       propertyPath: m_Size.x
-      value: 5.12
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1619039663742882924, guid: e067147a1160be848807e082a671272d, type: 3}
       propertyPath: m_Size.y
-      value: 5.12
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1619039663742882924, guid: e067147a1160be848807e082a671272d, type: 3}
       propertyPath: m_Sprite

@@ -40,6 +40,7 @@ namespace _Assets.Scripts.Services.Factories
             var suikaInstance = _objectResolver
                 .Instantiate(suikaPrefab.gameObject, position, Quaternion.identity, parent).GetComponent<Suika>();
             suikaInstance.SetIndex(index);
+            suikaInstance.SetSprite(_configProvider.SuikaConfig.GetSprite(index));
 
             var rigidbody = suikaInstance.GetComponent<Rigidbody2D>();
             rigidbody.isKinematic = true;

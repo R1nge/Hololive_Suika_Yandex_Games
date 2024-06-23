@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5437dfac4ab846f287cb726a19d7c7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextSuikaImage: {fileID: 6830554268094872067}
   pauseButton: {fileID: 6283670603528914779}
 --- !u!1 &5672149226654021334
 GameObject:
