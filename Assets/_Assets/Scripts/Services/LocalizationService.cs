@@ -6,13 +6,6 @@ namespace _Assets.Scripts.Services
 {
     public class LocalizationService
     {
-        private readonly YandexService _yandexService;
-
-        private LocalizationService(YandexService yandexService)
-        {
-            _yandexService = yandexService;
-        }
-
         public async UniTask SetLanguage(Language language)
         {
             await LocalizationSettings.InitializationOperation.Task;
