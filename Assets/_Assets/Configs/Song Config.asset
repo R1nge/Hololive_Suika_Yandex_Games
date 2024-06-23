@@ -20,39 +20,4 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
-  - volume: 1
-    title: 
-    audioClip:
-      m_AssetGUID: d1c69b82ed320004a8193f4cde0fa5d5
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-  - volume: 1
-    title: 
-    audioClip:
-      m_AssetGUID: 1daeffeb92159b94190fbef2f772bc20
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-  - volume: 1
-    title: 
-    audioClip:
-      m_AssetGUID: c3e9a76310f85c14cb3495237484b216
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-  - volume: 1
-    title: 
-    audioClip:
-      m_AssetGUID: c3d095b3c5a70c748a5fe89e36c7ad72
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 0
-  - volume: 1
-    title: 
-    audioClip:
-      m_AssetGUID: 3e9d752cd98a25546be7b6d36b86dffb
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_EditorAssetChanged: 1
   sounds: []
