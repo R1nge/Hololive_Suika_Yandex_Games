@@ -30,7 +30,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             await _uiStateMachine.SwitchState(UIStateType.Endless);
             _containerFactory.Create();
             var player = _playerFactory.Create();
-            player.GetComponent<PlayerController>().SpawnSuika();
+            await player.GetComponent<PlayerController>().SpawnSuika();
             _playerInput.Enable();
         }
 

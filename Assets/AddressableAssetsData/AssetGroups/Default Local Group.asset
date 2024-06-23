@@ -52,61 +52,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6f9d497910f925c4dbce0fb432c132a0
-    m_Address: Assets/_Assets/Suikas/sana.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d8e2378749ebd7b42918df6580c5edc4
-    m_Address: Assets/_Assets/Suikas/kobo.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ef9c8a3fad4a9841a6e47b937630714
-    m_Address: Assets/_Assets/Suikas/fubuki.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8d6012e273eb5ac449f14f15f245cf91
-    m_Address: Assets/_Assets/Suikas/hakos.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a15bbabf26c8da14bb799c25e873a398
-    m_Address: Assets/_Assets/Suikas/koyori.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 41d8f439a802f78458dd39b8331b346a
-    m_Address: Assets/_Assets/Suikas/ollie.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 64b30df735266b647b2cb3f8b2142e25
-    m_Address: Assets/_Assets/Suikas/towa.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ba8383d32312b514fa2f9e2dd414f4b3
-    m_Address: Assets/_Assets/Suikas/mio.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b1725904bc3fe69419c223d88d71d0f3
-    m_Address: Assets/_Assets/Suikas/aqua.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b7c8eff7fee3dba478f991d6be76d1e1
-    m_Address: Assets/_Assets/Suikas/ayame.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2623aa3de9aef124da4cab03ef355568
-    m_Address: Assets/_Assets/Suikas/gura.ogg
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e491561280aec5945b0063f4702d98de, type: 2}
   m_SchemaSet:

@@ -2,6 +2,7 @@
 using _Assets.Scripts.Gameplay;
 using _Assets.Scripts.Services.Audio;
 using _Assets.Scripts.Services.StateMachine;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -32,22 +33,24 @@ namespace _Assets.Scripts.Services.Factories
             _comboService = comboService;
         }
 
-        public Rigidbody2D CreateKinematic(Vector3 position, Transform parent)
+        public async UniTask<Rigidbody2D> CreateKinematic(Vector3 position, Transform parent)
         {
             var index = _randomNumberGenerator.PickRandomSuika();
 
             var suikaPrefab = _configProvider.SuikaConfig.GetPrefab(index);
-            var suikaInstance = _objectResolver
-                .Instantiate(suikaPrefab.gameObject, position, Quaternion.identity, parent).GetComponent<Suika>();
-            suikaInstance.SetIndex(index);
-            suikaInstance.SetSprite(_configProvider.SuikaConfig.GetSprite(index));
+            var suikaInstance = _objectResolver.Instantiate(suikaPrefab, position, Quaternion.identity, parent);
 
-            var rigidbody = suikaInstance.GetComponent<Rigidbody2D>();
-            rigidbody.isKinematic = true;
+            if (suikaInstance.TryGetComponent(out Rigidbody2D _rigidbody2D))
+            {
+                _rigidbody2D.isKinematic = true;
 
-            AddToResetService(suikaInstance);
-            
-            return rigidbody;
+                suikaInstance.SetIndex(index);
+                AddToResetService(suikaInstance);
+                var sprite = await _configProvider.SuikaConfig.GetSprite(index);
+                suikaInstance.SetSprite(sprite);
+            }
+
+            return _rigidbody2D;
         }
 
         public void Create(int index, Vector3 position)

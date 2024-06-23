@@ -1,5 +1,6 @@
 ﻿using _Assets.Scripts.Misc;
 using _Assets.Scripts.Services.Factories;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using VContainer;
@@ -29,7 +30,7 @@ namespace _Assets.Scripts.Gameplay
             _dropQueued = true;
         }
 
-        private void Update()
+        private async void Update()
         {
             if (_playerInput.Enabled())
             {
@@ -37,7 +38,7 @@ namespace _Assets.Scripts.Gameplay
 
                 if (_dropQueued)
                 {
-                    if (_playerDrop.TryDrop())
+                    if (await _playerDrop.TryDrop())
                     {
                         _dropQueued = false;
                     }
@@ -49,7 +50,7 @@ namespace _Assets.Scripts.Gameplay
             }
         }
 
-        public void SpawnSuika() => _playerDrop.SpawnSuika();
+        public async UniTask SpawnSuika() => await _playerDrop.SpawnSuika();
         
         public void SpawnContinue() => _playerDrop.SpawnContinue();
 

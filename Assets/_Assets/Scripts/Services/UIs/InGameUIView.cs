@@ -1,5 +1,6 @@
 ﻿using System;
 using _Assets.Scripts.Configs;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,9 +33,10 @@ namespace _Assets.Scripts.Services.UIs
         
         private void ScoreChanged(int score) => scoreText.text = score.ToString();
 
-        private void SuikaPicked(int previous, int current, int next)
+        private async void SuikaPicked(int previous, int current, int next)
         {
-            nextSuikaImage.sprite = _configProvider.SuikaConfig.GetSprite(_randomNumberGenerator.Next);
+            var sprite = await _configProvider.SuikaConfig.GetSprite(_randomNumberGenerator.Next);
+            nextSuikaImage.sprite = sprite;
         }
 
         private void Pause() => _inGameUIController.Pause();

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using _Assets.Scripts.Misc;
 using _Assets.Scripts.Services.Factories;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace _Assets.Scripts.Gameplay
@@ -12,7 +13,6 @@ namespace _Assets.Scripts.Gameplay
         private readonly Transform _transform;
         private Rigidbody2D _suikaRigidbody;
         private bool _canDrop = true;
-        private readonly YieldInstruction _wait = new WaitForSeconds(0.25f);
 
         public PlayerDrop(CoroutineRunner coroutineRunner, SuikasFactory suikasFactory, Transform transform)
         {
@@ -21,25 +21,25 @@ namespace _Assets.Scripts.Gameplay
             _transform = transform;
         }
 
-        public bool TryDrop()
+        public async UniTask<bool> TryDrop()
         {
             if (_canDrop)
             {
                 Drop();
-                _coroutineRunner.StartCoroutine(Cooldown());
+                await Cooldown();
                 return true;
             }
 
             return false;
         }
 
-        public void SpawnSuika() => Spawn();
+        public async UniTask SpawnSuika() => await Spawn();
 
         public void SpawnContinue() => _suikaRigidbody = _suikasFactory.CreatePlayerContinue(_transform.position, _transform);
 
-        private void Spawn()
+        private async UniTask Spawn()
         {
-            _suikaRigidbody = _suikasFactory.CreateKinematic(_transform.position, _transform);
+            _suikaRigidbody = await _suikasFactory.CreateKinematic(_transform.position, _transform);
         }
 
         private void Drop()
@@ -53,11 +53,11 @@ namespace _Assets.Scripts.Gameplay
             }
         }
 
-        private IEnumerator Cooldown()
+        private async UniTask Cooldown()
         {
             _canDrop = false;
-            yield return _wait;
-            Spawn();
+            await UniTask.WaitForSeconds(.25f);
+            await Spawn();
             _canDrop = true;
         }
     }
