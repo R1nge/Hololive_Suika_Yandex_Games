@@ -1,4 +1,5 @@
 ﻿using System;
+using _Assets.Scripts.Misc;
 using UnityEngine;
 
 namespace _Assets.Scripts.Configs
@@ -30,7 +31,7 @@ namespace _Assets.Scripts.Configs
     {
         public float volume;
         public string title;
-        public AudioClip audioClip;
+        public AssetReferenceAudioClip audioClip;
     }
 
     [Serializable]
@@ -38,6 +39,6 @@ namespace _Assets.Scripts.Configs
     {
         public float volume;
         public string title;
-        public AudioClip audioClip;
+        public AssetReferenceAudioClip audioClip;
     }
 }

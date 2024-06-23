@@ -6,6 +6,7 @@ using _Assets.Scripts.Configs;
 using _Assets.Scripts.Services.Yandex;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using VContainer;
 using Random = UnityEngine.Random;
 
@@ -23,11 +24,11 @@ namespace _Assets.Scripts.Services.Audio
         private CancellationTokenSource _cancellationSource = new();
         private bool _paused;
         private bool _init;
-        
 
-        private float _vfxVolume;
+
+        private float _vfxVolume = 1;
         public float VfxVolume => _vfxVolume;
-        private float _musicVolume;
+        private float _musicVolume = 1;
         public float MusicVolume => _musicVolume;
         public event Action OnSongChanged;
 
@@ -42,6 +43,7 @@ namespace _Assets.Scripts.Services.Audio
             _init = true;
             _yandexService.OnFullScreenAdShown += PauseAudioAd;
             _yandexService.OnFullScreenAdClosed += UnPauseAudioAd;
+            PlayRandomSong().Forget();
         }
 
         private void UnPauseAudioAd()
@@ -74,7 +76,7 @@ namespace _Assets.Scripts.Services.Audio
             musicSource.Pause();
         }
 
-        public void PlaySong(int index)
+        public async UniTask PlaySong(int index)
         {
             if (_musicVolume <= 0)
             {
@@ -93,18 +95,22 @@ namespace _Assets.Scripts.Services.Audio
             _paused = false;
             _lastSongIndex = index;
             musicSource.clip = null;
+
             var audioData = _configProvider.SoundsConfig.GetSong(index);
 
             _cancellationSource?.Cancel();
             _cancellationSource = new CancellationTokenSource();
 
-            musicSource.clip = audioData.audioClip;
+            var reference = audioData.audioClip;
+            var song = await reference.LoadAssetAsync<AudioClip>();
+
+            musicSource.clip = song;
             musicSource.volume = _musicVolume;
             musicSource.Play();
             OnSongChanged?.Invoke();
         }
 
-        public void PlayRandomSong()
+        public async UniTask PlayRandomSong()
         {
             if (_musicVolume <= 0)
             {
@@ -113,7 +119,7 @@ namespace _Assets.Scripts.Services.Audio
             }
 
             var index = Random.Range(0, _configProvider.SoundsConfig.SongsLength);
-            PlaySong(index);
+            await PlaySong(index);
         }
 
         private bool Ended()
@@ -140,7 +146,8 @@ namespace _Assets.Scripts.Services.Audio
 
         public void PlayPreviousSong()
         {
-            _lastSongIndex = (LastSongIndex - 1 + _configProvider.SoundsConfig.SongsLength) % _configProvider.SoundsConfig.SongsLength;
+            _lastSongIndex = (LastSongIndex - 1 + _configProvider.SoundsConfig.SongsLength) %
+                             _configProvider.SoundsConfig.SongsLength;
             PlaySong(_lastSongIndex);
         }
 

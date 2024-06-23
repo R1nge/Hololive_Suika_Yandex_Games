@@ -16,7 +16,37 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 23d423bfefbf552419032d3330ba58b7
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 5c093aa555ec5b741960e8e59aaeacd7
+    m_Address: Assets/_Assets/Suikas/cover-show-mori-calliope.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1c69b82ed320004a8193f4cde0fa5d5
+    m_Address: Assets/_Assets/Suikas/internet-overdose-kyoresu.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1daeffeb92159b94190fbef2f772bc20
+    m_Address: Assets/_Assets/Suikas/megitsune-hololive.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3e9a76310f85c14cb3495237484b216
+    m_Address: Assets/_Assets/Suikas/qpid-projekt-melody-hime-hajime.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d095b3c5a70c748a5fe89e36c7ad72
+    m_Address: Assets/_Assets/Suikas/rebellion-hololive.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e9d752cd98a25546be7b6d36b86dffb
+    m_Address: Assets/_Assets/Suikas/reunion-hololive-myth.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e491561280aec5945b0063f4702d98de, type: 2}
   m_SchemaSet:
