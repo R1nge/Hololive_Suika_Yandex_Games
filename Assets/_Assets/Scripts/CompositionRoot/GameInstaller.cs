@@ -18,7 +18,7 @@ namespace _Assets.Scripts.CompositionRoot
         [SerializeField] private AudioService audioService;
         [SerializeField] private PlayerFactory playerFactory;
         [SerializeField] private PlayerInput playerInput;
-        
+
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(coroutineRunner);
