@@ -21,39 +21,48 @@ namespace _Assets.Scripts.Configs
             return suikas[index].Points;
         }
 
+        private readonly Dictionary<int, UniTask<AudioClip>> loadingSounds = new();
+
         public async UniTask<AudioClip> GetSound(int index)
         {
             index = Mathf.Clamp(index, 0, suikas.Length - 1);
             var clipReference = suikas[index].Sound;
 
+            if (loadingSounds.TryGetValue(index, out var soundTask))
+            {
+                return await soundTask;
+            }
 
             if (clipReference.OperationHandle.IsValid() && clipReference.OperationHandle.IsDone)
             {
                 return clipReference.OperationHandle.Result as AudioClip;
             }
 
-            var clip = await clipReference.LoadAssetAsync<AudioClip>().Task;
+            var loadTask = clipReference.LoadAssetAsync<AudioClip>().ToUniTask();
+            loadingSounds.Add(index, loadTask);
+            var clip = await loadTask;
+            loadingSounds.Remove(index);
             return clip;
         }
 
         public async UniTask<Sprite> GetSprite(int index)
         {
             index = Mathf.Clamp(index, 0, suikas.Length - 1);
+            var spriteReference = suikas[index].Sprite;
 
             if (loadingSprites.TryGetValue(index, out var spriteTask))
             {
                 return await spriteTask;
             }
 
-            var loadTask = LoadSpriteAsync(index);
-            loadingSprites.Add(index, loadTask);
-            return await loadTask;
-        }
+            if (spriteReference.OperationHandle.IsValid() && spriteReference.OperationHandle.IsDone)
+            {
+                return spriteReference.OperationHandle.Result as Sprite;
+            }
 
-        private async UniTask<Sprite> LoadSpriteAsync(int index)
-        {
-            var spriteReference = suikas[index].Sprite;
-            var sprite = await spriteReference.LoadAssetAsync<Sprite>().Task;
+            var loadTask = spriteReference.LoadAssetAsync<Sprite>().ToUniTask();
+            loadingSprites.Add(index, loadTask);
+            var sprite = await loadTask;
             loadingSprites.Remove(index);
             return sprite;
         }
