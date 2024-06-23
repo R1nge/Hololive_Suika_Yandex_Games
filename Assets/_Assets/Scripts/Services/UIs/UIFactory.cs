@@ -1,6 +1,7 @@
 ﻿using System;
 using _Assets.Scripts.Configs;
 using _Assets.Scripts.Services.UIs.StateMachine;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -18,24 +19,36 @@ namespace _Assets.Scripts.Services.UIs
             _configProvider = configProvider;
         }
 
-        public GameObject CreateUI(UIStateType uiStateType)
+        public async UniTask<GameObject> CreateUI(UIStateType uiStateType)
         {
             switch (uiStateType)
             {
                 case UIStateType.None:
                     break;
                 case UIStateType.Loading:
-                    return _objectResolver.Instantiate(_configProvider.UIConfig.LoadingUI);
+                    var loadingUI = await _configProvider.UIConfig.LoadingUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(loadingUI);
+                    return loadingUI;
                 case UIStateType.MainMenu:
-                    return _objectResolver.Instantiate(_configProvider.UIConfig.MainMenuUI);
+                    var mainMenuUI = await _configProvider.UIConfig.MainMenuUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(mainMenuUI);
+                    return mainMenuUI;
                 case UIStateType.Settings:
-                    return _objectResolver.Instantiate(_configProvider.UIConfig.SettingsUI);
+                    var settingsUI = await _configProvider.UIConfig.SettingsUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(settingsUI);
+                    return settingsUI;
                 case UIStateType.GameModeSelection:
-                    return _objectResolver.Instantiate(_configProvider.UIConfig.GameModeSelectionUI);
+                    var gameModeSelectionUI = await _configProvider.UIConfig.GameModeSelectionUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(gameModeSelectionUI);
+                    return gameModeSelectionUI;
                 case UIStateType.Endless:
-                    return _objectResolver.Instantiate(_configProvider.UIConfig.GameUI);
+                    var endlessUI = await _configProvider.UIConfig.GameUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(endlessUI);
+                    return endlessUI;
                 case UIStateType.GameOver:
-                    return _objectResolver.Instantiate(_configProvider.UIConfig.GameOverUI);
+                    var gameOverUI = await _configProvider.UIConfig.GameOverUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(gameOverUI);
+                    return gameOverUI;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(uiStateType), uiStateType, null);
             }

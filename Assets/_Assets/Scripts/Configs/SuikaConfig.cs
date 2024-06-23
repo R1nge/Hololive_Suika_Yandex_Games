@@ -12,7 +12,7 @@ namespace _Assets.Scripts.Configs
     public class SuikaConfig : ScriptableObject
     {
         [SerializeField] private SuikaData[] suikas;
-        private readonly Dictionary<int, UniTask<Sprite>> loadingSprites = new();
+        private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> loadingSprites = new();
         public Suika GetPrefab(int index) => suikas[index].Prefab;
 
         public int GetPoints(int index)
@@ -50,21 +50,57 @@ namespace _Assets.Scripts.Configs
             index = Mathf.Clamp(index, 0, suikas.Length - 1);
             var spriteReference = suikas[index].Sprite;
 
-            if (loadingSprites.TryGetValue(index, out var spriteTask))
+            UniTaskCompletionSource<Sprite> completionSource;
+            bool isNewTask = false;
+
+            // Lock the dictionary while accessing it to ensure thread safety
+            lock (loadingSprites)
             {
-                return await spriteTask;
+                if (!loadingSprites.TryGetValue(index, out var existingCompletionSource))
+                {
+                    // If the task does not exist, create a new UniTaskCompletionSource
+                    completionSource = new UniTaskCompletionSource<Sprite>();
+                    loadingSprites.Add(index, completionSource);
+                    isNewTask = true;
+                }
+                else
+                {
+                    // If the task already exists, use the existing UniTaskCompletionSource
+                    completionSource = existingCompletionSource;
+                }
             }
 
-            if (spriteReference.OperationHandle.IsValid() && spriteReference.OperationHandle.IsDone)
+            if (isNewTask)
             {
-                return spriteReference.OperationHandle.Result as Sprite;
+                // If this is a new task, perform the loading and complete the UniTaskCompletionSource
+                try
+                {
+                    if (spriteReference.OperationHandle.IsValid() && spriteReference.OperationHandle.IsDone)
+                    {
+                        completionSource.TrySetResult(spriteReference.OperationHandle.Result as Sprite);
+                    }
+                    else
+                    {
+                        var sprite = await spriteReference.LoadAssetAsync<Sprite>().ToUniTask();
+                        completionSource.TrySetResult(sprite);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    completionSource.TrySetException(ex);
+                }
+                finally
+                {
+                    // Remove the completion source from the dictionary when the task is done
+                    lock (loadingSprites)
+                    {
+                        loadingSprites.Remove(index);
+                    }
+                }
             }
-
-            var loadTask = spriteReference.LoadAssetAsync<Sprite>().ToUniTask();
-            loadingSprites.Add(index, loadTask);
-            var sprite = await loadTask;
-            loadingSprites.Remove(index);
-            return sprite;
+    
+            // Await the completion source's task
+            return await completionSource.Task;
         }
 
         public bool HasPrefab(int index) => suikas[index].Prefab != null;

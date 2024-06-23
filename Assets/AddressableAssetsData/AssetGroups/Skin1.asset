@@ -18,117 +18,117 @@ MonoBehaviour:
   m_GUID: 4ece1f97b262f494da2b023c98b7ce5d
   m_SerializeEntries:
   - m_GUID: 5759114f15add1648b0083df1f9da0e7
-    m_Address: Assets/_Assets/Suikas/yagoo.png
+    m_Address: yagoo
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34bf834623123c643971708713ae0f5d
-    m_Address: Assets/_Assets/Suikas/sana.png
+    m_Address: sana
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c630d6db3ffaf441a7d9364205af2f0
-    m_Address: Assets/_Assets/Suikas/kobo.png
+    m_Address: kobo
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8e0523552a132a4aa6d594a4051d4e8
-    m_Address: Assets/_Assets/Suikas/fubuki.png
+    m_Address: fubuki
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 731b3922e6079424d9d669eddd608fa6
-    m_Address: Assets/_Assets/Suikas/hakos.png
+    m_Address: hakos
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8da615eed7eaee8439a86eaf67631f46
-    m_Address: Assets/_Assets/Suikas/koyori.png
+    m_Address: koyori
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d4a4e92503b2ab243a6dc9a1a3adc29f
-    m_Address: Assets/_Assets/Suikas/ollie.png
+    m_Address: ollie
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ec33fed1066c47499206a5158ceef50
-    m_Address: Assets/_Assets/Suikas/towa.png
+    m_Address: towa
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0a8fe3b080bd4ac409eef445bfaf2ec5
-    m_Address: Assets/_Assets/Suikas/mio.png
+    m_Address: mio
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ea2868b87332824fbf3608994616ec3
-    m_Address: Assets/_Assets/Suikas/aqua.png
+    m_Address: aqua
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5c7856ca3c12ae548850418198f4faaa
-    m_Address: Assets/_Assets/Suikas/ayame.png
+    m_Address: ayame
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54f24ff03a2c47a46b85897f0d3883cf
-    m_Address: Assets/_Assets/Suikas/gura.png
+    m_Address: gura
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f9d497910f925c4dbce0fb432c132a0
-    m_Address: Assets/_Assets/Suikas/sana.ogg
+    m_Address: sana
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8e2378749ebd7b42918df6580c5edc4
-    m_Address: Assets/_Assets/Suikas/kobo.ogg
+    m_Address: kobo
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ef9c8a3fad4a9841a6e47b937630714
-    m_Address: Assets/_Assets/Suikas/fubuki.ogg
+    m_Address: fubuki
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d6012e273eb5ac449f14f15f245cf91
-    m_Address: Assets/_Assets/Suikas/hakos.ogg
+    m_Address: hakos
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a15bbabf26c8da14bb799c25e873a398
-    m_Address: Assets/_Assets/Suikas/koyori.ogg
+    m_Address: koyori
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41d8f439a802f78458dd39b8331b346a
-    m_Address: Assets/_Assets/Suikas/ollie.ogg
+    m_Address: ollie
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64b30df735266b647b2cb3f8b2142e25
-    m_Address: Assets/_Assets/Suikas/towa.ogg
+    m_Address: towa
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba8383d32312b514fa2f9e2dd414f4b3
-    m_Address: Assets/_Assets/Suikas/mio.ogg
+    m_Address: mio
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1725904bc3fe69419c223d88d71d0f3
-    m_Address: Assets/_Assets/Suikas/aqua.ogg
+    m_Address: aqua
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7c8eff7fee3dba478f991d6be76d1e1
-    m_Address: Assets/_Assets/Suikas/ayame.ogg
+    m_Address: ayame
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2623aa3de9aef124da4cab03ef355568
-    m_Address: Assets/_Assets/Suikas/gura.ogg
+    m_Address: gura
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

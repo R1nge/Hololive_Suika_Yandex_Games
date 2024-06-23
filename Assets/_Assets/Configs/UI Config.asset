@@ -12,9 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78afea04f604024aea85b4d2cc68707, type: 3}
   m_Name: UI Config
   m_EditorClassIdentifier: 
-  loadingUI: {fileID: 3032346258083289967, guid: fee52867c02715140bced393ff8e59d1, type: 3}
-  mainMenuUI: {fileID: 7134135243074798241, guid: b8aafa5f93976d24bb98b2c428d33b26, type: 3}
-  settingsUI: {fileID: 5053666993901337002, guid: 3463bed3275c70240bd483584cbb8417, type: 3}
-  gameModeSelectionUI: {fileID: 7134135243074798241, guid: b69353ce3abc0dc47aa14f99605a8632, type: 3}
-  gameUI: {fileID: 4895176568063786644, guid: 23075f8d198446c47b66e97221838493, type: 3}
-  gameOverUI: {fileID: 6079994571766391290, guid: 60670635acf838b4ebd4c9fe2f96cc74, type: 3}
+  loadingUI:
+    m_AssetGUID: fee52867c02715140bced393ff8e59d1
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  mainMenuUI:
+    m_AssetGUID: b8aafa5f93976d24bb98b2c428d33b26
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  settingsUI:
+    m_AssetGUID: 3463bed3275c70240bd483584cbb8417
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 1
+  gameModeSelectionUI:
+    m_AssetGUID: b69353ce3abc0dc47aa14f99605a8632
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  gameUI:
+    m_AssetGUID: 23075f8d198446c47b66e97221838493
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  gameOverUI:
+    m_AssetGUID: 60670635acf838b4ebd4c9fe2f96cc74
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

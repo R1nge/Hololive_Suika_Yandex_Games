@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Songs
+  m_EditorClassIdentifier: 
+  m_GroupName: Songs
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e20490434f9ce3e42a3265ba555d4403
+  m_SerializeEntries:
+  - m_GUID: 5c093aa555ec5b741960e8e59aaeacd7
+    m_Address: cover-show-mori-calliope
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1c69b82ed320004a8193f4cde0fa5d5
+    m_Address: internet-overdose-kyoresu
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1daeffeb92159b94190fbef2f772bc20
+    m_Address: megitsune-hololive
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3e9a76310f85c14cb3495237484b216
+    m_Address: qpid-projekt-melody-hime-hajime
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d095b3c5a70c748a5fe89e36c7ad72
+    m_Address: rebellion-hololive
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e9d752cd98a25546be7b6d36b86dffb
+    m_Address: reunion-hololive-myth
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdfd099c621459946b51ccd4d6ae38fb
+    m_Address: silence
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e491561280aec5945b0063f4702d98de, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ae90f31562defe1458736c9fa2efacac, type: 2}
+    - {fileID: 11400000, guid: 07fbada6a9b84ac47bbb3adf544099d6, type: 2}

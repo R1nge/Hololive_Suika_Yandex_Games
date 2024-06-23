@@ -10,7 +10,7 @@ namespace _Assets.Scripts.Services.UIs.StateMachine.States
         
         public UIMainMenuState(UIFactory uiFactory) => _uiFactory = uiFactory;
 
-        public async UniTask Enter() => _ui = _uiFactory.CreateUI(UIStateType.MainMenu);
+        public async UniTask Enter() => _ui = await _uiFactory.CreateUI(UIStateType.MainMenu);
 
         public async UniTask Exit() => Object.Destroy(_ui);
     }
