@@ -13,12 +13,14 @@ namespace _Assets.Scripts.Services
         private Color _blinkImageDefaultColor;
         [Inject] private GameOverTimer _gameOverTimer;
         private Sequence _sequence;
+        private bool _blinking;
 
         private void Start()
         {
             _gameOverTimer.OnTimerStarted += StartBlink;
+            _gameOverTimer.OnTimerStopped += StopBlink;
             _gameOverTimer.OnTimerEnded += StopBlink;
-            
+
             _sequence = DOTween.Sequence();
 
             _sequence.Append(blinkImage.DOColor(blinkColor, .5f).SetEase(Ease.Flash));
@@ -31,11 +33,25 @@ namespace _Assets.Scripts.Services
 
         private void StartBlink(float a, float b)
         {
+            if (_blinking)
+            {
+                return;
+            }
+
+            _blinking = true;
             _sequence.Restart();
         }
 
+        private void StopBlink(float a) => StopBlink();
+
         private void StopBlink()
         {
+            if (!_blinking)
+            {
+                return;
+            }
+
+            _blinking = false;
             _sequence.Pause();
             blinkImage.color = _blinkImageDefaultColor;
         }
