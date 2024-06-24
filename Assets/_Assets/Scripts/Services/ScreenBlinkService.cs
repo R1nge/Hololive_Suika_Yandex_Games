@@ -59,6 +59,7 @@ namespace _Assets.Scripts.Services
         private void OnDestroy()
         {
             _gameOverTimer.OnTimerStarted -= StartBlink;
+            _gameOverTimer.OnTimerStopped -= StopBlink;
             _gameOverTimer.OnTimerEnded -= StopBlink;
         }
     }
