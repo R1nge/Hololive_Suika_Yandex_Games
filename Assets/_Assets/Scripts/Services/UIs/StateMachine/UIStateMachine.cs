@@ -13,7 +13,8 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
                 { UIStateType.GameModeSelection, uiStatesFactory.CreateState(UIStateType.GameModeSelection, this) },
                 { UIStateType.Endless, uiStatesFactory.CreateState(UIStateType.Endless, this) },
                 { UIStateType.Settings, uiStatesFactory.CreateState(UIStateType.Settings, this) },
-                { UIStateType.Pause, uiStatesFactory.CreateState(UIStateType.Pause, this) }
+                { UIStateType.Pause, uiStatesFactory.CreateState(UIStateType.Pause, this) },
+                { UIStateType.GameOverEndless, uiStatesFactory.CreateState(UIStateType.GameOverEndless, this) }
             };
         }
     }

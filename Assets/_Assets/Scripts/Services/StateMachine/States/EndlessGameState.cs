@@ -15,14 +15,13 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly PlayerInput _playerInput;
         private readonly ResetService _resetService;
 
-        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory,PlayerInput playerInput, ResetService resetService)
+        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory,PlayerInput playerInput)
         {
             _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
             _containerFactory = containerFactory;
             _playerFactory = playerFactory;
             _playerInput = playerInput;
-            _resetService = resetService;
         }
 
         public async UniTask Enter()
@@ -36,7 +35,6 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
         public async UniTask Exit()
         {
-            _resetService.Reset();
         }
     }
 }

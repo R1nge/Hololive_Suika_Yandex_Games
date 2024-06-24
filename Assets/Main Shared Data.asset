@@ -43,6 +43,10 @@ MonoBehaviour:
     m_Key: Pause_UI_Resume
     m_Metadata:
       m_Items: []
+  - m_Id: 716447078080512
+    m_Key: Endless_Game_Over_UI_Restart
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

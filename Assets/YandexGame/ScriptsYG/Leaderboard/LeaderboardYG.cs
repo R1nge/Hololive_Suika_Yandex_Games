@@ -15,7 +15,7 @@ namespace YG
         public string nameLB;
 
         [Tooltip("Максимальное кол-во получаемых игроков")]
-        public int maxQuantityPlayers = 20;
+        public int maxQuantityPlayers = 4;
 
         [Tooltip("Кол-во получения верхних топ игроков")]
         [Range(1, 20)]
