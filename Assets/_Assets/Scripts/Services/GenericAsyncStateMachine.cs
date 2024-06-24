@@ -47,6 +47,39 @@ namespace _Assets.Scripts.Services
             }
         }
 
+        public virtual async UniTask SwitchStateUI(T stateType, int delayMilliseconds = 0)
+        {
+            if (Equals(CurrentStateType, stateType))
+            {
+                Debug.LogError($"Already in {CurrentStateType} state");
+            }
+
+            if (delayMilliseconds > 0)
+            {
+                await UniTask.Delay(delayMilliseconds);
+            }
+
+            PreviousStateType = CurrentStateType;
+            PreviousState = CurrentState;
+
+            CurrentStateType = stateType;
+            if (States.TryGetValue(stateType, out var newState))
+            {
+                CurrentState = newState;
+                await CurrentState.Enter();
+            }
+            else
+            {
+                Debug.LogError("State not found for " + stateType);
+            }
+
+            if (PreviousState != null)
+            {
+                PreviousState.Exit();
+                NotExitedStates.Remove(PreviousStateType);
+            }
+        }
+
         public virtual async UniTask SwitchStateAndExitFromAllPreviousStates(T stateType, int delayMilliseconds = 0)
         {
             await SwitchState(stateType, delayMilliseconds);

@@ -10,8 +10,8 @@ namespace _Assets.Scripts.Services.UIs
         
         public void Continue() {}
 
-        public async void Play() => await _uiStateMachine.SwitchState(UIStateType.GameModeSelection);
+        public async void Play() => await _uiStateMachine.SwitchStateUI(UIStateType.GameModeSelection);
 
-        public async void Settings() => await _uiStateMachine.SwitchState(UIStateType.Settings);
+        public async void Settings() => await _uiStateMachine.SwitchStateUI(UIStateType.Settings);
     }
 }

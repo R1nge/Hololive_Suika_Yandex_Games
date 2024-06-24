@@ -14,7 +14,7 @@ namespace _Assets.Scripts.Services.UIs
             _uiStateMachine = uiStateMachine;
         }
 
-        public async void MainMenu() => await _uiStateMachine.SwitchState(UIStateType.MainMenu);
+        public async void MainMenu() => await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
 
         public async void SelectEndless() => await _gameStateMachine.SwitchState(GameStateType.Endless);
 

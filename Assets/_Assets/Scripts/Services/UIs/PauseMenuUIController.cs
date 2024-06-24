@@ -25,7 +25,7 @@ namespace _Assets.Scripts.Services.UIs
 
         public async void Resume() => await _uiStateMachine.SwitchToPreviousState();
 
-        public async void MainMenu() => await _uiStateMachine.SwitchState(UIStateType.MainMenu);
+        public async void MainMenu() => await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
         
         public float MusicVolume => _audioService.MusicVolume;
         public float VfxVolume => _audioService.VfxVolume;

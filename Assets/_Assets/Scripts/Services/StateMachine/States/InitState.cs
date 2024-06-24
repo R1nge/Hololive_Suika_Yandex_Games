@@ -28,12 +28,12 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
         public async UniTask Enter()
         {
-            await _uiStateMachine.SwitchState(UIStateType.Loading);
+            await _uiStateMachine.SwitchStateUI(UIStateType.Loading);
             _audioService.Init();
             _playerInput.Init();
             await _yandexService.Init();
             await _localizationService.InitYandex(YandexGame.lang);
-            await _uiStateMachine.SwitchState(UIStateType.MainMenu);
+            await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
         }
 
         public async UniTask Exit()

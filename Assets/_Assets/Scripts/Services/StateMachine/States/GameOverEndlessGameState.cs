@@ -23,7 +23,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
         {
             _yandexService.UpdateLeaderBoardScore(_scoreService.Score);
             _resetService.Reset();
-            await _uiStateMachine.SwitchState(UIStateType.GameOverEndless);
+            await _uiStateMachine.SwitchStateUI(UIStateType.GameOverEndless);
         }
 
         public async UniTask Exit()
