@@ -28,6 +28,7 @@ namespace _Assets.Scripts.Services.UIs
         {
             endless.onClick.RemoveListener(SelectEndless);
             timeRush.onClick.RemoveListener(SelectTimeRush);
+            back.onClick.RemoveListener(MainMenu);
         }
     }
 }
