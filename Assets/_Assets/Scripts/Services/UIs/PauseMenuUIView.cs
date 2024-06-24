@@ -12,12 +12,6 @@ namespace _Assets.Scripts.Services.UIs
         [SerializeField] private Button en, ru, tr;
         [Inject] private PauseMenuUIController _pauseMenuUIController;
 
-        private void OnEnable()
-        {
-            musicSlider.value = _pauseMenuUIController.MusicVolume;
-            vfxSlider.value = _pauseMenuUIController.VfxVolume;
-        }
-
         private void Awake()
         {
             mainMenu.onClick.AddListener(MainMenu);
@@ -28,6 +22,12 @@ namespace _Assets.Scripts.Services.UIs
             en.onClick.AddListener(() => ChangeLanguage(LocalizationService.Language.English));
             ru.onClick.AddListener(() => ChangeLanguage(LocalizationService.Language.Russian));
             tr.onClick.AddListener(() => ChangeLanguage(LocalizationService.Language.Turkish));
+        }
+
+        private void Start()
+        {
+            musicSlider.value = _pauseMenuUIController.MusicVolume;
+            vfxSlider.value = _pauseMenuUIController.VfxVolume;
         }
 
         private void ChangeLanguage(LocalizationService.Language language) => _pauseMenuUIController.ChangeLanguage(language);

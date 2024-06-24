@@ -23,22 +23,37 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   settingsUI:
+    m_AssetGUID: 33813e55a435ffc4fbc1931bae2b3942
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  pauseUI:
     m_AssetGUID: 3463bed3275c70240bd483584cbb8417
     m_SubObjectName: 
     m_SubObjectType: 
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0
   gameModeSelectionUI:
     m_AssetGUID: b69353ce3abc0dc47aa14f99605a8632
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  gameUI:
+  endlessUI:
     m_AssetGUID: 23075f8d198446c47b66e97221838493
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  gameOverUI:
-    m_AssetGUID: 60670635acf838b4ebd4c9fe2f96cc74
+  timeRushUI:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  gameOverEndlessUI:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  gameOverTimeRushUI:
+    m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

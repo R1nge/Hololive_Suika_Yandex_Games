@@ -26,8 +26,10 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
                     return new UISettingsState(_uiFactory);
                 case UIStateType.Endless:
                     return new UIEndlessState(_uiFactory);
-                case UIStateType.GameOver:
-                    return new UIGameOverState(_uiFactory);
+               case UIStateType.Pause:
+                    return new UIPauseState(_uiFactory);
+                case UIStateType.GameOverEndless:
+                    return new UIEndlessGameOverState(_uiFactory);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(uiStateType), uiStateType, null);
             }

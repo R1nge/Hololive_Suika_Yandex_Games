@@ -28,7 +28,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23075f8d198446c47b66e97221838493
-    m_Address: InGameMenu
+    m_Address: EndlessUI
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 41035092f4d17334b86547839b47b644
+  - m_GUID: 33813e55a435ffc4fbc1931bae2b3942
     m_Address: SettingsMenu
     m_ReadOnly: 0
     m_SerializedLabels: []

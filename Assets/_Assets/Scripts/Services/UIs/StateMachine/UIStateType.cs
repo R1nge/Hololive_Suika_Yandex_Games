@@ -8,6 +8,9 @@
         Settings = 3,
         GameModeSelection = 6,
         Endless = 4,
-        GameOver = 5
+        TimeRush = 8,
+        Pause = 7,
+        GameOverEndless = 5,
+        GameOverTimeRush = 9
     }
 }

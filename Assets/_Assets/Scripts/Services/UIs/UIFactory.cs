@@ -41,14 +41,26 @@ namespace _Assets.Scripts.Services.UIs
                     var gameModeSelectionUI = await _configProvider.UIConfig.GameModeSelectionUI.InstantiateAsync();
                     _objectResolver.InjectGameObject(gameModeSelectionUI);
                     return gameModeSelectionUI;
+                case UIStateType.Pause:
+                    var pauseUI = await _configProvider.UIConfig.PauseUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(pauseUI);
+                    return pauseUI;
                 case UIStateType.Endless:
-                    var endlessUI = await _configProvider.UIConfig.GameUI.InstantiateAsync();
+                    var endlessUI = await _configProvider.UIConfig.EndlessUI.InstantiateAsync();
                     _objectResolver.InjectGameObject(endlessUI);
                     return endlessUI;
-                case UIStateType.GameOver:
-                    var gameOverUI = await _configProvider.UIConfig.GameOverUI.InstantiateAsync();
+                case UIStateType.GameOverEndless:
+                    var gameOverUI = await _configProvider.UIConfig.GameOverEndlessUI.InstantiateAsync();
                     _objectResolver.InjectGameObject(gameOverUI);
                     return gameOverUI;
+                case UIStateType.TimeRush:
+                    var timeRushUI = await _configProvider.UIConfig.TimeRushUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(timeRushUI);
+                    return timeRushUI;
+                case UIStateType.GameOverTimeRush:
+                    var gameOverTimeRushUI = await _configProvider.UIConfig.GameOverTimeRushUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(gameOverTimeRushUI);
+                    return gameOverTimeRushUI;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(uiStateType), uiStateType, null);
             }

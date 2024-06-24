@@ -9,6 +9,6 @@ namespace _Assets.Scripts.Services.UIs
         
         private InGameUIController(UIStateMachine uiStateMachine) => _uiStateMachine = uiStateMachine;
 
-        public void Pause() => _uiStateMachine.SwitchState(UIStateType.Settings).Forget();
+        public void Pause() => _uiStateMachine.SwitchState(UIStateType.Pause).Forget();
     }
 }
