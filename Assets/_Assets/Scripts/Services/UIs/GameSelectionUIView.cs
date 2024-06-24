@@ -8,13 +8,17 @@ namespace _Assets.Scripts.Services.UIs
     {
         [SerializeField] private Button endless;
         [SerializeField] private Button timeRush;
+        [SerializeField] private Button back;
         [Inject] private GameSelectionUIController _gameSelectionUIController;
 
         private void Awake()
         {
             endless.onClick.AddListener(SelectEndless);
             timeRush.onClick.AddListener(SelectTimeRush);
+            back.onClick.AddListener(MainMenu);
         }
+
+        private void MainMenu() => _gameSelectionUIController.MainMenu();
 
         private void SelectEndless() => _gameSelectionUIController.SelectEndless();
 
