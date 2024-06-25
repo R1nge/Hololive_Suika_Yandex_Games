@@ -1,5 +1,5 @@
 {
-    "idSave": 20,
+    "idSave": 27,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -14,26 +14,10 @@
     "highScoreTimeRush": 0,
     "continueData": {
         "SongIndex": 0,
-        "SuikasContinueData": [
-            {
-                "Index": 5,
-                "PositionX": 0.3070177137851715,
-                "PositionY": -5.39500093460083
-            },
-            {
-                "Index": 0,
-                "PositionX": -3.0,
-                "PositionY": -5.69580078125
-            },
-            {
-                "Index": 2,
-                "PositionX": 0.21929816901683808,
-                "PositionY": 4.656455993652344
-            }
-        ],
-        "CurrentSuikaIndex": 2,
-        "NextSuikaIndex": 1,
-        "Score": 292,
+        "SuikasContinueData": [],
+        "CurrentSuikaIndex": 0,
+        "NextSuikaIndex": 0,
+        "Score": 0,
         "TimeRushTime": 99.0
     }
 }
