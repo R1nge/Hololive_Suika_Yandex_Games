@@ -10,7 +10,9 @@ namespace _Assets.Scripts.Services.StateMachine
             {
                 { GameStateType.Init, gameStatesFactory.CreateAsyncState(GameStateType.Init, this) },
                 { GameStateType.Endless, gameStatesFactory.CreateAsyncState(GameStateType.Endless, this) },
-                { GameStateType.GameOverEndless, gameStatesFactory.CreateAsyncState(GameStateType.GameOverEndless, this) }
+                { GameStateType.GameOverEndless, gameStatesFactory.CreateAsyncState(GameStateType.GameOverEndless, this) },
+                { GameStateType.ContinueEndless, gameStatesFactory.CreateAsyncState(GameStateType.ContinueEndless, this) },
+                { GameStateType.Reset, gameStatesFactory.CreateAsyncState(GameStateType.Reset, this) },
             };
         }
     }

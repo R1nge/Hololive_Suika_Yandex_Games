@@ -9,11 +9,13 @@ namespace _Assets.Scripts.Services
     {
         private readonly SuikasFactory _suikasFactory;
         private readonly ResetService _resetService;
+        private readonly ContinueService _continueService;
 
-        private CollisionService(SuikasFactory suikasFactory, ResetService resetService)
+        private CollisionService(SuikasFactory suikasFactory, ResetService resetService, ContinueService continueService)
         {
             _suikasFactory = suikasFactory;
             _resetService = resetService;
+            _continueService = continueService;
         }
 
         public void OnCollision(Suika suika, Suika other)
@@ -27,6 +29,8 @@ namespace _Assets.Scripts.Services
                 var suikaIndex = suika.Index;
                 _resetService.RemoveSuika(suika);
                 _resetService.RemoveSuika(other);
+                _continueService.RemoveSuika(suika);
+                _continueService.RemoveSuika(other);
                 Object.Destroy(suika.gameObject);
                 Object.Destroy(other.gameObject);
                 _suikasFactory.Create(suikaIndex, middle);
@@ -37,6 +41,8 @@ namespace _Assets.Scripts.Services
         {
             _resetService.RemoveSuika(destroyer);
             _resetService.RemoveSuika(other);
+            _continueService.RemoveSuika(destroyer);
+            _continueService.RemoveSuika(other);
             Object.Destroy(destroyer.gameObject);
             Object.Destroy(other.gameObject);
         }

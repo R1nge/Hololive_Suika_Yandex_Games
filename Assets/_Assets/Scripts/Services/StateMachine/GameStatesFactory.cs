@@ -20,10 +20,11 @@ namespace _Assets.Scripts.Services.StateMachine
         private readonly AudioService _audioService;
         private readonly LocalizationService _localizationService;
         private readonly ScoreService _scoreService;
+        private readonly ContinueService _continueService;
 
         private GameStatesFactory(UIStateMachine uiStateMachine, YandexService yandexService,
             ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory,
-            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService)
+            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService)
         {
             _uiStateMachine = uiStateMachine;
             _yandexService = yandexService;
@@ -35,6 +36,7 @@ namespace _Assets.Scripts.Services.StateMachine
             _audioService = audioService;
             _localizationService = localizationService;
             _scoreService = scoreService;
+            _continueService = continueService;
         }
 
         public IAsyncState CreateAsyncState(GameStateType gameStateType, GameStateMachine gameStateMachine)
@@ -42,11 +44,15 @@ namespace _Assets.Scripts.Services.StateMachine
             switch (gameStateType)
             {
                 case GameStateType.Init:
-                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput, _audioService, _localizationService);
+                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput, _audioService, _localizationService, _continueService);
                 case GameStateType.Endless:
                     return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput);
                 case GameStateType.GameOverEndless:
                     return new GameOverEndlessGameState(_yandexService, _uiStateMachine, _scoreService, _resetService);
+                case GameStateType.ContinueEndless:
+                    return new ContinueEndless(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService);
+                case GameStateType.Reset:
+                    return new ResetState(_resetService);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gameStateType), gameStateType, null);
             }

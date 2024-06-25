@@ -1,0 +1,49 @@
+{
+    "idSave": 3,
+    "isFirstSession": false,
+    "language": "en",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ],
+    "highScoreEndless": 0,
+    "highScoreTimeRush": 0,
+    "continueData": {
+        "SongIndex": 0,
+        "SuikasContinueData": [
+            {
+                "Index": 1,
+                "PositionX": -0.6672883033752441,
+                "PositionY": -6.035005569458008
+            },
+            {
+                "Index": 5,
+                "PositionX": 0.8866804838180542,
+                "PositionY": -5.3933892250061039
+            },
+            {
+                "Index": 4,
+                "PositionX": 2.9588420391082765,
+                "PositionY": -5.554666996002197
+            },
+            {
+                "Index": 5,
+                "PositionX": -2.084246873855591,
+                "PositionY": -6.137211799621582
+            },
+            {
+                "Index": 3,
+                "PositionX": -0.02631586231291294,
+                "PositionY": 4.560760021209717
+            }
+        ],
+        "CurrentSuikaIndex": 3,
+        "NextSuikaIndex": 1,
+        "Score": 292,
+        "TimeRushTime": 99.0
+    }
+}

@@ -18,6 +18,7 @@ namespace _Assets.Scripts.Services.Factories
         private readonly ResetService _resetService;
         private readonly AudioService _audioService;
         private readonly ComboService _comboService;
+        private readonly ContinueService _continueService;
 
         private SuikasFactory(IObjectResolver objectResolver, ConfigProvider configProvider,
             RandomNumberGenerator randomNumberGenerator, ScoreService scoreService, ResetService resetService,

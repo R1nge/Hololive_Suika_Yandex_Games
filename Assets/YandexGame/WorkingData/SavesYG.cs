@@ -1,4 +1,6 @@
 ﻿
+using _Assets.Scripts.Services;
+
 namespace YG
 {
     [System.Serializable]
@@ -17,6 +19,7 @@ namespace YG
         public int highScoreEndless;
         public int highScoreTimeRush;
 
+        public ContinueData continueData;
         
         public SavesYG()
         {

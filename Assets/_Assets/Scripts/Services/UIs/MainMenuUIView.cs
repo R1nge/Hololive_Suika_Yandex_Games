@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using _Assets.Scripts.Services.StateMachine;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 
@@ -10,12 +12,21 @@ namespace _Assets.Scripts.Services.UIs
         [SerializeField] private Button playButton;
         [SerializeField] private Button settingsButton;
         [Inject] private MainMenuUIController _mainMenuUIController;
+        [Inject] private ContinueService _continueService;
+        [Inject] private ResetService _resetService;
 
         private void Awake()
         {
            continueButton.onClick.AddListener(Continue);
            playButton.onClick.AddListener(Play); 
            settingsButton.onClick.AddListener(Settings);
+        }
+
+        private void Start()
+        {
+            continueButton.gameObject.SetActive(_continueService.HasData);
+            _continueService.Save().Forget();
+            _resetService.Reset();
         }
 
         private void Continue() => _mainMenuUIController.Continue();

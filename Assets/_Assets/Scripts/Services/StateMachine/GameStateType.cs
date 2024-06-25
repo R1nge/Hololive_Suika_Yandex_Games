@@ -7,6 +7,8 @@
         Endless = 2,
         TimeRush = 3,
         GameOverEndless = 4,
-        GameOverTimeRush = 5
+        GameOverTimeRush = 5,
+        ContinueEndless = 6,
+        Reset = 7
     }
 }

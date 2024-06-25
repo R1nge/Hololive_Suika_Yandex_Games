@@ -12,6 +12,7 @@ namespace _Assets.Scripts.Gameplay
         [SerializeField] protected float gravityScale = 100;
         [SerializeField] protected Rigidbody2D Rigidbody2D;
         [SerializeField] protected CircleCollider2D CircleCollider2D;
+        [Inject] private ContinueService _continueService;
         public bool HasLanded => _landed;
         public bool HasDropped => _dropped;
 
@@ -33,6 +34,7 @@ namespace _Assets.Scripts.Gameplay
         public void Drop()
         {
             _dropped = true;
+            _continueService.AddSuika(this);
         }
 
         private void Update()
