@@ -9,6 +9,7 @@ namespace _Assets.Scripts.Services.UIs
         [SerializeField] private Button endless;
         [SerializeField] private Button timeRush;
         [SerializeField] private Button back;
+        [SerializeField] private Button settings;
         [Inject] private GameSelectionUIController _gameSelectionUIController;
 
         private void Awake()
@@ -16,7 +17,10 @@ namespace _Assets.Scripts.Services.UIs
             endless.onClick.AddListener(SelectEndless);
             timeRush.onClick.AddListener(SelectTimeRush);
             back.onClick.AddListener(MainMenu);
+            settings.onClick.AddListener(Settings);
         }
+
+        private void Settings() => _gameSelectionUIController.Settings();
 
         private void MainMenu() => _gameSelectionUIController.MainMenu();
 
@@ -29,6 +33,7 @@ namespace _Assets.Scripts.Services.UIs
             endless.onClick.RemoveListener(SelectEndless);
             timeRush.onClick.RemoveListener(SelectTimeRush);
             back.onClick.RemoveListener(MainMenu);
+            settings.onClick.RemoveListener(Settings);
         }
     }
 }

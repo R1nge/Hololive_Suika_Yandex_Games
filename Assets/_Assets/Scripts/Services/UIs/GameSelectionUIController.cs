@@ -19,5 +19,7 @@ namespace _Assets.Scripts.Services.UIs
         public async void SelectEndless() => await _gameStateMachine.SwitchState(GameStateType.Endless);
 
         public async void SelectTimeRush() => await _gameStateMachine.SwitchState(GameStateType.TimeRush);
+        
+        public async void Settings() => await _uiStateMachine.SwitchStateUI(UIStateType.Settings);
     }
 }

@@ -48,9 +48,9 @@ namespace _Assets.Scripts.Services.Yandex
             YandexGame.RewVideoShow(id);
         }
 
-        public void UpdateLeaderBoardScore(int score)
+        public void UpdateLeaderBoardScore(string leaderboardName,int score)
         {
-            YandexGame.NewLeaderboardScores("leaderboard", score);
+            YandexGame.NewLeaderboardScores(leaderboardName, score);
         }
 
         public void GetLeaderBoard(string leaderboardName,int maxResults, int quantityTop, int quantityAround, string photoSize = "100")
