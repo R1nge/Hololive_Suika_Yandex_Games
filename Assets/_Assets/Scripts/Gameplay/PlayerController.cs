@@ -30,7 +30,7 @@ namespace _Assets.Scripts.Gameplay
             _dropQueued = true;
         }
 
-        private async void Update()
+        private void Update()
         {
             if (_playerInput.Enabled())
             {
@@ -38,7 +38,7 @@ namespace _Assets.Scripts.Gameplay
 
                 if (_dropQueued)
                 {
-                    if (await _playerDrop.TryDrop())
+                    if (_playerDrop.TryDrop())
                     {
                         _dropQueued = false;
                     }
@@ -50,7 +50,7 @@ namespace _Assets.Scripts.Gameplay
             }
         }
 
-        public async UniTask SpawnSuika() => await _playerDrop.SpawnSuika();
+        public void SpawnSuika() => _playerDrop.SpawnSuika();
         
         public void SpawnContinue() => _playerDrop.SpawnContinue();
 

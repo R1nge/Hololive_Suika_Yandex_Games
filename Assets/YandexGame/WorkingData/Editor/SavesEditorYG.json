@@ -1,5 +1,5 @@
 {
-    "idSave": 3,
+    "idSave": 18,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -17,33 +17,38 @@
         "SuikasContinueData": [
             {
                 "Index": 1,
-                "PositionX": -0.6672883033752441,
-                "PositionY": -6.035005569458008
-            },
-            {
-                "Index": 5,
-                "PositionX": 0.8866804838180542,
-                "PositionY": -5.3933892250061039
-            },
-            {
-                "Index": 4,
-                "PositionX": 2.9588420391082765,
-                "PositionY": -5.554666996002197
-            },
-            {
-                "Index": 5,
-                "PositionX": -2.084246873855591,
-                "PositionY": -6.137211799621582
+                "PositionX": 0.13157862424850465,
+                "PositionY": -6.052006244659424
             },
             {
                 "Index": 3,
-                "PositionX": -0.02631586231291294,
-                "PositionY": 4.560760021209717
+                "PositionX": 0.13157862424850465,
+                "PositionY": -2.580266237258911
+            },
+            {
+                "Index": 5,
+                "PositionX": 0.13157862424850465,
+                "PositionY": -4.461257457733154
+            },
+            {
+                "Index": 4,
+                "PositionX": 0.13157862424850465,
+                "PositionY": -0.8295173048973084
+            },
+            {
+                "Index": 1,
+                "PositionX": -3.0,
+                "PositionY": -6.035002708435059
+            },
+            {
+                "Index": 2,
+                "PositionX": 0.3596494495868683,
+                "PositionY": 4.656455993652344
             }
         ],
-        "CurrentSuikaIndex": 3,
-        "NextSuikaIndex": 1,
-        "Score": 292,
+        "CurrentSuikaIndex": 2,
+        "NextSuikaIndex": 4,
+        "Score": 159,
         "TimeRushTime": 99.0
     }
 }

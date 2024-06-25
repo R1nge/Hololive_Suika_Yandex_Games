@@ -29,6 +29,8 @@ namespace _Assets.Scripts.Services
 
         private int _score;
 
+        public void SetScore(int score) => Score = score;
+
         public void AddScore(int index)
         {
             //Previous + level (index) + points? 

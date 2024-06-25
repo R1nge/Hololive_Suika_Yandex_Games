@@ -28,7 +28,7 @@ namespace _Assets.Scripts.Services
             _scoreService = scoreService;
         }
 
-        public async void Continue()
+        public async UniTask Continue()
         {
             await Load();
 
@@ -45,11 +45,12 @@ namespace _Assets.Scripts.Services
             _randomNumberGenerator.SetNext(_continueData.NextSuikaIndex);
 
 //            _timeRushTimer.CurrentTime = _continueData.TimeRushTime;
+
         }
 
         public void UpdateScore()
         {
-            _scoreService.AddScore(_continueData.Score);
+            _scoreService.SetScore(_continueData.Score);
         }
 
         public async UniTask Load()

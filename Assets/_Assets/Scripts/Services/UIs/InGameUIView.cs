@@ -26,9 +26,9 @@ namespace _Assets.Scripts.Services.UIs
         private void Start()
         {
             _scoreService.OnScoreChanged += ScoreChanged;
-            _randomNumberGenerator.OnSuikaPicked += SuikaPicked;
-            ScoreChanged(0);
             SuikaPicked(0, 0, _randomNumberGenerator.Next);
+            _randomNumberGenerator.OnSuikaPicked += SuikaPicked;
+            ScoreChanged(_scoreService.Score);
         }
         
         private void ScoreChanged(int score) => scoreText.text = score.ToString();

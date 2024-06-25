@@ -21,23 +21,23 @@ namespace _Assets.Scripts.Gameplay
             _transform = transform;
         }
 
-        public async UniTask<bool> TryDrop()
+        public bool TryDrop()
         {
             if (_canDrop)
             {
                 Drop();
-                await Cooldown();
+                _coroutineRunner.StartCoroutine(Cooldown());
                 return true;
             }
 
             return false;
         }
 
-        public async UniTask SpawnSuika() => await Spawn();
+        public void SpawnSuika() => Spawn();
 
         public void SpawnContinue() => _suikaRigidbody = _suikasFactory.CreatePlayerContinue(_transform.position, _transform);
 
-        private async UniTask Spawn()
+        private async void Spawn()
         {
             _suikaRigidbody = await _suikasFactory.CreateKinematic(_transform.position, _transform);
         }
@@ -53,11 +53,11 @@ namespace _Assets.Scripts.Gameplay
             }
         }
 
-        private async UniTask Cooldown()
+        private IEnumerator Cooldown()
         {
             _canDrop = false;
-            await UniTask.WaitForSeconds(.25f);
-            await Spawn();
+            yield return new WaitForSeconds(.25f);
+            Spawn();
             _canDrop = true;
         }
     }
