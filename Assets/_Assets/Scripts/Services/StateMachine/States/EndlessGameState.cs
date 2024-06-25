@@ -26,6 +26,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
         public async UniTask Enter()
         {
+            _playerInput.Disable();
             await _uiStateMachine.SwitchStateUI(UIStateType.Endless);
             _containerFactory.Create();
             var player = _playerFactory.Create();
