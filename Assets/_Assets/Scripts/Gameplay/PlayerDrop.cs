@@ -35,7 +35,8 @@ namespace _Assets.Scripts.Gameplay
 
         public void SpawnSuika() => Spawn();
 
-        public void SpawnContinue() => _suikaRigidbody = _suikasFactory.CreatePlayerContinue(_transform.position, _transform);
+        public void SpawnContinue() =>
+            _suikaRigidbody = _suikasFactory.CreatePlayerContinue(_transform.position, _transform);
 
         private async void Spawn()
         {
@@ -57,7 +58,12 @@ namespace _Assets.Scripts.Gameplay
         {
             _canDrop = false;
             yield return new WaitForSeconds(.25f);
-            Spawn();
+
+            if (_transform != null)
+            {
+                Spawn();
+            }
+
             _canDrop = true;
         }
     }
