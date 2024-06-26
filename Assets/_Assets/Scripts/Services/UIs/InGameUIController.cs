@@ -6,9 +6,18 @@ namespace _Assets.Scripts.Services.UIs
     public class InGameUIController
     {
         private readonly UIStateMachine _uiStateMachine;
-        
-        private InGameUIController(UIStateMachine uiStateMachine) => _uiStateMachine = uiStateMachine;
+        private readonly PlayerInput _playerInput;
 
-        public void Pause() => _uiStateMachine.SwitchStateUI(UIStateType.Pause).Forget();
+        private InGameUIController(UIStateMachine uiStateMachine, PlayerInput playerInput)
+        {
+            _uiStateMachine = uiStateMachine;
+            _playerInput = playerInput;
+        }
+
+        public void Pause()
+        {
+            _playerInput.Disable();
+            _uiStateMachine.SwitchStateUI(UIStateType.Pause).Forget();
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace _Assets.Scripts.Services
         private readonly float _maxTime = 60f * 3f;
         private float _currentTime;
         private bool _enabled;
+
         public float CurrentTime
         {
             get => _currentTime;
@@ -19,7 +20,7 @@ namespace _Assets.Scripts.Services
             }
         }
 
-        public event Action<float> OnTimerStarted; 
+        public event Action<float> OnTimerStarted;
         public event Action<float> OnTimerChanged;
         public event Action<float> OnTimerEnded;
 
@@ -44,7 +45,7 @@ namespace _Assets.Scripts.Services
                     OnTimerChanged?.Invoke(0f);
                     OnTimerEnded?.Invoke(0f);
                 }
-            }    
+            }
         }
 
         public void Pause() => _enabled = false;

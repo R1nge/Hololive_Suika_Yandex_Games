@@ -21,10 +21,11 @@ namespace _Assets.Scripts.Services.StateMachine
         private readonly LocalizationService _localizationService;
         private readonly ScoreService _scoreService;
         private readonly ContinueService _continueService;
+        private readonly TimeRushTimer _timeRushTimer;
 
         private GameStatesFactory(UIStateMachine uiStateMachine, YandexService yandexService,
             ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory,
-            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService)
+            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService, TimeRushTimer timeRushTimer)
         {
             _uiStateMachine = uiStateMachine;
             _yandexService = yandexService;
@@ -37,6 +38,7 @@ namespace _Assets.Scripts.Services.StateMachine
             _localizationService = localizationService;
             _scoreService = scoreService;
             _continueService = continueService;
+            _timeRushTimer = timeRushTimer;
         }
 
         public IAsyncState CreateAsyncState(GameStateType gameStateType, GameStateMachine gameStateMachine)
@@ -53,6 +55,12 @@ namespace _Assets.Scripts.Services.StateMachine
                     return new ContinueEndless(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService);
                 case GameStateType.Reset:
                     return new ResetState(_resetService);
+                case GameStateType.TimeRush:
+                    return new TimeRushGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _timeRushTimer);
+                case GameStateType.GameOverTimeRush:
+                    return null; 
+                case GameStateType.ContinueTimeRush:
+                    return new ContinueTimeRush();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gameStateType), gameStateType, null);
             }
