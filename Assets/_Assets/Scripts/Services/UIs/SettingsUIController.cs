@@ -23,5 +23,8 @@ namespace _Assets.Scripts.Services.UIs
         public void ChangeMusicVolume(float volume) => _audioService.ChangeMusicVolume(volume);
         
         public async UniTask Back() => await _uiStateMachine.SwitchToPreviousState();
+        
+        public float MusicVolume => _audioService.MusicVolume;
+        public float VfxVolume => _audioService.VfxVolume;
     }
 }

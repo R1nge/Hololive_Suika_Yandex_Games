@@ -8,6 +8,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using VContainer;
+using YG;
 using Random = UnityEngine.Random;
 
 namespace _Assets.Scripts.Services.Audio
@@ -43,6 +44,12 @@ namespace _Assets.Scripts.Services.Audio
             _init = true;
             _yandexService.OnFullScreenAdShown += PauseAudioAd;
             _yandexService.OnFullScreenAdClosed += UnPauseAudioAd;
+            
+            _musicVolume = YandexGame.savesData.musicVolume;
+            _vfxVolume = YandexGame.savesData.vfxVolume;
+            musicSource.volume = _musicVolume;
+            mergeSource.volume = _vfxVolume;
+            
             PlayRandomSong().Forget();
         }
 
@@ -62,12 +69,18 @@ namespace _Assets.Scripts.Services.Audio
         {
             _musicVolume = volume;
             musicSource.volume = volume;
+            
+            YandexGame.savesData.musicVolume = volume;
+            YandexGame.SaveProgress();
         }
 
         public void ChangeSoundVolume(float volume)
         {
             _vfxVolume = volume;
             mergeSource.volume = volume;
+            
+            YandexGame.savesData.vfxVolume = volume;
+            YandexGame.SaveProgress();
         }
 
         public void PauseMusic()

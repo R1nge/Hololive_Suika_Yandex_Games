@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
@@ -21,6 +22,12 @@ namespace _Assets.Scripts.Services.UIs
             en.onClick.AddListener(() => ChangeLanguage(LocalizationService.Language.English));
             ru.onClick.AddListener(() => ChangeLanguage(LocalizationService.Language.Russian));
             tr.onClick.AddListener(() => ChangeLanguage(LocalizationService.Language.Turkish)); 
+        }
+
+        private void Start()
+        {
+            musicSlider.value = _settingsUIController.MusicVolume;
+            vfxSlider.value = _settingsUIController.VfxVolume;
         }
 
         private void ChangeLanguage(LocalizationService.Language language) => _settingsUIController.ChangeLanguage(language);

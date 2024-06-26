@@ -12,18 +12,19 @@ namespace YG
         public string language = "ru";
         public bool promptDone;
         //
-        public int money = 1;                       // Можно задать полям значения по умолчанию
-        public string newPlayerName = "Hello!";
-        public bool[] openLevels = new bool[3];
-        //
+        
         public int highScoreEndless;
         public int highScoreTimeRush;
+
+        public float musicVolume;
+        public float vfxVolume;
 
         public ContinueData continueData;
         
         public SavesYG()
         {
-            openLevels[1] = true;
+            musicVolume = .1f;
+            vfxVolume = .1f;
         }
     }
 }

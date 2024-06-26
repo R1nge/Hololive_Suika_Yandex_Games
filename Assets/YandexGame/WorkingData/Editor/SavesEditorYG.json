@@ -1,17 +1,12 @@
 {
-    "idSave": 47,
+    "idSave": 85,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "money": 1,
-    "newPlayerName": "Hello!",
-    "openLevels": [
-        false,
-        true,
-        false
-    ],
     "highScoreEndless": 332395,
     "highScoreTimeRush": 0,
+    "musicVolume": 0.11993813514709473,
+    "vfxVolume": 0.6899296045303345,
     "continueData": {
         "SongIndex": 0,
         "SuikasContinueData": [],

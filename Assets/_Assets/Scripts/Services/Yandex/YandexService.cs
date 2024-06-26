@@ -15,7 +15,7 @@ namespace _Assets.Scripts.Services.Yandex
         public async UniTask Init()
         {
             YandexGame.GameReadyAPI();
-            GetLeaderBoard("leaderboard", 4, 4, 4);
+            //GetLeaderBoard("leaderboard", 4, 4, 4);
             YandexGame.OpenFullAdEvent += OnFullScreenAdShown;
             YandexGame.CloseFullAdEvent += OnFullScreenAdClosed;
             YandexGame.RewardVideoEvent += OnRewardVideo;
