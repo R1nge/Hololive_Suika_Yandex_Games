@@ -10,12 +10,14 @@ namespace _Assets.Scripts.Services
         private readonly GameOverTimer _gameOverTimer;
         private readonly GameStateMachine _gameStateMachine;
         private readonly TimeRushTimer _timeRushTimer;
+        private readonly GameModeService _gameModeService;
 
-        public GameOverService(GameOverTimer gameOverTimer, GameStateMachine gameStateMachine, TimeRushTimer timeRushTimer)
+        public GameOverService(GameOverTimer gameOverTimer, GameStateMachine gameStateMachine, TimeRushTimer timeRushTimer, GameModeService gameModeService)
         {
             _gameOverTimer = gameOverTimer;
             _gameStateMachine = gameStateMachine;
             _timeRushTimer = timeRushTimer;
+            _gameModeService = gameModeService;
         }
 
         public void Initialize()
@@ -26,7 +28,22 @@ namespace _Assets.Scripts.Services
 
         private void GameOver(float a) => GameOver();
 
-        private void GameOver() => _gameStateMachine.SwitchState(GameStateType.GameOverEndless).Forget();
+        private void GameOver()
+        {
+            switch (_gameModeService.GetGameMode())
+            {
+                case GameModeService.GameMode.None:
+                    break;
+                case GameModeService.GameMode.Endless:
+                    _gameStateMachine.SwitchState(GameStateType.GameOverEndless).Forget();
+                    break;
+                case GameModeService.GameMode.TimeRush:
+                    _gameStateMachine.SwitchState(GameStateType.GameOverTimeRush).Forget();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
 
         public void Dispose()
         {

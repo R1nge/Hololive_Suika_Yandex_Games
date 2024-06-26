@@ -60,7 +60,7 @@ namespace _Assets.Scripts.Services.StateMachine
                 case GameStateType.TimeRush:
                     return new TimeRushGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _timeRushTimer, _gameModeService);
                 case GameStateType.GameOverTimeRush:
-                    return null; 
+                    return new GameOverTimeRushGameState(_yandexService, _uiStateMachine, _scoreService, _resetService);
                 case GameStateType.ContinueTimeRush:
                     return new ContinueTimeRush(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService, _timeRushTimer);
                 case GameStateType.Continue:
