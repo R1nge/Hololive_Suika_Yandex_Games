@@ -8,19 +8,10 @@ namespace _Assets.Scripts.Services.UIs.StateMachine.States
         private readonly UIFactory _uiFactory;
         private GameObject _ui;
 
-        public UITimeRushGameOverState(UIFactory uiFactory)
-        {
-            _uiFactory = uiFactory;
-        }
+        public UITimeRushGameOverState(UIFactory uiFactory) => _uiFactory = uiFactory;
 
-        public async UniTask Enter()
-        {
-            _ui = await _uiFactory.CreateUI(UIStateType.TimeRush);
-        }
+        public async UniTask Enter() => _ui = await _uiFactory.CreateUI(UIStateType.GameOverTimeRush);
 
-        public async UniTask Exit()
-        {
-            Object.Destroy(_ui);
-        }
+        public async UniTask Exit() => Object.Destroy(_ui);
     }
 }

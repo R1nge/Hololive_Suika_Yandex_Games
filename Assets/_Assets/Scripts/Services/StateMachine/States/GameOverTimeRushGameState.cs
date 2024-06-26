@@ -11,14 +11,16 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly UIStateMachine _uiStateMachine;
         private readonly ScoreService _scoreService;
         private readonly ResetService _resetService;
-        
+        private readonly ContinueService _continueService;
+
         public GameOverTimeRushGameState(YandexService yandexService, UIStateMachine uiStateMachine,
-            ScoreService scoreService, ResetService resetService)
+            ScoreService scoreService, ResetService resetService, ContinueService continueService)
         {
             _yandexService = yandexService;
             _uiStateMachine = uiStateMachine;
             _scoreService = scoreService;
             _resetService = resetService;
+            _continueService = continueService;
         }
 
         public async UniTask Enter()
@@ -31,6 +33,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             }
 
             _resetService.Reset();
+            _continueService.DeleteContinueData();
             await _uiStateMachine.SwitchStateUI(UIStateType.GameOverTimeRush); 
         }
 

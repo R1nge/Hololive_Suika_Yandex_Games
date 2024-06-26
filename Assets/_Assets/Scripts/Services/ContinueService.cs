@@ -32,9 +32,9 @@ namespace _Assets.Scripts.Services
             _timeRushTimer = timeRushTimer;
         }
 
-        public async UniTask Continue()
+        public void Continue()
         {
-            await Load();
+            Load();
 
             Debug.LogError($"Song index: {_continueData.SongIndex}");
 
@@ -48,8 +48,9 @@ namespace _Assets.Scripts.Services
             _randomNumberGenerator.SetCurrent(_continueData.CurrentSuikaIndex);
             _randomNumberGenerator.SetNext(_continueData.NextSuikaIndex);
 
-//            _timeRushTimer.CurrentTime = _continueData.TimeRushTime;
-
+            _timeRushTimer.CurrentTime = _continueData.TimeRushTime;
+            
+            _gameModeService.SetGameMode(_continueData.GameMode);
         }
 
         public void UpdateScore()
@@ -57,7 +58,7 @@ namespace _Assets.Scripts.Services
             _scoreService.SetScore(_continueData.Score);
         }
 
-        public async UniTask Load()
+        public void Load()
         {
             _continueData = YandexGame.savesData.continueData;
         }
@@ -68,9 +69,13 @@ namespace _Assets.Scripts.Services
 
         public async UniTask Save()
         {
+            if (_continueData == null || _continueData.Score == 0)
+            {
+                return;
+            }
+            
             _continueData = new ContinueData(_audioService.LastSongIndex, new List<ContinueData.SuikaContinueData>(),
                 _randomNumberGenerator.Current, _randomNumberGenerator.Next, _scoreService.Score, _timeRushTimer.CurrentTime, _gameModeService.GetGameMode());
-            // _timeRushTimer.CurrentTime);
 
             _continueData.SuikasContinueData = new List<ContinueData.SuikaContinueData>(_suikas.Count);
             for (int i = 0; i < _suikas.Count; i++)
@@ -92,7 +97,9 @@ namespace _Assets.Scripts.Services
 
             _continueData.Score = _scoreService.Score;
 
-            //_continueData.TimeRushTime = _timeRushTimer.CurrentTime;
+            _continueData.TimeRushTime = _timeRushTimer.CurrentTime;
+
+            _continueData.GameMode = _gameModeService.GetGameMode();
             YandexGame.savesData.continueData = _continueData;
             YandexGame.SaveProgress();
         }

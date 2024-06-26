@@ -48,6 +48,7 @@ namespace _Assets.Scripts.CompositionRoot
             builder.Register<PauseMenuUIController>(Lifetime.Singleton);
             builder.Register<SettingsUIController>(Lifetime.Singleton);
             builder.Register<GameOverEndlessUIController>(Lifetime.Singleton);
+            builder.Register<GameOverTimeRushUIController>(Lifetime.Singleton);
 
             builder.Register<ContinueService>(Lifetime.Singleton);
 

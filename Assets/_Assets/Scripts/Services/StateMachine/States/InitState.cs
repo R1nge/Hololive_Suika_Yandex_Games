@@ -35,7 +35,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _playerInput.Init();
             await _yandexService.Init();
             await _localizationService.InitYandex(YandexGame.lang);
-            await _continueService.Load();
+            _continueService.Load();
             await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
         }
 

@@ -22,10 +22,10 @@ namespace _Assets.Scripts.Services.UIs
            settingsButton.onClick.AddListener(Settings);
         }
 
-        private void Start()
+        private async void Start()
         {
             continueButton.gameObject.SetActive(_continueService.HasData);
-            _continueService.Save().Forget();
+            await _continueService.Save();
             _resetService.Reset();
         }
 

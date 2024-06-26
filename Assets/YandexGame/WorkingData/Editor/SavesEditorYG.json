@@ -1,5 +1,5 @@
 {
-    "idSave": 15,
+    "idSave": 47,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -10,7 +10,7 @@
         true,
         false
     ],
-    "highScoreEndless": 0,
+    "highScoreEndless": 332395,
     "highScoreTimeRush": 0,
     "continueData": {
         "SongIndex": 0,
@@ -18,7 +18,7 @@
         "CurrentSuikaIndex": 0,
         "NextSuikaIndex": 0,
         "Score": 0,
-        "TimeRushTime": 180.0,
+        "TimeRushTime": 0.0,
         "GameMode": 0
     }
 }
