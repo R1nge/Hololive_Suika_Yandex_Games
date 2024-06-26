@@ -16,6 +16,9 @@ namespace _Assets.Scripts.Services.UIs
             _localizationService = localizationService;
             _audioService = audioService;
         }
+        
+        public LocalizationService.Language CurrentLanguage => _localizationService.CurrentLanguage;
+        
         public void ChangeLanguage(LocalizationService.Language language) => _localizationService.SetLanguage(language).Forget();
         
         public void ChangeSoundVolume(float volume) => _audioService.ChangeSoundVolume(volume);

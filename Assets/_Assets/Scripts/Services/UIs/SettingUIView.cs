@@ -11,6 +11,7 @@ namespace _Assets.Scripts.Services.UIs
         [SerializeField] private Button back;
         [SerializeField] private Slider musicSlider, vfxSlider;
         [SerializeField] private Button en, ru, tr;
+        [SerializeField] private Image selectedEn, selectedRu;
         [Inject] private SettingsUIController _settingsUIController;
 
         private void Awake()
@@ -28,9 +29,29 @@ namespace _Assets.Scripts.Services.UIs
         {
             musicSlider.value = _settingsUIController.MusicVolume;
             vfxSlider.value = _settingsUIController.VfxVolume;
+            ChangeLanguage(_settingsUIController.CurrentLanguage);
         }
 
-        private void ChangeLanguage(LocalizationService.Language language) => _settingsUIController.ChangeLanguage(language);
+        private void ChangeLanguage(LocalizationService.Language language)
+        {
+            switch (language)
+            {
+                case LocalizationService.Language.English:
+                    selectedEn.gameObject.SetActive(true);
+                    selectedRu.gameObject.SetActive(false);
+                    break;
+                case LocalizationService.Language.Russian:
+                    selectedEn.gameObject.SetActive(false);
+                    selectedRu.gameObject.SetActive(true);
+                    break;
+                case LocalizationService.Language.Turkish:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(language), language, null);
+            }
+            
+            _settingsUIController.ChangeLanguage(language);
+        }
 
         private void ChangeSoundVolume(float volume) => _settingsUIController.ChangeSoundVolume(volume);
 
