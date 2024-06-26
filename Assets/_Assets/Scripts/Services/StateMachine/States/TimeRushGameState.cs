@@ -32,7 +32,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
         {
             _playerInput.Disable();
             _gameModeService.SetGameMode(GameModeService.GameMode.TimeRush);
-            await _uiStateMachine.SwitchStateUI(UIStateType.Endless);
+            await _uiStateMachine.SwitchStateUI(UIStateType.TimeRush);
             _containerFactory.Create();
             var player = _playerFactory.Create();
             player.GetComponent<PlayerController>().SpawnSuika();
