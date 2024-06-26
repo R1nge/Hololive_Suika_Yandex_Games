@@ -1,12 +1,12 @@
 {
-    "idSave": 99,
+    "idSave": 333,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
     "highScoreEndless": 332395,
     "highScoreTimeRush": 0,
-    "musicVolume": 0.11993813514709473,
-    "vfxVolume": 0.6899296045303345,
+    "musicVolume": 0.1732998490333557,
+    "vfxVolume": 0.23030845820903779,
     "continueData": {
         "SongIndex": 0,
         "SuikasContinueData": [],

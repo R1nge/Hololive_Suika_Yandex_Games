@@ -27,9 +27,9 @@ namespace _Assets.Scripts.Services.Audio
         private bool _init;
 
 
-        private float _vfxVolume = 1;
+        private float _vfxVolume = .1f;
         public float VfxVolume => _vfxVolume;
-        private float _musicVolume = 1;
+        private float _musicVolume = .1f;
         public float MusicVolume => _musicVolume;
         public event Action OnSongChanged;
 
