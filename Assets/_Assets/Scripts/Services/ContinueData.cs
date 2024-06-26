@@ -12,8 +12,9 @@ namespace _Assets.Scripts.Services
         public int NextSuikaIndex;
         public int Score;
         public float TimeRushTime;
+        public GameModeService.GameMode GameMode;
 
-        public ContinueData(int songIndex, List<SuikaContinueData> suikasContinueData, int currentSuikaIndex, int nextSuikaIndex, int score, float timeRushTime)
+        public ContinueData(int songIndex, List<SuikaContinueData> suikasContinueData, int currentSuikaIndex, int nextSuikaIndex, int score, float timeRushTime, GameModeService.GameMode gameMode)
         {
             SongIndex = songIndex;
             SuikasContinueData = suikasContinueData;
@@ -21,6 +22,7 @@ namespace _Assets.Scripts.Services
             NextSuikaIndex = nextSuikaIndex;
             Score = score;
             TimeRushTime = timeRushTime;
+            GameMode = gameMode;
         }
        
         [Serializable]

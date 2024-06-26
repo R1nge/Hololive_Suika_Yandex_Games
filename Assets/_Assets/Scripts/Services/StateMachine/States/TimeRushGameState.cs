@@ -13,10 +13,11 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly PlayerFactory _playerFactory;
         private readonly PlayerInput _playerInput;
         private readonly TimeRushTimer _timeRushTimer;
+        private readonly GameModeService _gameModeService;
 
         public TimeRushGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine,
             ContainerFactory containerFactory, PlayerFactory playerFactory, PlayerInput playerInput,
-            TimeRushTimer timeRushTimer)
+            TimeRushTimer timeRushTimer, GameModeService gameModeService)
         {
             _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
@@ -24,11 +25,13 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _playerFactory = playerFactory;
             _playerInput = playerInput;
             _timeRushTimer = timeRushTimer;
+            _gameModeService = gameModeService;
         }
 
         public async UniTask Enter()
         {
             _playerInput.Disable();
+            _gameModeService.SetGameMode(GameModeService.GameMode.TimeRush);
             await _uiStateMachine.SwitchStateUI(UIStateType.Endless);
             _containerFactory.Create();
             var player = _playerFactory.Create();
@@ -39,7 +42,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
         public async UniTask Exit()
         {
-            _timeRushTimer.Pause();
+            _timeRushTimer.Reset();
         }
     }
 }

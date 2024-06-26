@@ -13,20 +13,23 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly ContainerFactory _containerFactory;
         private readonly PlayerFactory _playerFactory;
         private readonly PlayerInput _playerInput;
+        private readonly GameModeService _gameModeService;
         private readonly ResetService _resetService;
 
-        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory,PlayerInput playerInput)
+        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory,PlayerInput playerInput, GameModeService gameModeService)
         {
             _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
             _containerFactory = containerFactory;
             _playerFactory = playerFactory;
             _playerInput = playerInput;
+            _gameModeService = gameModeService;
         }
 
         public async UniTask Enter()
         {
             _playerInput.Disable();
+            _gameModeService.SetGameMode(GameModeService.GameMode.Endless);
             await _uiStateMachine.SwitchStateUI(UIStateType.Endless);
             _containerFactory.Create();
             var player = _playerFactory.Create();

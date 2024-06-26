@@ -22,10 +22,11 @@ namespace _Assets.Scripts.Services.StateMachine
         private readonly ScoreService _scoreService;
         private readonly ContinueService _continueService;
         private readonly TimeRushTimer _timeRushTimer;
+        private readonly GameModeService _gameModeService;
 
         private GameStatesFactory(UIStateMachine uiStateMachine, YandexService yandexService,
             ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory,
-            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService, TimeRushTimer timeRushTimer)
+            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService, TimeRushTimer timeRushTimer, GameModeService gameModeService)
         {
             _uiStateMachine = uiStateMachine;
             _yandexService = yandexService;
@@ -39,6 +40,7 @@ namespace _Assets.Scripts.Services.StateMachine
             _scoreService = scoreService;
             _continueService = continueService;
             _timeRushTimer = timeRushTimer;
+            _gameModeService = gameModeService;
         }
 
         public IAsyncState CreateAsyncState(GameStateType gameStateType, GameStateMachine gameStateMachine)
@@ -48,7 +50,7 @@ namespace _Assets.Scripts.Services.StateMachine
                 case GameStateType.Init:
                     return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput, _audioService, _localizationService, _continueService);
                 case GameStateType.Endless:
-                    return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput);
+                    return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _gameModeService);
                 case GameStateType.GameOverEndless:
                     return new GameOverEndlessGameState(_yandexService, _uiStateMachine, _scoreService, _resetService);
                 case GameStateType.ContinueEndless:
@@ -56,11 +58,13 @@ namespace _Assets.Scripts.Services.StateMachine
                 case GameStateType.Reset:
                     return new ResetState(_resetService);
                 case GameStateType.TimeRush:
-                    return new TimeRushGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _timeRushTimer);
+                    return new TimeRushGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _timeRushTimer, _gameModeService);
                 case GameStateType.GameOverTimeRush:
                     return null; 
                 case GameStateType.ContinueTimeRush:
-                    return new ContinueTimeRush();
+                    return new ContinueTimeRush(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService, _timeRushTimer);
+                case GameStateType.Continue:
+                    return new Continue(_gameModeService, gameStateMachine);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gameStateType), gameStateType, null);
             }

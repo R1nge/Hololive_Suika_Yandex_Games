@@ -24,6 +24,8 @@ namespace _Assets.Scripts.CompositionRoot
             builder.RegisterComponent(coroutineRunner);
             builder.RegisterComponent(audioService);
 
+            builder.Register<GameModeService>(Lifetime.Singleton);
+            
             builder.Register<TimeRushTimer>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
 
             builder.Register<CollisionService>(Lifetime.Singleton);

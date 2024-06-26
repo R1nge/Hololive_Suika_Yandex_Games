@@ -16,16 +16,20 @@ namespace _Assets.Scripts.Services
         private readonly SuikasFactory _suikasFactory;
         private readonly RandomNumberGenerator _randomNumberGenerator;
         private readonly ScoreService _scoreService;
+        private readonly GameModeService _gameModeService;
+        private readonly TimeRushTimer _timeRushTimer;
 
         public bool HasData => _continueData != null;
 
         private ContinueService(AudioService audioService, SuikasFactory suikasFactory,
-            RandomNumberGenerator randomNumberGenerator, ScoreService scoreService)
+            RandomNumberGenerator randomNumberGenerator, ScoreService scoreService, GameModeService gameModeService, TimeRushTimer timeRushTimer)
         {
             _audioService = audioService;
             _suikasFactory = suikasFactory;
             _randomNumberGenerator = randomNumberGenerator;
             _scoreService = scoreService;
+            _gameModeService = gameModeService;
+            _timeRushTimer = timeRushTimer;
         }
 
         public async UniTask Continue()
@@ -65,7 +69,7 @@ namespace _Assets.Scripts.Services
         public async UniTask Save()
         {
             _continueData = new ContinueData(_audioService.LastSongIndex, new List<ContinueData.SuikaContinueData>(),
-                _randomNumberGenerator.Current, _randomNumberGenerator.Next, _scoreService.Score, 99);
+                _randomNumberGenerator.Current, _randomNumberGenerator.Next, _scoreService.Score, _timeRushTimer.CurrentTime, _gameModeService.GetGameMode());
             // _timeRushTimer.CurrentTime);
 
             _continueData.SuikasContinueData = new List<ContinueData.SuikaContinueData>(_suikas.Count);
