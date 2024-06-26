@@ -25,9 +25,9 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
         public async UniTask Enter()
         {
-            if (_scoreService.Score > YandexGame.savesData.highScoreEndless)
+            if (_scoreService.Score > YandexGame.savesData.highScoreTimeRush)
             {
-                YandexGame.savesData.highScoreEndless = _scoreService.Score;
+                YandexGame.savesData.highScoreTimeRush = _scoreService.Score;
                 _yandexService.UpdateLeaderBoardScore("timeRush", _scoreService.Score);
                 YandexGame.SaveProgress();
             }
