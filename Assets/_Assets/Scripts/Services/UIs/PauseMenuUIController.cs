@@ -18,6 +18,8 @@ namespace _Assets.Scripts.Services.UIs
             _localizationService = localizationService;
             _playerInput = playerInput;
         }
+        
+        public LocalizationService.Language CurrentLanguage => _localizationService.CurrentLanguage;
 
         public void ChangeLanguage(LocalizationService.Language language) => _localizationService.SetLanguage(language).Forget();
 

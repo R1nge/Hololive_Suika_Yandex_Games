@@ -32,6 +32,11 @@ namespace _Assets.Scripts.Services.StateMachine.States
                 YandexGame.SaveProgress();
             }
 
+            if (_continueService.CanContinue)
+            {
+                
+            }
+
             _resetService.Reset();
             _continueService.DeleteContinueData();
             await _uiStateMachine.SwitchStateUI(UIStateType.GameOverEndless);

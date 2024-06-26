@@ -28,7 +28,7 @@ MonoBehaviour:
   adDisplayCalls: 0
   fullscreenAdInterval: 60
   durationOfAdSimulation: 0.5
-  loadAdWithDelaySimulation: 0
+  loadAdWithDelaySimulation: 2
   testErrorOfRewardedAdsInEditor: 0
   saveCloud: 1
   flush: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
     thisPlayer:
       rank: 2
       score: 10
-  LocalizationEnable: 1
+  LocalizationEnable: 0
   callingLanguageCheck: 1
   translateMethod: 0
   domainAutoLocalization: com

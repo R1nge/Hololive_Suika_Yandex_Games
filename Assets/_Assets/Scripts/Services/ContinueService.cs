@@ -19,6 +19,11 @@ namespace _Assets.Scripts.Services
         private readonly GameModeService _gameModeService;
         private readonly TimeRushTimer _timeRushTimer;
 
+        private bool _canContinue;
+        public bool CanContinue => _canContinue;
+        
+        public void SetCanContinue(bool canContinue) => _canContinue = canContinue;
+
         public bool HasData => _continueData != null;
 
         private ContinueService(AudioService audioService, SuikasFactory suikasFactory,
