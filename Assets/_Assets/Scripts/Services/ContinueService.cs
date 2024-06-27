@@ -74,11 +74,6 @@ namespace _Assets.Scripts.Services
 
         public async UniTask Save()
         {
-            if (_continueData == null || _continueData.Score == 0)
-            {
-                return;
-            }
-            
             _continueData = new ContinueData(_audioService.LastSongIndex, new List<ContinueData.SuikaContinueData>(),
                 _randomNumberGenerator.Current, _randomNumberGenerator.Next, _scoreService.Score, _timeRushTimer.CurrentTime, _gameModeService.GetGameMode());
 

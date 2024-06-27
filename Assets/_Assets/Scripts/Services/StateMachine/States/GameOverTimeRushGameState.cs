@@ -34,6 +34,9 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
             _resetService.Reset();
             _continueService.DeleteContinueData();
+            
+            _yandexService.ShowVideoAd();
+            
             await _uiStateMachine.SwitchStateUI(UIStateType.GameOverTimeRush); 
         }
 
