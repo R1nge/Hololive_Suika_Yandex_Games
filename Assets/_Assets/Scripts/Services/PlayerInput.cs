@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 
@@ -11,14 +13,11 @@ namespace _Assets.Scripts.Services
         [SerializeField] private InputActionAsset controls;
         private bool _enabled;
         private InputAction _moveAction;
+        private readonly List<RaycastResult> _results = new(10);
 
         public bool Enabled(int fingerId = -1)
         {
-            bool enabled = _enabled;
-#if UNITY_ANDROID
-            enabled = _enabled && !EventSystem.current.IsPointerOverGameObject() &&
-                      !EventSystem.current.IsPointerOverGameObject(fingerId);
-#endif
+            bool enabled = _enabled && !IsOverUI();
             return enabled;
         }
 
@@ -37,6 +36,41 @@ namespace _Assets.Scripts.Services
                     ? _moveAction.ReadValue<Vector2>() * 0.1f
                     : _moveAction.ReadValue<Vector2>();
             }
+        }
+
+        private bool IsOverUI()
+        {
+            if (EventSystem.current == null)
+            {
+                Debug.LogWarning("No event system");
+                return false;
+            }
+
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
+                {
+                    // Set the PointerEventData position to that of the mouse position
+                    position = Input.mousePosition
+                };
+
+                // Raycast using the Graphics Raycaster and mouse click position
+                EventSystem.current.RaycastAll(pointerEventData, _results);
+
+                // For every result returned, output the name of the GameObject on the Canvas hit by the Ray
+                for (var i = 0; i < _results.Count; i++)
+                {
+                    var result = _results[i];
+                    if (result.gameObject.layer == LayerMask.NameToLayer("ClickableUI")) // Check if the hit UI element is this element
+                    {
+                        Debug.Log("Pointer is over " + gameObject.name);
+                        _results.Clear();
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         public void Init()

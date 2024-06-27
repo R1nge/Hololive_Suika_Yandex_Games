@@ -27,7 +27,10 @@ namespace _Assets.Scripts.Gameplay
 
         private void Drop(InputAction.CallbackContext obj)
         {
-            _dropQueued = true;
+            if (_playerInput.Enabled())
+            {
+                _dropQueued = true;
+            }
         }
 
         private void Update()
@@ -51,7 +54,7 @@ namespace _Assets.Scripts.Gameplay
         }
 
         public void SpawnSuika() => _playerDrop.SpawnSuika();
-        
+
         public void SpawnContinue() => _playerDrop.SpawnContinue();
 
         private void OnDestroy() => _playerInput.OnDrop -= Drop;
