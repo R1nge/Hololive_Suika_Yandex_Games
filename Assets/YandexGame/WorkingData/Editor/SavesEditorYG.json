@@ -1,5 +1,5 @@
 {
-    "idSave": 382,
+    "idSave": 391,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -9,27 +9,11 @@
     "vfxVolume": 0.23030845820903779,
     "continueData": {
         "SongIndex": 0,
-        "SuikasContinueData": [
-            {
-                "Index": 5,
-                "PositionX": -2.760794162750244,
-                "PositionY": -5.39500093460083
-            },
-            {
-                "Index": 2,
-                "PositionX": 1.368836522102356,
-                "PositionY": -5.875000953674316
-            },
-            {
-                "Index": 4,
-                "PositionX": 2.9635298252105715,
-                "PositionY": -5.553101062774658
-            }
-        ],
-        "CurrentSuikaIndex": 1,
-        "NextSuikaIndex": 4,
-        "Score": 105,
-        "TimeRushTime": 180.0,
-        "GameMode": 1
+        "SuikasContinueData": [],
+        "CurrentSuikaIndex": 0,
+        "NextSuikaIndex": 0,
+        "Score": 0,
+        "TimeRushTime": 0.0,
+        "GameMode": 0
     }
 }

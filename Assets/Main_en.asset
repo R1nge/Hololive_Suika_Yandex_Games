@@ -58,6 +58,10 @@ MonoBehaviour:
     m_Localized: Loading...
     m_Metadata:
       m_Items: []
+  - m_Id: 1802198373031936
+    m_Localized: 'Break in:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
