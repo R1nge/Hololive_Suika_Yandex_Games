@@ -1,2 +1,2 @@
 Build path: C:/Users/R1nge/Documents/UnityProjects/Hololive_Suika_Yandex_Games/Build/WebGL
-Build number: 45
+Build number: 46
