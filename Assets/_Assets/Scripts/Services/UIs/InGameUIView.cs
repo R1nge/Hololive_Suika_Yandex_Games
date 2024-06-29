@@ -1,7 +1,9 @@
 ﻿using System;
 using _Assets.Scripts.Configs;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
@@ -17,6 +19,7 @@ namespace _Assets.Scripts.Services.UIs
         [Inject] private RandomNumberGenerator _randomNumberGenerator;
         [Inject] private ScoreService _scoreService;
         [Inject] private ConfigProvider _configProvider;
+        private int _currentScore;
 
         private void Awake()
         {
@@ -31,7 +34,14 @@ namespace _Assets.Scripts.Services.UIs
             ScoreChanged(_scoreService.Score);
         }
         
-        private void ScoreChanged(int score) => scoreText.text = score.ToString();
+        private void ScoreChanged(int score)
+        {
+            DOVirtual.Float(_currentScore, score, 0.5f, (x) =>
+            {
+                _currentScore = score;
+                scoreText.text = x.ToString("0");
+            });
+        }
 
         private async void SuikaPicked(int previous, int current, int next)
         {
