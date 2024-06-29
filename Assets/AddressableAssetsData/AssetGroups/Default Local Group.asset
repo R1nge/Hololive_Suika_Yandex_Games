@@ -16,7 +16,32 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 23d423bfefbf552419032d3330ba58b7
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: fc341162f2e2c4b468e587f60e52f34d
+    m_Address: Assets/_Assets/NewPack/78.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b54f1e36f9707ee459b18606ec75de03
+    m_Address: Assets/_Assets/NewPack/Kobo.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23753ad6fa435d842b930a0e94f2e8b3
+    m_Address: Assets/_Assets/NewPack/Fubuki.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0e4be879cf88174191575d07fbb0701
+    m_Address: Assets/_Assets/NewPack/Hakos.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efd545585f969014ba6ef0fde1d8b691
+    m_Address: Assets/_Assets/NewPack/Towa.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e491561280aec5945b0063f4702d98de, type: 2}
   m_SchemaSet:

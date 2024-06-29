@@ -18,7 +18,7 @@ namespace _Assets.Scripts.Services
             _continueService = continueService;
         }
 
-        public void OnCollision(Suika suika, Suika other)
+        public async void OnCollision(Suika suika, Suika other)
         {
             if (suika.Index == other.Index)
             {
@@ -33,7 +33,7 @@ namespace _Assets.Scripts.Services
                 _continueService.RemoveSuika(other);
                 Object.Destroy(suika.gameObject);
                 Object.Destroy(other.gameObject);
-                _suikasFactory.Create(suikaIndex, middle);
+                await _suikasFactory.Create(suikaIndex, middle);
             }
         }
 

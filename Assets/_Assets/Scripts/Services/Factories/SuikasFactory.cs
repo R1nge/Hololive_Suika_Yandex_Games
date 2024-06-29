@@ -54,7 +54,7 @@ namespace _Assets.Scripts.Services.Factories
             return _rigidbody2D;
         }
 
-        public void Create(int index, Vector3 position)
+        public async UniTask Create(int index, Vector3 position)
         {
             index++;
 
@@ -66,11 +66,13 @@ namespace _Assets.Scripts.Services.Factories
             }
 
             var suikaPrefab = _configProvider.SuikaConfig.GetPrefab(index);
-            var suikaInstance = _objectResolver.Instantiate(suikaPrefab.gameObject, position, Quaternion.identity)
-                .GetComponent<Suika>();
+            var sprite = await _configProvider.SuikaConfig.GetSprite(index);
+            var suikaInstance = _objectResolver.Instantiate(suikaPrefab.gameObject, position, Quaternion.identity).GetComponent<Suika>();
+            suikaInstance.SetSprite(sprite);
             suikaInstance.SetIndex(index);
             suikaInstance.Drop();
             suikaInstance.Scale(1f);
+            
 
             AddScore(index);
             AddToResetService(suikaInstance);
