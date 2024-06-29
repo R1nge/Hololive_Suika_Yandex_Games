@@ -3,7 +3,6 @@ using _Assets.Scripts.Configs;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
