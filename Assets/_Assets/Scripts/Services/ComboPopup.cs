@@ -7,23 +7,14 @@ namespace _Assets.Scripts.Services
 {
     public class ComboPopup : MonoBehaviour
     {
+        [SerializeField] private Color[] predefinedColors;
         [SerializeField] private TextMeshProUGUI[] combos;
         [Inject] private ComboService _comboService;
 
         private void Start()
         {
             _comboService.OnComboChanged += SetCombo;
-            HideCombos();
-        }
 
-        private void HideCombos()
-        {
-            for (int i = 0; i < combos.Length; i++)
-            {
-                combos[i].transform.DOScale(0, .1f);
-            }
-        
-            
             for (int i = 0; i < combos.Length; i++)
             {
                 combos[i].gameObject.SetActive(false);
@@ -33,7 +24,7 @@ namespace _Assets.Scripts.Services
 
         private void SetCombo(int combo, Vector3 position)
         {
-            HideCombos();
+            if (combo <= 0) return;
 
             var index = (combo - 1) % combos.Length;
             if (index <= 0) index = 0;
@@ -44,11 +35,17 @@ namespace _Assets.Scripts.Services
 
             currentCombo.transform.position = position;
             currentCombo.text = $"x{combo}";
+            currentCombo.color = GetRandomColor();
 
             currentCombo.gameObject.SetActive(true);
-            currentCombo.transform.DOScale(1, .1f);
+            currentCombo.transform.DOScale(1, .25f).onComplete = () => currentCombo.transform.DOScale(0,.25f);
         }
-        
+
+        private Color GetRandomColor()
+        {
+            return predefinedColors[_comboService.Combo % predefinedColors.Length];
+        }
+
         private void OnDestroy() => _comboService.OnComboChanged -= SetCombo;
     }
 }

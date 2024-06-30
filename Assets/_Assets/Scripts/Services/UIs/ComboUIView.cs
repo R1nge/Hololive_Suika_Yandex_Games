@@ -15,11 +15,7 @@ namespace _Assets.Scripts.Services.UIs
             _comboService.OnComboChanged += SetCombo;
         }
 
-        private void SetCombo(int combo, Vector3 position)
-        {
-           
-            comboText.text = combo.ToString();
-        }
+        private void SetCombo(int combo, Vector3 position) => comboText.text = $"x{combo}";
 
         private void OnDestroy() => _comboService.OnComboChanged -= SetCombo;
     }

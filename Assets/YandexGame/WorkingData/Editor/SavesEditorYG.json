@@ -1,5 +1,5 @@
 {
-    "idSave": 408,
+    "idSave": 410,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -10,10 +10,10 @@
     "continueData": {
         "SongIndex": 0,
         "SuikasContinueData": [],
-        "CurrentSuikaIndex": 1,
-        "NextSuikaIndex": 1,
+        "CurrentSuikaIndex": 0,
+        "NextSuikaIndex": 0,
         "Score": 0,
-        "TimeRushTime": 177.47999572753907,
-        "GameMode": 2
+        "TimeRushTime": 0.0,
+        "GameMode": 0
     }
 }
