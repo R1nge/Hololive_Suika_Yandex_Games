@@ -1,5 +1,6 @@
 ﻿using _Assets.Scripts.Services.Audio;
 using _Assets.Scripts.Services.UIs.StateMachine;
+using _Assets.Scripts.Services.Wallets;
 using _Assets.Scripts.Services.Yandex;
 using Cysharp.Threading.Tasks;
 using YG;
@@ -15,9 +16,10 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly AudioService _audioService;
         private readonly LocalizationService _localizationService;
         private readonly ContinueService _continueService;
+        private readonly Wallet _wallet;
 
         public InitState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, YandexService yandexService,
-            PlayerInput playerInput, AudioService audioService, LocalizationService localizationService, ContinueService continueService)
+            PlayerInput playerInput, AudioService audioService, LocalizationService localizationService, ContinueService continueService, Wallet wallet)
         {
             _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
@@ -26,6 +28,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _audioService = audioService;
             _localizationService = localizationService;
             _continueService = continueService;
+            _wallet = wallet;
         }
 
         public async UniTask Enter()
@@ -36,6 +39,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             await _yandexService.Init();
             await _localizationService.InitYandex(YandexGame.lang);
             _continueService.Load();
+            _wallet.Load();
             await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
         }
 

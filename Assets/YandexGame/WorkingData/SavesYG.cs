@@ -20,6 +20,8 @@ namespace YG
         public float vfxVolume;
 
         public ContinueData continueData;
+
+        public int coins;
         
         public SavesYG()
         {
