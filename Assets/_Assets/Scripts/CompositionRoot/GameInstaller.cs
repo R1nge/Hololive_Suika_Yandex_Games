@@ -5,6 +5,7 @@ using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.StateMachine;
 using _Assets.Scripts.Services.UIs;
 using _Assets.Scripts.Services.UIs.StateMachine;
+using _Assets.Scripts.Services.Wallets;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -21,6 +22,8 @@ namespace _Assets.Scripts.CompositionRoot
 
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.Register<Wallet>(Lifetime.Singleton);
+            
             builder.RegisterComponent(coroutineRunner);
             builder.RegisterComponent(audioService);
 
