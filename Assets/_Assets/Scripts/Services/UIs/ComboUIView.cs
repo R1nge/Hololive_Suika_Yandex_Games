@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using VContainer;
 
@@ -14,7 +15,11 @@ namespace _Assets.Scripts.Services.UIs
             _comboService.OnComboChanged += SetCombo;
         }
 
-        private void SetCombo(int combo) => comboText.text = combo.ToString();
+        private void SetCombo(int combo, Vector3 position)
+        {
+           
+            comboText.text = combo.ToString();
+        }
 
         private void OnDestroy() => _comboService.OnComboChanged -= SetCombo;
     }

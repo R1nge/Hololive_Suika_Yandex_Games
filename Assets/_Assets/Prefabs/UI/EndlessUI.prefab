@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 7399645372524691007}
   - component: {fileID: -5613062450416019382}
   - component: {fileID: 303615907531571258}
+  - component: {fileID: 7268380424334781931}
   m_Layer: 5
   m_Name: EndlessUI
   m_TagString: Untagged
@@ -344,6 +345,19 @@ MonoBehaviour:
   scoreText: {fileID: 2117236483313395143}
   nextSuikaImage: {fileID: 6830554268094872067}
   pauseButton: {fileID: 6283670603528914779}
+--- !u!114 &7268380424334781931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4895176568063786644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 458ecbc89a1c4f9bac08b35e6a77faf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboText: {fileID: 6238338460659754435}
 --- !u!1 &7087663987917576365
 GameObject:
   m_ObjectHideFlags: 0

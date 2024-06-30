@@ -76,7 +76,7 @@ namespace _Assets.Scripts.Services.Factories
 
             AddScore(index);
             AddToResetService(suikaInstance);
-            _comboService.AddCombo();
+            _comboService.AddCombo(position);
             _audioService.AddToMergeSoundsQueue(index);
         }
 

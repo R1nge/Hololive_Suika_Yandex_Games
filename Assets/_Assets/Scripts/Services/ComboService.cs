@@ -7,7 +7,8 @@ namespace _Assets.Scripts.Services
     public class ComboService : ITickable
     {
         private int _combo;
-        public event Action<int> OnComboChanged;
+        public event Action<int, Vector3> OnComboChanged;
+        public event Action<float> OnComboTimerChanged; 
         private bool _isComboActive;
         private const float ResetTime = 2f;
         private float _currentTime;
@@ -15,12 +16,12 @@ namespace _Assets.Scripts.Services
         public int Combo => _combo;
         public bool IsComboActive => _isComboActive;
 
-        public void AddCombo()
+        public void AddCombo(Vector3 position)
         {
             _currentTime = ResetTime;
             _isComboActive = true;
             _combo++;
-            OnComboChanged?.Invoke(_combo);
+            OnComboChanged?.Invoke(_combo, position);
         }
 
         public void Tick()
@@ -30,6 +31,7 @@ namespace _Assets.Scripts.Services
             if (_currentTime > 0)
             {
                 _currentTime -= Time.deltaTime;
+                OnComboTimerChanged?.Invoke(_currentTime);
             }
             else
             {
@@ -42,7 +44,7 @@ namespace _Assets.Scripts.Services
             _currentTime = ResetTime;
             _isComboActive = false;
             _combo = 0;
-            OnComboChanged?.Invoke(_combo);
+            OnComboChanged?.Invoke(_combo, Vector3.zero);
         }
     }
 }
