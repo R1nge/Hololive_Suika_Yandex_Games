@@ -2,6 +2,7 @@
 using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using Cysharp.Threading.Tasks;
+using YG;
 
 namespace _Assets.Scripts.Services.StateMachine.States
 {
@@ -38,6 +39,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             player.GetComponent<PlayerController>().SpawnSuika();
             _playerInput.Enable();
             _timeRushTimer.Start();
+            YandexMetrica.Send("start_time_rush");
         }
 
         public async UniTask Exit()

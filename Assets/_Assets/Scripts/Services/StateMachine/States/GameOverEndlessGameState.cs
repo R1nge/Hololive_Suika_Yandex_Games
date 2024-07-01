@@ -42,6 +42,8 @@ namespace _Assets.Scripts.Services.StateMachine.States
             
             _yandexService.ShowVideoAd();
             
+            YandexMetrica.Send("game_over_endless");
+            
             await _uiStateMachine.SwitchStateUI(UIStateType.GameOverEndless);
         }
 

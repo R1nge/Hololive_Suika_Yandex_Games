@@ -3,6 +3,7 @@ using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using YG;
 
 namespace _Assets.Scripts.Services.StateMachine.States
 {
@@ -35,6 +36,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             var player = _playerFactory.Create();
             player.GetComponent<PlayerController>().SpawnSuika();
             _playerInput.Enable();
+            YandexMetrica.Send("start_endless");
         }
 
         public async UniTask Exit()
