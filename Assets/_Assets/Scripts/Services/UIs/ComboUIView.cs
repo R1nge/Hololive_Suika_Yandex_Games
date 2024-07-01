@@ -10,12 +10,30 @@ namespace _Assets.Scripts.Services.UIs
         [SerializeField] private TextMeshProUGUI comboText;
         [Inject] private ComboService _comboService;
 
-        private void Start()
-        {
-            _comboService.OnComboChanged += SetCombo;
-        }
+        private void Start() => _comboService.OnComboChanged += SetCombo;
 
-        private void SetCombo(int combo, Vector3 position) => comboText.text = $"x{combo}";
+        private void SetCombo(int combo, Vector3 position)
+        {
+            if (combo > 0)
+            {
+                comboText.text = $"x{combo}";
+            }
+
+            if (combo <= 0)
+            {
+                if (comboText.transform.localScale == Vector3.one)
+                {
+                    comboText.transform.DOScale(0, .1f);
+                }
+            }
+            else
+            {
+                if (comboText.transform.localScale == Vector3.zero)
+                {
+                    comboText.transform.DOScale(1, .1f);
+                }
+            }
+        }
 
         private void OnDestroy() => _comboService.OnComboChanged -= SetCombo;
     }

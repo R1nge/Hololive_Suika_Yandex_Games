@@ -1,5 +1,5 @@
 {
-    "idSave": 425,
+    "idSave": 432,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -15,5 +15,6 @@
         "Score": 0,
         "TimeRushTime": 180.0,
         "GameMode": 1
-    }
+    },
+    "coins": 0
 }

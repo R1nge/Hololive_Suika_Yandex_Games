@@ -6,9 +6,9 @@ namespace _Assets.Scripts.Services
     public class LocalizationService
     {
         private Language _currentLanguage;
-        
+
         public Language CurrentLanguage => _currentLanguage;
-        
+
         public async UniTask SetLanguage(Language language)
         {
             await LocalizationSettings.InitializationOperation.Task;
@@ -22,23 +22,19 @@ namespace _Assets.Scripts.Services
 
             if (str == "en")
             {
-                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
-                _currentLanguage = Language.English;
+                await SetLanguage(Language.English);
             }
             else if (str == "ru")
             {
-                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
-                _currentLanguage = Language.Russian;
+                await SetLanguage(Language.Russian);
             }
             else if (str == "tr")
             {
-                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[2];
-                _currentLanguage = Language.Turkish;
+                await SetLanguage(Language.Turkish);
             }
             else
             {
-                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
-                _currentLanguage = Language.English;
+                await SetLanguage(Language.English);
             }
 
             await LocalizationSettings.SelectedLocaleAsync.Task;
