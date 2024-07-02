@@ -26,7 +26,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: a29868db143b5fa498769a8a9b007580, type: 3}
-    Points: 10
+    Points: 2
     Sound:
       m_AssetGUID: 6f9d497910f925c4dbce0fb432c132a0
       m_SubObjectName: 
@@ -38,7 +38,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: b415f59892569274db8de6da3dfef39a, type: 3}
-    Points: 25
+    Points: 4
     Sound:
       m_AssetGUID: d8e2378749ebd7b42918df6580c5edc4
       m_SubObjectName: 
@@ -50,7 +50,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: ab9bd36a8ef1fcf46a2de863cf675fdc, type: 3}
-    Points: 50
+    Points: 6
     Sound:
       m_AssetGUID: 3ef9c8a3fad4a9841a6e47b937630714
       m_SubObjectName: 
@@ -62,7 +62,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 5b782bf2d476fa349b8e77813bcda1e9, type: 3}
-    Points: 100
+    Points: 8
     Sound:
       m_AssetGUID: 8d6012e273eb5ac449f14f15f245cf91
       m_SubObjectName: 
@@ -74,7 +74,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 8ee2ae7cd5ceabc4b8b34656b00c6281, type: 3}
-    Points: 200
+    Points: 10
     Sound:
       m_AssetGUID: a15bbabf26c8da14bb799c25e873a398
       m_SubObjectName: 
@@ -86,7 +86,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 1d27a10591e24ba429774debf1159b41, type: 3}
-    Points: 500
+    Points: 12
     Sound:
       m_AssetGUID: 41d8f439a802f78458dd39b8331b346a
       m_SubObjectName: 
@@ -98,7 +98,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: c33ec2b2057449249bdf0578e69832a4, type: 3}
-    Points: 1000
+    Points: 14
     Sound:
       m_AssetGUID: 64b30df735266b647b2cb3f8b2142e25
       m_SubObjectName: 
@@ -110,7 +110,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 727ae1ae233b18044902a9da17d6a551, type: 3}
-    Points: 2000
+    Points: 16
     Sound:
       m_AssetGUID: ba8383d32312b514fa2f9e2dd414f4b3
       m_SubObjectName: 
@@ -122,7 +122,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 0935105515926364ca5c322ec422acba, type: 3}
-    Points: 5000
+    Points: 18
     Sound:
       m_AssetGUID: b1725904bc3fe69419c223d88d71d0f3
       m_SubObjectName: 
@@ -134,7 +134,19 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 86415847d66af784cb50d619db9bfc55, type: 3}
-    Points: 10000
+    Points: 20
+    Sound:
+      m_AssetGUID: b7c8eff7fee3dba478f991d6be76d1e1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    Sprite:
+      m_AssetGUID: 5c7856ca3c12ae548850418198f4faaa
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+  - Prefab: {fileID: 6272130718641524366, guid: 86415847d66af784cb50d619db9bfc55, type: 3}
+    Points: 22
     Sound:
       m_AssetGUID: b7c8eff7fee3dba478f991d6be76d1e1
       m_SubObjectName: 
