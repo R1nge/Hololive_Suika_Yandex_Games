@@ -41,6 +41,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             await _yandexService.Init();
             await _localizationService.InitYandex(YandexGame.lang);
             await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
+            YandexMetrica.Send("id");
         }
 
         public async UniTask Exit()
