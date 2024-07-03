@@ -28,12 +28,12 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: a29868db143b5fa498769a8a9b007580, type: 3}
     Points: 2
     Sound:
-      m_AssetGUID: 6f9d497910f925c4dbce0fb432c132a0
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     Sprite:
-      m_AssetGUID: fc341162f2e2c4b468e587f60e52f34d
+      m_AssetGUID: ddbba45d2ceacf6498ca6cf7c2532e06
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -76,24 +76,24 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: 8ee2ae7cd5ceabc4b8b34656b00c6281, type: 3}
     Points: 10
     Sound:
-      m_AssetGUID: a15bbabf26c8da14bb799c25e873a398
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     Sprite:
-      m_AssetGUID: 8da615eed7eaee8439a86eaf67631f46
+      m_AssetGUID: 8545c9fd41e097c4ebcd1f754e6ca06d
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 1d27a10591e24ba429774debf1159b41, type: 3}
     Points: 12
     Sound:
-      m_AssetGUID: 41d8f439a802f78458dd39b8331b346a
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     Sprite:
-      m_AssetGUID: d4a4e92503b2ab243a6dc9a1a3adc29f
+      m_AssetGUID: 8b376246debe7d2468ac54571fdf6c1b
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -112,48 +112,48 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: 727ae1ae233b18044902a9da17d6a551, type: 3}
     Points: 16
     Sound:
-      m_AssetGUID: ba8383d32312b514fa2f9e2dd414f4b3
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     Sprite:
-      m_AssetGUID: 0a8fe3b080bd4ac409eef445bfaf2ec5
+      m_AssetGUID: 71113d1a163b29145a8ede9ca4a9126a
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 0935105515926364ca5c322ec422acba, type: 3}
     Points: 18
     Sound:
-      m_AssetGUID: b1725904bc3fe69419c223d88d71d0f3
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     Sprite:
-      m_AssetGUID: 2ea2868b87332824fbf3608994616ec3
+      m_AssetGUID: f57ccc810ce8be749a853e67be0ac734
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 86415847d66af784cb50d619db9bfc55, type: 3}
     Points: 20
     Sound:
-      m_AssetGUID: b7c8eff7fee3dba478f991d6be76d1e1
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
-      m_EditorAssetChanged: 1
+      m_EditorAssetChanged: 0
     Sprite:
-      m_AssetGUID: 5c7856ca3c12ae548850418198f4faaa
+      m_AssetGUID: db49387678f86c24bbf5555e73a80baa
       m_SubObjectName: 
       m_SubObjectType: 
-      m_EditorAssetChanged: 1
+      m_EditorAssetChanged: 0
   - Prefab: {fileID: 6272130718641524366, guid: 86415847d66af784cb50d619db9bfc55, type: 3}
     Points: 22
     Sound:
-      m_AssetGUID: b7c8eff7fee3dba478f991d6be76d1e1
+      m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
-      m_EditorAssetChanged: 1
+      m_EditorAssetChanged: 0
     Sprite:
-      m_AssetGUID: 5c7856ca3c12ae548850418198f4faaa
+      m_AssetGUID: 77650bbc9779b304ea008a433ded7575
       m_SubObjectName: 
       m_SubObjectType: 
-      m_EditorAssetChanged: 1
+      m_EditorAssetChanged: 0

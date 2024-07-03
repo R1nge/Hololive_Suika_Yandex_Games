@@ -18,27 +18,77 @@ MonoBehaviour:
   m_GUID: 23d423bfefbf552419032d3330ba58b7
   m_SerializeEntries:
   - m_GUID: fc341162f2e2c4b468e587f60e52f34d
-    m_Address: Assets/_Assets/NewPack/78.png
+    m_Address: Sana
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b54f1e36f9707ee459b18606ec75de03
-    m_Address: Assets/_Assets/NewPack/Kobo.png
+    m_Address: Kobo
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23753ad6fa435d842b930a0e94f2e8b3
-    m_Address: Assets/_Assets/NewPack/Fubuki.png
+    m_Address: Fubuki
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0e4be879cf88174191575d07fbb0701
-    m_Address: Assets/_Assets/NewPack/Hakos.png
+    m_Address: Hakos
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: efd545585f969014ba6ef0fde1d8b691
-    m_Address: Assets/_Assets/NewPack/Towa.png
+    m_Address: Towa
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0858deb7d4d7534f86a3b3a25615962
+    m_Address: Pekora
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71113d1a163b29145a8ede9ca4a9126a
+    m_Address: Rushia
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77650bbc9779b304ea008a433ded7575
+    m_Address: MococoAbyssgard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c2a6d381bbfe684f93ff6c8b8d1c0cd
+    m_Address: Minato Aqua
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f57ccc810ce8be749a853e67be0ac734
+    m_Address: Korone
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddbba45d2ceacf6498ca6cf7c2532e06
+    m_Address: GawrGura
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db49387678f86c24bbf5555e73a80baa
+    m_Address: FuwawaAbyssgard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8545c9fd41e097c4ebcd1f754e6ca06d
+    m_Address: MoriCaliope
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b376246debe7d2468ac54571fdf6c1b
+    m_Address: WatsonAmelia
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8609576939a7dd44ab4b51a0776c44ed
+    m_Address: OokamiMio
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
