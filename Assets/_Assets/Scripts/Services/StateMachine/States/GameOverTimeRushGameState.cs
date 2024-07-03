@@ -28,7 +28,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             if (_scoreService.Score > YandexGame.savesData.highScoreTimeRush)
             {
                 YandexGame.savesData.highScoreTimeRush = _scoreService.Score;
-                _yandexService.UpdateLeaderBoardScore("timeRush", _scoreService.Score);
+                _yandexService.UpdateLeaderBoardScore("timeRush2", _scoreService.Score);
                 YandexGame.SaveProgress();
             }
 

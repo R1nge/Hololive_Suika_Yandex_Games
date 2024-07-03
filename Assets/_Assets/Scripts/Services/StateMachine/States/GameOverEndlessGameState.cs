@@ -28,7 +28,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             if (_scoreService.Score > YandexGame.savesData.highScoreEndless)
             {
                 YandexGame.savesData.highScoreEndless = _scoreService.Score;
-                _yandexService.UpdateLeaderBoardScore("endless", _scoreService.Score);
+                _yandexService.UpdateLeaderBoardScore("endless2", _scoreService.Score);
                 YandexGame.SaveProgress();
             }
 
