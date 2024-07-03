@@ -38,7 +38,7 @@ namespace _Assets.Scripts.Services.UIs
 
         public async void MainMenu()
         {
-            await _continueService.Save();
+            _continueService.Save();
             await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
         }
 

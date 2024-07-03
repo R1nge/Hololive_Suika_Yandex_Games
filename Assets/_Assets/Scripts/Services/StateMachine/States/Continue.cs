@@ -19,6 +19,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             switch (_gameModeService.GetGameMode())
             {
                 case GameModeService.GameMode.None:
+                    throw new ArgumentOutOfRangeException();
                     break;
                 case GameModeService.GameMode.Endless:
                     await _gameStateMachine.SwitchState(GameStateType.ContinueEndless);

@@ -80,11 +80,12 @@ namespace _Assets.Scripts.Services.Factories
             _audioService.AddToMergeSoundsQueue(index);
         }
 
-        public void CreateContinue(int index, Vector3 position)
+        public async UniTask CreateContinue(int index, Vector3 position)
         {
             var suikaPrefab = _configProvider.SuikaConfig.GetPrefab(index);
-            var suikaInstance = _objectResolver.Instantiate(suikaPrefab.gameObject, position, Quaternion.identity)
-                .GetComponent<Suika>();
+            var sprite = await _configProvider.SuikaConfig.GetSprite(index);
+            var suikaInstance = _objectResolver.Instantiate(suikaPrefab.gameObject, position, Quaternion.identity).GetComponent<Suika>();
+            suikaInstance.SetSprite(sprite);
             suikaInstance.SetIndex(index);
             suikaInstance.Drop();
             suikaInstance.Land();
@@ -92,12 +93,13 @@ namespace _Assets.Scripts.Services.Factories
             AddToResetService(suikaInstance);
         }
 
-        public Rigidbody2D CreatePlayerContinue(Vector3 position, Transform parent)
+        public async UniTask<Rigidbody2D> CreatePlayerContinue(Vector3 position, Transform parent)
         {
             var index = _randomNumberGenerator.Current;
             var suikaPrefab = _configProvider.SuikaConfig.GetPrefab(index);
-            var suikaInstance = _objectResolver
-                .Instantiate(suikaPrefab.gameObject, position, Quaternion.identity, parent).GetComponent<Suika>();
+            var sprite = await _configProvider.SuikaConfig.GetSprite(index);
+            var suikaInstance = _objectResolver.Instantiate(suikaPrefab.gameObject, position, Quaternion.identity, parent).GetComponent<Suika>();
+            suikaInstance.SetSprite(sprite);
             suikaInstance.SetIndex(index);
 
             AddToResetService(suikaInstance);

@@ -26,10 +26,10 @@ namespace _Assets.Scripts.Services.StateMachine.States
         {
             _playerInput.Disable();
             await _uiStateMachine.SwitchState(UIStateType.Loading);
+            await _continueService.Continue();
             var player = _playerFactory.Create();
-            player.GetComponent<PlayerController>().SpawnContinue();
+            await player.GetComponent<PlayerController>().SpawnContinue();
             _containerFactory.Create();
-            _continueService.Continue();
             await _uiStateMachine.SwitchState(UIStateType.Endless);
             _continueService.UpdateScore();
             _playerInput.Enable();

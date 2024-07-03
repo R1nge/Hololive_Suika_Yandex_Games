@@ -35,8 +35,8 @@ namespace _Assets.Scripts.Gameplay
 
         public void SpawnSuika() => Spawn();
 
-        public void SpawnContinue() =>
-            _suikaRigidbody = _suikasFactory.CreatePlayerContinue(_transform.position, _transform);
+        public async UniTask SpawnContinue() =>
+            _suikaRigidbody = await _suikasFactory.CreatePlayerContinue(_transform.position, _transform);
 
         private async void Spawn()
         {

@@ -55,7 +55,7 @@ namespace _Assets.Scripts.Gameplay
 
         public void SpawnSuika() => _playerDrop.SpawnSuika();
 
-        public void SpawnContinue() => _playerDrop.SpawnContinue();
+        public async UniTask SpawnContinue() => await _playerDrop.SpawnContinue();
 
         private void OnDestroy() => _playerInput.OnDrop -= Drop;
     }
