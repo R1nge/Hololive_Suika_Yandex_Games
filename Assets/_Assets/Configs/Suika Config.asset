@@ -28,7 +28,7 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: a29868db143b5fa498769a8a9b007580, type: 3}
     Points: 2
     Sound:
-      m_AssetGUID: 
+      m_AssetGUID: f82e912824aa6bf458cb1756d0735172
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: 8ee2ae7cd5ceabc4b8b34656b00c6281, type: 3}
     Points: 10
     Sound:
-      m_AssetGUID: 
+      m_AssetGUID: 34333334c0c2a0744af44022d97e21f0
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: 1d27a10591e24ba429774debf1159b41, type: 3}
     Points: 12
     Sound:
-      m_AssetGUID: 
+      m_AssetGUID: a19655b70f6a522449ab364aa77f60fe
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: 727ae1ae233b18044902a9da17d6a551, type: 3}
     Points: 16
     Sound:
-      m_AssetGUID: 
+      m_AssetGUID: e2be6a562e6dbd44084493e26caaa68b
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: 0935105515926364ca5c322ec422acba, type: 3}
     Points: 18
     Sound:
-      m_AssetGUID: 
+      m_AssetGUID: a7d85af8471d50642ad99d48dfa2382a
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: 86415847d66af784cb50d619db9bfc55, type: 3}
     Points: 20
     Sound:
-      m_AssetGUID: 
+      m_AssetGUID: 831934e85c188bc4ba6f4744e8e105cd
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -148,10 +148,10 @@ MonoBehaviour:
   - Prefab: {fileID: 6272130718641524366, guid: 86415847d66af784cb50d619db9bfc55, type: 3}
     Points: 22
     Sound:
-      m_AssetGUID: 
+      m_AssetGUID: da7622acf53a77b4cbb29c0fa98e774d
       m_SubObjectName: 
       m_SubObjectType: 
-      m_EditorAssetChanged: 0
+      m_EditorAssetChanged: 1
     Sprite:
       m_AssetGUID: 77650bbc9779b304ea008a433ded7575
       m_SubObjectName: 
