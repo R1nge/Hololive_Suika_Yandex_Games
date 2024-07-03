@@ -17,11 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4ece1f97b262f494da2b023c98b7ce5d
   m_SerializeEntries:
-  - m_GUID: 5759114f15add1648b0083df1f9da0e7
-    m_Address: yagoo
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ddbba45d2ceacf6498ca6cf7c2532e06
     m_Address: GawrGura
     m_ReadOnly: 0
