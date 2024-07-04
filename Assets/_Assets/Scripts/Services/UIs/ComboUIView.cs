@@ -33,7 +33,7 @@ namespace _Assets.Scripts.Services.UIs
             DOVirtual.Float(_currentCombo, combo, 0.5f, (x) =>
             {
                 _currentCombo = combo;
-                comboText.text = "x " + x.ToString("0");
+                comboText.text = "x" + x.ToString("0");
             });
         }
 
