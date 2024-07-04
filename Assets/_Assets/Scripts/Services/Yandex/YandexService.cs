@@ -10,7 +10,7 @@ namespace _Assets.Scripts.Services.Yandex
         public event Action OnFullScreenAdShown;
         public event Action OnFullScreenAdClosed;
         public event Action<int> OnRewardVideo;
-        public event Action<LBData>  OnGetLeaderboard;
+        public event Action<LBData> OnGetLeaderboard;
 
         public async UniTask Init()
         {
@@ -20,12 +20,21 @@ namespace _Assets.Scripts.Services.Yandex
             YandexGame.CloseFullAdEvent += OnFullScreenAdClosed;
             YandexGame.RewardVideoEvent += OnRewardVideo;
             YandexGame.onGetLeaderboard += OnGetLeaderboard;
+
+            YandexGame.onAdNotification += ResetADTimer;
+            YandexGame.CloseFullAdEvent += ResetADTimer;
+            YandexGame.CloseVideoEvent += ResetADTimer;
             await UniTask.WaitUntil(() => YandexGame.SDKEnabled);
         }
 
         public void ShowStickyAd()
         {
             YandexGame.StickyAdActivity(true);
+        }
+
+        private void ResetADTimer()
+        {
+            YandexGame.Instance.ResetTimerFullAd();
         }
 
         public void HideStickyAd()
@@ -48,12 +57,13 @@ namespace _Assets.Scripts.Services.Yandex
             YandexGame.RewVideoShow(id);
         }
 
-        public void UpdateLeaderBoardScore(string leaderboardName,int score)
+        public void UpdateLeaderBoardScore(string leaderboardName, int score)
         {
             YandexGame.NewLeaderboardScores(leaderboardName, score);
         }
 
-        public void GetLeaderBoard(string leaderboardName,int maxResults, int quantityTop, int quantityAround, string photoSize = "100")
+        public void GetLeaderBoard(string leaderboardName, int maxResults, int quantityTop, int quantityAround,
+            string photoSize = "100")
         {
             YandexGame.GetLeaderboard(leaderboardName, maxResults, quantityTop, quantityAround, photoSize);
         }
