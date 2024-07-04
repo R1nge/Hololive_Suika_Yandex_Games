@@ -30,14 +30,11 @@ namespace _Assets.Scripts.Services.UIs
                 }
             }
 
-            if (combo > 0)
+            DOVirtual.Float(_currentCombo, combo, 0.5f, (x) =>
             {
-                DOVirtual.Float(_currentCombo, combo, 0.5f, (x) =>
-                {
-                    _currentCombo = combo;
-                    comboText.text = "x " + x.ToString("0");
-                });
-            }
+                _currentCombo = combo;
+                comboText.text = "x " + x.ToString("0");
+            });
         }
 
         private void OnDestroy() => _comboService.OnComboChanged -= SetCombo;
