@@ -9,16 +9,12 @@ namespace _Assets.Scripts.Services.UIs
     {
         [SerializeField] private TextMeshProUGUI comboText;
         [Inject] private ComboService _comboService;
+        private int _currentCombo;
 
         private void Start() => _comboService.OnComboChanged += SetCombo;
 
         private void SetCombo(int combo, Vector3 position)
         {
-            if (combo > 0)
-            {
-                comboText.text = $"x{combo}";
-            }
-
             if (combo <= 0)
             {
                 if (comboText.transform.localScale == Vector3.one)
@@ -32,6 +28,15 @@ namespace _Assets.Scripts.Services.UIs
                 {
                     comboText.transform.DOScale(1, .1f);
                 }
+            }
+
+            if (combo > 0)
+            {
+                DOVirtual.Float(_currentCombo, combo, 0.5f, (x) =>
+                {
+                    _currentCombo = combo;
+                    comboText.text = $"x{x}";
+                });
             }
         }
 

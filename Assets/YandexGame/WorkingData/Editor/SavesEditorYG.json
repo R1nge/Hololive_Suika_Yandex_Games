@@ -1,5 +1,5 @@
 {
-    "idSave": 464,
+    "idSave": 468,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
@@ -8,53 +8,12 @@
     "musicVolume": 0.1732998490333557,
     "vfxVolume": 0.23030845820903779,
     "continueData": {
-        "SuikasContinueData": [
-            {
-                "Index": 2,
-                "PositionX": -1.8406436443328858,
-                "PositionY": -5.875060558319092
-            },
-            {
-                "Index": 5,
-                "PositionX": 2.2203636169433595,
-                "PositionY": -5.395068168640137
-            },
-            {
-                "Index": 3,
-                "PositionX": 3.123678207397461,
-                "PositionY": -3.7065703868865969
-            },
-            {
-                "Index": 1,
-                "PositionX": 1.034801959991455,
-                "PositionY": -4.328225135803223
-            },
-            {
-                "Index": 4,
-                "PositionX": 1.525749921798706,
-                "PositionY": -2.979987382888794
-            },
-            {
-                "Index": 3,
-                "PositionX": -3.0809669494628908,
-                "PositionY": -5.153787136077881
-            },
-            {
-                "Index": 5,
-                "PositionX": -0.15040874481201173,
-                "PositionY": -5.395203113555908
-            },
-            {
-                "Index": 4,
-                "PositionX": -1.7232348918914796,
-                "PositionY": -4.042091369628906
-            }
-        ],
-        "CurrentSuikaIndex": 3,
-        "NextSuikaIndex": 4,
-        "Score": 223,
-        "TimeRushTime": 180.0,
-        "GameMode": 1
+        "SuikasContinueData": [],
+        "CurrentSuikaIndex": 0,
+        "NextSuikaIndex": 0,
+        "Score": 0,
+        "TimeRushTime": 0.0,
+        "GameMode": 0
     },
     "coins": 0
 }
