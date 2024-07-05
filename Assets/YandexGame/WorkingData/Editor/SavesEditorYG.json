@@ -1,19 +1,19 @@
 {
-    "idSave": 484,
+    "idSave": 498,
     "isFirstSession": false,
     "language": "en",
     "promptDone": false,
-    "highScoreEndless": 0,
+    "highScoreEndless": 2124,
     "highScoreTimeRush": 0,
     "musicVolume": 0.1732998490333557,
     "vfxVolume": 0.23030845820903779,
     "continueData": {
         "SuikasContinueData": [],
-        "CurrentSuikaIndex": 1,
-        "NextSuikaIndex": 1,
+        "CurrentSuikaIndex": 0,
+        "NextSuikaIndex": 0,
         "Score": 0,
-        "TimeRushTime": 180.0,
-        "GameMode": 1
+        "TimeRushTime": 0.0,
+        "GameMode": 0
     },
     "coins": 0
 }

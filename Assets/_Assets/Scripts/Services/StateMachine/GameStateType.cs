@@ -10,7 +10,6 @@
         GameOverTimeRush = 5,
         ContinueEndless = 6,
         ContinueTimeRush = 8,
-        Reset = 7,
         Continue = 9
     }
 }

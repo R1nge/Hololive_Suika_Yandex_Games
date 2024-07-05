@@ -12,7 +12,6 @@ namespace _Assets.Scripts.Services.StateMachine
                 { GameStateType.Endless, gameStatesFactory.CreateAsyncState(GameStateType.Endless, this) },
                 { GameStateType.GameOverEndless, gameStatesFactory.CreateAsyncState(GameStateType.GameOverEndless, this) },
                 { GameStateType.ContinueEndless, gameStatesFactory.CreateAsyncState(GameStateType.ContinueEndless, this) },
-                { GameStateType.Reset, gameStatesFactory.CreateAsyncState(GameStateType.Reset, this) },
                 { GameStateType.TimeRush, gameStatesFactory.CreateAsyncState(GameStateType.TimeRush, this) },
                 { GameStateType.GameOverTimeRush, gameStatesFactory.CreateAsyncState(GameStateType.GameOverTimeRush, this) },
                 { GameStateType.ContinueTimeRush, gameStatesFactory.CreateAsyncState(GameStateType.ContinueTimeRush, this) },
