@@ -6,27 +6,31 @@ using YG;
 public class TimerBeforeAdsYG : MonoBehaviour
 {
     [SerializeField,
-        Tooltip("Объект таймера перед показом рекламы. Он будет активироваться и деактивироваться в нужное время.")]
+     Tooltip("Объект таймера перед показом рекламы. Он будет активироваться и деактивироваться в нужное время.")]
     private GameObject secondsPanelObject;
+
+    [SerializeField] private GameObject adBreakPanelObject;
+
     [SerializeField,
-        Tooltip("Массив объектов, которые будут показываться по очереди через секунду. Сколько объектов вы поместите в массив, столько секунд будет отчитываться перед показом рекламы.\n\nНапример, поместите в массив три объекта: певый с текстом '3', второй с текстом '2', третий с текстом '1'.\nВ таком случае произойдёт отчет трёх секунд с показом объектов с цифрами перед рекламой.")]
+     Tooltip(
+         "Массив объектов, которые будут показываться по очереди через секунду. Сколько объектов вы поместите в массив, столько секунд будет отчитываться перед показом рекламы.\n\nНапример, поместите в массив три объекта: певый с текстом '3', второй с текстом '2', третий с текстом '1'.\nВ таком случае произойдёт отчет трёх секунд с показом объектов с цифрами перед рекламой.")]
     private GameObject[] secondObjects;
 
     [SerializeField,
-        Tooltip("Работа таймера в реальном времени, независимо от time scale.")]
+     Tooltip("Работа таймера в реальном времени, независимо от time scale.")]
     private bool realtimeSeconds;
 
-    [Space(20)]
-    [SerializeField]
-    private UnityEvent onShowTimer;
-    [SerializeField]
-    private UnityEvent onHideTimer;
+    [Space(20)] [SerializeField] private UnityEvent onShowTimer;
+    [SerializeField] private UnityEvent onHideTimer;
     private int objSecCounter;
 
     private void Start()
     {
         if (secondsPanelObject)
             secondsPanelObject.SetActive(false);
+
+        if (adBreakPanelObject)
+            adBreakPanelObject.SetActive(false);
 
         for (int i = 0; i < secondObjects.Length; i++)
             secondObjects[i].SetActive(false);
@@ -65,6 +69,12 @@ public class TimerBeforeAdsYG : MonoBehaviour
         {
             if (objSecCounter < secondObjects.Length)
             {
+                if (secondsPanelObject)
+                    secondsPanelObject.SetActive(true);
+                
+                if (adBreakPanelObject)
+                    adBreakPanelObject.SetActive(false);
+                
                 for (int i2 = 0; i2 < secondObjects.Length; i2++)
                     secondObjects[i2].SetActive(false);
 
@@ -79,6 +89,17 @@ public class TimerBeforeAdsYG : MonoBehaviour
 
             if (objSecCounter == secondObjects.Length)
             {
+                if (secondsPanelObject)
+                    secondsPanelObject.SetActive(false);
+                
+                if (adBreakPanelObject)
+                    adBreakPanelObject.SetActive(true);
+                
+                if (!realtimeSeconds)
+                    yield return new WaitForSeconds(2f);
+                else
+                    yield return new WaitForSecondsRealtime(2f);
+
                 YandexGame.FullscreenShow();
                 StartCoroutine(BackupTimerClosure());
 
@@ -107,6 +128,7 @@ public class TimerBeforeAdsYG : MonoBehaviour
     private void RestartTimer()
     {
         secondsPanelObject.SetActive(false);
+        adBreakPanelObject.SetActive(false);
         onHideTimer?.Invoke();
         objSecCounter = 0;
         StartCoroutine(CheckTimerAd());
