@@ -541,7 +541,7 @@ namespace YG
 
         public void ResetTimerFullAd()
         {
-            timerShowAd = infoYG.fullscreenAdInterval;
+            timerShowAd = 0;
         }
 
         public static Action ErrorFullAdEvent;
