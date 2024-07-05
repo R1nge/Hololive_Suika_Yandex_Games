@@ -33,7 +33,9 @@ namespace _Assets.Scripts.Services
                 _continueService.RemoveSuika(other);
                 Object.Destroy(suika.gameObject);
                 Object.Destroy(other.gameObject);
-                await _suikasFactory.Create(suikaIndex, middle);
+                var newSuika = await _suikasFactory.Create(suikaIndex, middle);
+                newSuika.Drop();
+                newSuika.Land();
             }
         }
 

@@ -371,7 +371,7 @@ MonoBehaviour:
     consumed: 1
   metricaEnable: 1
   metricaCounterID: 96981008
-  debug: 1
+  debug: 0
   archivingBuild: 1
   logoImageFormat: 1
   backgroundImageFormat: 3

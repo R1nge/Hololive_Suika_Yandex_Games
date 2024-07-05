@@ -54,7 +54,7 @@ namespace _Assets.Scripts.Services.Factories
             return _rigidbody2D;
         }
 
-        public async UniTask Create(int index, Vector3 position)
+        public async UniTask<Suika> Create(int index, Vector3 position)
         {
             index++;
 
@@ -62,7 +62,7 @@ namespace _Assets.Scripts.Services.Factories
             {
                 AddScore(index--);
                 Debug.LogError($"SuikasFactory: Index is out of range {index}");
-                return;
+                return null;
             }
 
             var suikaPrefab = _configProvider.SuikaConfig.GetPrefab(index);
@@ -78,6 +78,8 @@ namespace _Assets.Scripts.Services.Factories
             AddToResetService(suikaInstance);
             _comboService.AddCombo(position);
             _audioService.AddToMergeSoundsQueue(index);
+
+            return suikaInstance;
         }
 
         public async UniTask CreateContinue(int index, Vector3 position)
