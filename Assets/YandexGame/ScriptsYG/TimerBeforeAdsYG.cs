@@ -38,6 +38,7 @@ public class TimerBeforeAdsYG : MonoBehaviour
 
     IEnumerator CheckTimerAd()
     {
+        yield break;
         while (true)
         {
             if (YandexGame.timerShowAd >= YandexGame.Instance.infoYG.fullscreenAdInterval)
@@ -60,6 +61,7 @@ public class TimerBeforeAdsYG : MonoBehaviour
 
     IEnumerator TimerAdShow()
     {
+        yield break;
         while (true)
         {
             if (objSecCounter < secondObjects.Length)
@@ -98,6 +100,7 @@ public class TimerBeforeAdsYG : MonoBehaviour
 
     IEnumerator BackupTimerClosure()
     {
+        yield break;
         if (!realtimeSeconds)
             yield return new WaitForSeconds(2.5f);
         else
