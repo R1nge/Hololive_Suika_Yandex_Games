@@ -30,6 +30,7 @@ namespace _Assets.Scripts.Services.UIs
             musicSlider.value = _pauseMenuUIController.MusicVolume;
             vfxSlider.value = _pauseMenuUIController.VfxVolume;
             ChangeLanguage(_pauseMenuUIController.CurrentLanguage);
+            _pauseMenuUIController.Pause();
         }
 
         private void ChangeLanguage(LocalizationService.Language language)

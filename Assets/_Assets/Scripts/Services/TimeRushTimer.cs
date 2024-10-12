@@ -9,6 +9,7 @@ namespace _Assets.Scripts.Services
         private readonly float _maxTime = 60f * 3f;
         private float _currentTime;
         private bool _enabled;
+        private bool _isTimeRush;
 
         public float CurrentTime
         {
@@ -30,6 +31,7 @@ namespace _Assets.Scripts.Services
         {
             CurrentTime = _maxTime;
             _enabled = true;
+            _isTimeRush = true;
             OnTimerStarted?.Invoke(CurrentTime);
         }
 
@@ -50,7 +52,13 @@ namespace _Assets.Scripts.Services
 
         public void Pause() => _enabled = false;
 
-        public void Resume() => _enabled = true;
+        public void Resume()
+        {
+            if (_isTimeRush)
+            {
+                _enabled = true;
+            }
+        }
 
 
         public void Reset()

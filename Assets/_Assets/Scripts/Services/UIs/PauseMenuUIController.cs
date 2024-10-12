@@ -11,14 +11,18 @@ namespace _Assets.Scripts.Services.UIs
         private readonly LocalizationService _localizationService;
         private readonly PlayerInput _playerInput;
         private readonly ContinueService _continueService;
+        private readonly TimeRushTimer _timeRushTimer;
 
-        private PauseMenuUIController(AudioService audioService, UIStateMachine uiStateMachine, LocalizationService localizationService, PlayerInput playerInput, ContinueService continueService)
+        private PauseMenuUIController(AudioService audioService, UIStateMachine uiStateMachine,
+            LocalizationService localizationService, PlayerInput playerInput, ContinueService continueService,
+            TimeRushTimer timeRushTimer)
         {
             _audioService = audioService;
             _uiStateMachine = uiStateMachine;
             _localizationService = localizationService;
             _playerInput = playerInput;
             _continueService = continueService;
+            _timeRushTimer = timeRushTimer;
         }
 
         public LocalizationService.Language CurrentLanguage => _localizationService.CurrentLanguage;
@@ -30,10 +34,13 @@ namespace _Assets.Scripts.Services.UIs
 
         public void ChangeMusicVolume(float volume) => _audioService.ChangeMusicVolume(volume);
 
+        public void Pause() => _timeRushTimer.Pause();
+
         public async void Resume()
         {
             await _uiStateMachine.SwitchToPreviousState();
             _playerInput.Enable();
+            _timeRushTimer.Resume();
         }
 
         public async void MainMenu()
