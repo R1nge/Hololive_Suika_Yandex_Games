@@ -13,7 +13,7 @@ namespace _Assets.Scripts.Configs
     {
         [SerializeField] private SuikaData[] suikaData;
         [SerializeField] private SuikaSkin[] suikaSkins;
-        private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> loadingSprites = new();
+        private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> _loadingSprites = new();
         public Suika GetPrefab(int index) => suikaData[index].Prefab;
 
         public int GetPoints(int index)
@@ -49,19 +49,19 @@ namespace _Assets.Scripts.Configs
         public async UniTask<Sprite> GetSprite(int index)
         {
             index = Mathf.Clamp(index, 0, suikaData.Length - 1);
-            var spriteReference = suikaSkins[index].Sprite;
+            var spriteReference = suikaSkins[index].SpriteUnlocked;
 
             UniTaskCompletionSource<Sprite> completionSource;
             bool isNewTask = false;
 
             // Lock the dictionary while accessing it to ensure thread safety
-            lock (loadingSprites)
+            lock (_loadingSprites)
             {
-                if (!loadingSprites.TryGetValue(index, out var existingCompletionSource))
+                if (!_loadingSprites.TryGetValue(index, out var existingCompletionSource))
                 {
                     // If the task does not exist, create a new UniTaskCompletionSource
                     completionSource = new UniTaskCompletionSource<Sprite>();
-                    loadingSprites.Add(index, completionSource);
+                    _loadingSprites.Add(index, completionSource);
                     isNewTask = true;
                 }
                 else
@@ -93,9 +93,9 @@ namespace _Assets.Scripts.Configs
                 finally
                 {
                     // Remove the completion source from the dictionary when the task is done
-                    lock (loadingSprites)
+                    lock (_loadingSprites)
                     {
-                        loadingSprites.Remove(index);
+                        _loadingSprites.Remove(index);
                     }
                 }
             }
@@ -123,7 +123,8 @@ namespace _Assets.Scripts.Configs
         public struct SuikaSkin
         {
             public AssetReferenceAudioClip Sound;
-            public AssetReferenceSprite Sprite;
+            public AssetReferenceSprite SpriteUnlocked;
+            public AssetReferenceSprite SpriteLocked;
         }
     }
 }
