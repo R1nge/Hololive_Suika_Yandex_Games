@@ -11,22 +11,23 @@ namespace _Assets.Scripts.Configs
     [CreateAssetMenu(fileName = "Suika Config", menuName = "Configs/Suika Config")]
     public class SuikaConfig : ScriptableObject
     {
-        [SerializeField] private SuikaData[] suikas;
+        [SerializeField] private SuikaData[] suikaData;
+        [SerializeField] private SuikaSkin[] suikaSkins;
         private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> loadingSprites = new();
-        public Suika GetPrefab(int index) => suikas[index].Prefab;
+        public Suika GetPrefab(int index) => suikaData[index].Prefab;
 
         public int GetPoints(int index)
         {
-            index = Mathf.Clamp(index, 0, suikas.Length - 1);
-            return suikas[index].Points;
+            index = Mathf.Clamp(index, 0, suikaData.Length - 1);
+            return suikaData[index].Points;
         }
 
         private readonly Dictionary<int, UniTask<AudioClip>> loadingSounds = new();
 
         public async UniTask<AudioClip> GetSound(int index)
         {
-            index = Mathf.Clamp(index, 0, suikas.Length - 1);
-            var clipReference = suikas[index].Sound;
+            index = Mathf.Clamp(index, 0, suikaData.Length - 1);
+            var clipReference = suikaSkins[index].Sound;
 
             if (loadingSounds.TryGetValue(index, out var soundTask))
             {
@@ -47,8 +48,8 @@ namespace _Assets.Scripts.Configs
 
         public async UniTask<Sprite> GetSprite(int index)
         {
-            index = Mathf.Clamp(index, 0, suikas.Length - 1);
-            var spriteReference = suikas[index].Sprite;
+            index = Mathf.Clamp(index, 0, suikaData.Length - 1);
+            var spriteReference = suikaSkins[index].Sprite;
 
             UniTaskCompletionSource<Sprite> completionSource;
             bool isNewTask = false;
@@ -98,28 +99,31 @@ namespace _Assets.Scripts.Configs
                     }
                 }
             }
-    
+
             // Await the completion source's task
             return await completionSource.Task;
         }
 
-        public bool HasPrefab(int index) => suikas[index].Prefab != null;
+        public bool HasPrefab(int index) => suikaData[index].Prefab != null;
 
         [Serializable]
         public struct SuikaData
         {
             public Suika Prefab;
             public int Points;
-            public AssetReferenceAudioClip Sound;
-            public AssetReferenceSprite Sprite;
 
-            public SuikaData(Suika prefab, int points, AssetReferenceAudioClip sound, AssetReferenceSprite sprite)
+            public SuikaData(Suika prefab, int points)
             {
                 Prefab = prefab;
                 Points = points;
-                Sound = sound;
-                Sprite = sprite;
             }
+        }
+
+        [Serializable]
+        public struct SuikaSkin
+        {
+            public AssetReferenceAudioClip Sound;
+            public AssetReferenceSprite Sprite;
         }
     }
 }
