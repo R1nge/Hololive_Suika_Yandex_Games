@@ -10,7 +10,7 @@ namespace _Assets.Scripts.Services.Skins
     public class SkinService
     {
         private readonly ConfigProvider _configProvider;
-        private SuikaSkinData[] _suikaSkinData;
+        //private SuikaSkinData[] _suikaSkinData;
         private SuikaSkinData[] _selected;
         private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> _loadingSprites = new();
         public int SelectedSkinLength => _selected.Length;
@@ -22,8 +22,8 @@ namespace _Assets.Scripts.Services.Skins
         
         public async UniTask<Sprite> GetSprite(int index)
         {
-            index = Mathf.Clamp(index, 0, _suikaSkinData.Length - 1);
-            var spriteReference = _suikaSkinData[index].SuikaSkin.SpriteUnlocked;
+            index = Mathf.Clamp(index, 0, _selected.Length - 1);
+            var spriteReference = _selected[index].SuikaSkin.SpriteUnlocked;
 
             UniTaskCompletionSource<Sprite> completionSource;
             bool isNewTask = false;
@@ -81,13 +81,13 @@ namespace _Assets.Scripts.Services.Skins
         public void Init()
         {
             _selected = new SuikaSkinData[11];
-            _suikaSkinData = new SuikaSkinData[_configProvider.SuikaConfig.SuikaSkins.Count];
+            //_suikaSkinData = new SuikaSkinData[_configProvider.SuikaConfig.SuikaSkins.Count];
 
             var i = 0;
             foreach (var skin in _configProvider.SuikaConfig.SuikaSkins)
             {
-                _suikaSkinData[i].SuikaSkin = skin;
-                _suikaSkinData[i].IsLocked = Random.Range(0, 2) == 0;
+                _selected[i].SuikaSkin = skin;
+                _selected[i].IsLocked = Random.Range(0, 2) == 0;
                 i++;
             }
         }
@@ -99,7 +99,7 @@ namespace _Assets.Scripts.Services.Skins
 
         public void Set(int skinIndex, int positionIndex)
         {
-            _selected[positionIndex] = _suikaSkinData[skinIndex];
+            //_selected[positionIndex] = _suikaSkinData[skinIndex];
         }
         
         public SuikaSkinData Get(int index)
@@ -111,7 +111,7 @@ namespace _Assets.Scripts.Services.Skins
         {
             for (int i = 0; i < _selected.Length; i++)
             {
-                _selected[i] = _suikaSkinData[i];
+                //_selected[i] = _suikaSkinData[i];
             }
         }
     }
