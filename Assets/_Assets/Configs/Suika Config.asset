@@ -47,7 +47,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: 38be65ac6896c14409fe4a078582f57c
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: bc463bb5015a35b4782e46aa2db1ecbd
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: 502780c759f7e87438129935bcc1f11d
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: 99e73fe5e6348984c8046cb7b3fbeee4
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: 009f4c6ecb40b974ca79d6bbb2cfdd59
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: 40b7d6967b8c2494d9d9bfb5e9eb61ce
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: f0182121a37f3d24aa69301d53fd859e
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: 232e05adcd465a644b0752b4f68e555e
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: 7c2052b9029d1854da5cafceb6d43c4f
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: 1f7ab1a0f8175dd4698e2a759769f455
       m_SubObjectName: 
       m_SubObjectType: 
-      m_EditorAssetChanged: 0
+      m_EditorAssetChanged: 1

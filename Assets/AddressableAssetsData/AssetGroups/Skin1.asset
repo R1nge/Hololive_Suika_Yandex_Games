@@ -62,11 +62,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 23753ad6fa435d842b930a0e94f2e8b3
-    m_Address: Fubuki
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8d6012e273eb5ac449f14f15f245cf91
     m_Address: hakos
     m_ReadOnly: 0
