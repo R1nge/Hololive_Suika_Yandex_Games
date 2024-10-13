@@ -1,4 +1,5 @@
 ﻿using _Assets.Scripts.Services.Audio;
+using _Assets.Scripts.Services.Skins;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using _Assets.Scripts.Services.Wallets;
 using _Assets.Scripts.Services.Yandex;
@@ -17,9 +18,10 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly LocalizationService _localizationService;
         private readonly ContinueService _continueService;
         private readonly Wallet _wallet;
+        private readonly SkinService _skinService;
 
         public InitState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, YandexService yandexService,
-            PlayerInput playerInput, AudioService audioService, LocalizationService localizationService, ContinueService continueService, Wallet wallet)
+            PlayerInput playerInput, AudioService audioService, LocalizationService localizationService, ContinueService continueService, Wallet wallet, SkinService skinService)
         {
             _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
@@ -29,6 +31,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _localizationService = localizationService;
             _continueService = continueService;
             _wallet = wallet;
+            _skinService = skinService;
         }
 
         public async UniTask Enter()
@@ -38,6 +41,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _playerInput.Init();
             _continueService.Load();
             _wallet.Load();
+            _skinService.Init();
             await _yandexService.Init();
             await _localizationService.InitYandex(YandexGame.lang);
             await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);

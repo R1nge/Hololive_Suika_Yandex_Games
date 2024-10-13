@@ -13,6 +13,7 @@ namespace _Assets.Scripts.Configs
     {
         [SerializeField] private SuikaData[] suikaData;
         [SerializeField] private SuikaSkin[] suikaSkins;
+        public IReadOnlyCollection<SuikaSkin> SuikaSkins => suikaSkins;
         private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> _loadingSprites = new();
         public Suika GetPrefab(int index) => suikaData[index].Prefab;
 

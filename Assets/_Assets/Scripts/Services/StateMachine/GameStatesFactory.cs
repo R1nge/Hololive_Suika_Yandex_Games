@@ -2,6 +2,7 @@
 using _Assets.Scripts.Gameplay;
 using _Assets.Scripts.Services.Audio;
 using _Assets.Scripts.Services.Factories;
+using _Assets.Scripts.Services.Skins;
 using _Assets.Scripts.Services.StateMachine.States;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using _Assets.Scripts.Services.Wallets;
@@ -25,10 +26,11 @@ namespace _Assets.Scripts.Services.StateMachine
         private readonly TimeRushTimer _timeRushTimer;
         private readonly GameModeService _gameModeService;
         private readonly Wallet _wallet;
+        private readonly SkinService _skinService;
 
         private GameStatesFactory(UIStateMachine uiStateMachine, YandexService yandexService,
             ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory,
-            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService, TimeRushTimer timeRushTimer, GameModeService gameModeService, Wallet wallet)
+            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService, TimeRushTimer timeRushTimer, GameModeService gameModeService, Wallet wallet, SkinService skinService)
         {
             _uiStateMachine = uiStateMachine;
             _yandexService = yandexService;
@@ -44,6 +46,7 @@ namespace _Assets.Scripts.Services.StateMachine
             _timeRushTimer = timeRushTimer;
             _gameModeService = gameModeService;
             _wallet = wallet;
+            _skinService = skinService;
         }
 
         public IAsyncState CreateAsyncState(GameStateType gameStateType, GameStateMachine gameStateMachine)
@@ -51,7 +54,8 @@ namespace _Assets.Scripts.Services.StateMachine
             switch (gameStateType)
             {
                 case GameStateType.Init:
-                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput, _audioService, _localizationService, _continueService, _wallet);
+                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput, _audioService,
+                        _localizationService, _continueService, _wallet, _skinService);
                 case GameStateType.Endless:
                     return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _gameModeService);
                 case GameStateType.GameOverEndless:

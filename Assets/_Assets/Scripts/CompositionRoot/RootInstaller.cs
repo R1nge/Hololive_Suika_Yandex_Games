@@ -1,5 +1,6 @@
 using _Assets.Scripts.Configs;
 using _Assets.Scripts.Services;
+using _Assets.Scripts.Services.Skins;
 using _Assets.Scripts.Services.Yandex;
 using UnityEngine;
 using VContainer;
@@ -17,6 +18,7 @@ namespace _Assets.Scripts.CompositionRoot
             builder.Register<YandexService>(Lifetime.Singleton);
             builder.Register<LocalizationService>(Lifetime.Singleton);
             builder.RegisterComponent(configProvider);
+            builder.Register<SkinService>(Lifetime.Singleton);
         }
     }
 }
