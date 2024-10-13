@@ -37,15 +37,165 @@ MonoBehaviour:
     Points: 22
   suikaSkins:
   - Sound:
-      m_AssetGUID: 
+      m_AssetGUID: f82e912824aa6bf458cb1756d0735172
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     SpriteUnlocked:
+      m_AssetGUID: ddbba45d2ceacf6498ca6cf7c2532e06
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    SpriteLocked:
       m_AssetGUID: 
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: d8e2378749ebd7b42918df6580c5edc4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteUnlocked:
+      m_AssetGUID: b54f1e36f9707ee459b18606ec75de03
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteLocked:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: 3ef9c8a3fad4a9841a6e47b937630714
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteUnlocked:
+      m_AssetGUID: 23753ad6fa435d842b930a0e94f2e8b3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteLocked:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: 8d6012e273eb5ac449f14f15f245cf91
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    SpriteUnlocked:
+      m_AssetGUID: f0e4be879cf88174191575d07fbb0701
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    SpriteLocked:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: 34333334c0c2a0744af44022d97e21f0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteUnlocked:
+      m_AssetGUID: 8545c9fd41e097c4ebcd1f754e6ca06d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteLocked:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: a19655b70f6a522449ab364aa77f60fe
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteUnlocked:
+      m_AssetGUID: 8b376246debe7d2468ac54571fdf6c1b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteLocked:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: 64b30df735266b647b2cb3f8b2142e25
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteUnlocked:
+      m_AssetGUID: efd545585f969014ba6ef0fde1d8b691
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteLocked:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: e2be6a562e6dbd44084493e26caaa68b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteUnlocked:
+      m_AssetGUID: 71113d1a163b29145a8ede9ca4a9126a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteLocked:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: a7d85af8471d50642ad99d48dfa2382a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteUnlocked:
+      m_AssetGUID: f57ccc810ce8be749a853e67be0ac734
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteLocked:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: 831934e85c188bc4ba6f4744e8e105cd
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteUnlocked:
+      m_AssetGUID: db49387678f86c24bbf5555e73a80baa
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteLocked:
+      m_AssetGUID: 
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - Sound:
+      m_AssetGUID: da7622acf53a77b4cbb29c0fa98e774d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    SpriteUnlocked:
+      m_AssetGUID: 77650bbc9779b304ea008a433ded7575
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
     SpriteLocked:
       m_AssetGUID: 
       m_SubObjectName: 
