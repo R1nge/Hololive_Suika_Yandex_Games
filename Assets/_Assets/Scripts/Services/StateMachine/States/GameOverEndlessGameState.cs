@@ -40,7 +40,8 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _resetService.Reset();
             _continueService.DeleteContinueData();
             
-            _yandexService.ShowVideoAd();
+            //Show ads only on interaction
+            //_yandexService.ShowVideoAd();
             
             YandexMetrica.Send("game_over_endless");
             
