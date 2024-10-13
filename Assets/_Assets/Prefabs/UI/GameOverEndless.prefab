@@ -945,6 +945,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5617650574114587155, guid: 7a0e0f424819ac940b2c0d1fbf7a0bea, type: 3}
+      propertyPath: m_CellSize.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617650574114587155, guid: 7a0e0f424819ac940b2c0d1fbf7a0bea, type: 3}
+      propertyPath: m_CellSize.y
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617650574114587155, guid: 7a0e0f424819ac940b2c0d1fbf7a0bea, type: 3}
       propertyPath: m_ChildAlignment
       value: 1
       objectReference: {fileID: 0}
