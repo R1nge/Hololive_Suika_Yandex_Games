@@ -10,6 +10,7 @@ namespace _Assets.Scripts.Services.Skins
     public class SkinService
     {
         private readonly ConfigProvider _configProvider;
+
         //private SuikaSkinData[] _suikaSkinData;
         private SuikaSkinData[] _selected;
         private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> _loadingSprites = new();
@@ -19,11 +20,14 @@ namespace _Assets.Scripts.Services.Skins
         {
             _configProvider = configProvider;
         }
-        
+
         public async UniTask<Sprite> GetSprite(int index)
         {
+            bool isUnlocked = !_selected[index].IsLocked;
             index = Mathf.Clamp(index, 0, _selected.Length - 1);
-            var spriteReference = _selected[index].SuikaSkin.SpriteUnlocked;
+            var spriteReference = isUnlocked
+                ? _selected[index].SuikaSkin.SpriteUnlocked
+                : _selected[index].SuikaSkin.SpriteLocked;
 
             UniTaskCompletionSource<Sprite> completionSource;
             bool isNewTask = false;
@@ -101,7 +105,7 @@ namespace _Assets.Scripts.Services.Skins
         {
             //_selected[positionIndex] = _suikaSkinData[skinIndex];
         }
-        
+
         public SuikaSkinData Get(int index)
         {
             return _selected[index];
