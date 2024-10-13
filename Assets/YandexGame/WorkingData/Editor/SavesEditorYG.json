@@ -1,7 +1,7 @@
 {
-    "idSave": 548,
+    "idSave": 596,
     "isFirstSession": false,
-    "language": "en",
+    "language": "ru",
     "promptDone": false,
     "highScoreEndless": 2124,
     "highScoreTimeRush": 0,
@@ -10,99 +10,34 @@
     "continueData": {
         "SuikasContinueData": [
             {
-                "Index": 1,
-                "PositionX": 1.371795892715454,
-                "PositionY": -7.381500720977783
-            },
-            {
                 "Index": 5,
-                "PositionX": -3.6500704288482668,
-                "PositionY": -7.125500679016113
-            },
-            {
-                "Index": 5,
-                "PositionX": -3.6500704288482668,
-                "PositionY": -7.125500679016113
+                "PositionX": -3.657217264175415,
+                "PositionY": -7.123993396759033
             },
             {
                 "Index": 2,
-                "PositionX": -1.190487027168274,
-                "PositionY": -7.315085411071777
-            },
-            {
-                "Index": 2,
-                "PositionX": 3.081040620803833,
-                "PositionY": -7.316382884979248
-            },
-            {
-                "Index": 3,
-                "PositionX": -0.4560914635658264,
-                "PositionY": -7.253500938415527
-            },
-            {
-                "Index": 3,
-                "PositionX": -0.4560914635658264,
-                "PositionY": -7.253500938415527
-            },
-            {
-                "Index": 2,
-                "PositionX": 1.3690664768218995,
-                "PositionY": -6.724179744720459
-            },
-            {
-                "Index": 5,
-                "PositionX": -0.9627289772033691,
-                "PositionY": -6.515509605407715
-            },
-            {
-                "Index": 5,
-                "PositionX": -0.9627289772033691,
-                "PositionY": -6.515509605407715
+                "PositionX": 3.851477861404419,
+                "PositionY": -7.317502975463867
             },
             {
                 "Index": 1,
-                "PositionX": 2.7972958087921144,
-                "PositionY": -6.820644855499268
+                "PositionX": -0.5937921404838562,
+                "PositionY": -7.3821210861206059
             },
             {
                 "Index": 4,
-                "PositionX": -2.196608543395996,
-                "PositionY": -7.18950080871582
+                "PositionX": -0.5937921404838562,
+                "PositionY": -6.6844611167907719
             },
             {
                 "Index": 2,
-                "PositionX": -2.8743062019348146,
-                "PositionY": -6.838939666748047
-            },
-            {
-                "Index": 3,
-                "PositionX": 3.7877936363220217,
-                "PositionY": -7.249573707580566
-            },
-            {
-                "Index": 5,
-                "PositionX": 0.6434937119483948,
-                "PositionY": -7.125500679016113
-            },
-            {
-                "Index": 5,
-                "PositionX": 0.6434937119483948,
-                "PositionY": -7.125500679016113
-            },
-            {
-                "Index": 5,
-                "PositionX": 2.09769868850708,
-                "PositionY": -7.125500679016113
-            },
-            {
-                "Index": 5,
-                "PositionX": 2.09769868850708,
-                "PositionY": -7.125500679016113
+                "PositionX": -0.5937921404838562,
+                "PositionY": -5.922101974487305
             }
         ],
-        "CurrentSuikaIndex": 4,
-        "NextSuikaIndex": 2,
-        "Score": 465,
+        "CurrentSuikaIndex": 2,
+        "NextSuikaIndex": 3,
+        "Score": 18,
         "TimeRushTime": 180.0,
         "GameMode": 1
     },
