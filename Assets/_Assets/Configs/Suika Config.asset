@@ -72,12 +72,12 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     SpriteUnlocked:
-      m_AssetGUID: 23753ad6fa435d842b930a0e94f2e8b3
+      m_AssetGUID: 57846301ea95868449e7d29f2b197e66
       m_SubObjectName: 
       m_SubObjectType: 
-      m_EditorAssetChanged: 1
+      m_EditorAssetChanged: 0
     SpriteLocked:
-      m_AssetGUID: 
+      m_AssetGUID: 892096f822e1ddc45a13505b627992ba
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
