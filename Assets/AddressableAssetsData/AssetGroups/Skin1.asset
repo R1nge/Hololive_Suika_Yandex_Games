@@ -142,6 +142,76 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6b9f211ab26543459b1481f2c71e3f4
+    m_Address: OokamiMio_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c2052b9029d1854da5cafceb6d43c4f
+    m_Address: FuwawaAbyssgard_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38be65ac6896c14409fe4a078582f57c
+    m_Address: GawrGura_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 502780c759f7e87438129935bcc1f11d
+    m_Address: HakosBaelz_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc463bb5015a35b4782e46aa2db1ecbd
+    m_Address: Kobo_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 232e05adcd465a644b0752b4f68e555e
+    m_Address: Korone_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54e2fa74958a6a54d9aa902204b86bc1
+    m_Address: Minato Aqua_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f7ab1a0f8175dd4698e2a759769f455
+    m_Address: MococoAbyssgard_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99e73fe5e6348984c8046cb7b3fbeee4
+    m_Address: MoriCaliope_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61d1c422fd477b74b809a0f57b6bf316
+    m_Address: Pekora_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0182121a37f3d24aa69301d53fd859e
+    m_Address: Rushia_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f222d9c452e722b4dacd3510b452bf07
+    m_Address: Sana_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40b7d6967b8c2494d9d9bfb5e9eb61ce
+    m_Address: Towa_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 009f4c6ecb40b974ca79d6bbb2cfdd59
+    m_Address: WatsonAmelia_Locked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: e491561280aec5945b0063f4702d98de, type: 2}
   m_SchemaSet:
