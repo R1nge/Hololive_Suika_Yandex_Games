@@ -7,11 +7,16 @@ namespace _Assets.Scripts.Services.UIs
     {
         private readonly UIStateMachine _uiStateMachine;
         private readonly GameStateMachine _gameStateMachine;
+        private readonly ContinueService _continueService;
+        private readonly ResetService _resetService;
+        public bool HasData => _continueService.HasData;
 
-        public MainMenuUIController(UIStateMachine uiStateMachine, GameStateMachine gameStateMachine)
+        public MainMenuUIController(UIStateMachine uiStateMachine, GameStateMachine gameStateMachine, ContinueService continueService, ResetService resetService)
         {
             _uiStateMachine = uiStateMachine;
             _gameStateMachine = gameStateMachine;
+            _continueService = continueService;
+            _resetService = resetService;
         }
 
         public async void Continue() => await _gameStateMachine.SwitchState(GameStateType.Continue);
@@ -19,5 +24,7 @@ namespace _Assets.Scripts.Services.UIs
         public async void Play() => await _uiStateMachine.SwitchStateUI(UIStateType.GameModeSelection);
 
         public async void Settings() => await _uiStateMachine.SwitchStateUI(UIStateType.Settings);
+        
+        public async void SkinSelection() => await _uiStateMachine.SwitchStateUI(UIStateType.SkinSelection);
     }
 }

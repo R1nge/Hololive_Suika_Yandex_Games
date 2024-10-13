@@ -34,6 +34,8 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
                     return new UITimeRushGameOverState(_uiFactory);
                 case UIStateType.TimeRush:
                     return new UITimeRushState(_uiFactory);
+                case UIStateType.SkinSelection:
+                    return new UISkinSelectionState(_uiFactory);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(uiStateType), uiStateType, null);
             }

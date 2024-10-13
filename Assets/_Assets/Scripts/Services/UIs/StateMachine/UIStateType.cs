@@ -11,6 +11,7 @@
         TimeRush = 8,
         Pause = 7,
         GameOverEndless = 5,
-        GameOverTimeRush = 9
+        GameOverTimeRush = 9,
+        SkinSelection = 10
     }
 }

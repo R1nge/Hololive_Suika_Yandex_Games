@@ -15,6 +15,7 @@ namespace _Assets.Scripts.Configs
         [SerializeField] private AssetReferenceGameObject timeRushUI;
         [SerializeField] private AssetReferenceGameObject gameOverEndlessUI;
         [SerializeField] private AssetReferenceGameObject gameOverTimeRushUI;
+        [SerializeField] private AssetReferenceGameObject skinSelectionUI;
         public AssetReferenceGameObject LoadingUI => loadingUI;
         public AssetReferenceGameObject MainMenuUI => mainMenuUI;
         public AssetReferenceGameObject SettingsUI => settingsUI;
@@ -24,5 +25,6 @@ namespace _Assets.Scripts.Configs
         public AssetReferenceGameObject TimeRushUI => timeRushUI;
         public AssetReferenceGameObject GameOverEndlessUI => gameOverEndlessUI;
         public AssetReferenceGameObject GameOverTimeRushUI => gameOverTimeRushUI;
+        public AssetReferenceGameObject SkinSelectionUI => skinSelectionUI;
     }
 }

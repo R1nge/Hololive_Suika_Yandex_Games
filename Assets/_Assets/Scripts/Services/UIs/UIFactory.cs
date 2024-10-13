@@ -61,6 +61,10 @@ namespace _Assets.Scripts.Services.UIs
                     var gameOverTimeRushUI = await _configProvider.UIConfig.GameOverTimeRushUI.InstantiateAsync();
                     _objectResolver.InjectGameObject(gameOverTimeRushUI);
                     return gameOverTimeRushUI;
+                case UIStateType.SkinSelection:
+                    var skinSelectionUI = await _configProvider.UIConfig.SkinSelectionUI.InstantiateAsync();
+                    _objectResolver.InjectGameObject(skinSelectionUI);
+                    return skinSelectionUI;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(uiStateType), uiStateType, null);
             }

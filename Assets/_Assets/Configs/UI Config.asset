@@ -57,3 +57,8 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  skinSelectionUI:
+    m_AssetGUID: 6fcb6d4f2feb4c445b0fe05f53afe207
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

@@ -1,6 +1,4 @@
-﻿using _Assets.Scripts.Services.StateMachine;
-using Cysharp.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 
@@ -11,23 +9,18 @@ namespace _Assets.Scripts.Services.UIs
         [SerializeField] private Button continueButton;
         [SerializeField] private Button playButton;
         [SerializeField] private Button settingsButton;
+        [SerializeField] private Button skinSelectionButton;
         [Inject] private MainMenuUIController _mainMenuUIController;
-        [Inject] private ContinueService _continueService;
-        [Inject] private ResetService _resetService;
 
         private void Awake()
         {
            continueButton.onClick.AddListener(Continue);
            playButton.onClick.AddListener(Play); 
            settingsButton.onClick.AddListener(Settings);
+           skinSelectionButton.onClick.AddListener(() => _mainMenuUIController.SkinSelection());
         }
 
-        private void Start()
-        {
-            continueButton.gameObject.SetActive(_continueService.HasData);
-            //await _continueService.Save();
-            _resetService.Reset();
-        }
+        private void Start() => continueButton.gameObject.SetActive(_mainMenuUIController.HasData);
 
         private void Continue() => _mainMenuUIController.Continue();
 
