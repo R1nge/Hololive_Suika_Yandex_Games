@@ -54,15 +54,6 @@ namespace _Assets.Scripts.Services.UIs.Skins
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (_firstSkinTransform != null)
-                {
-                    _firstSkinTransform.position = _firstSkinPosition;
-                    _firstSkinTransform = null;
-                    _firstSkinIndex = -1;
-                    _secondSkinIndex = -1;
-                }
-
-                Debug.Log("Ray");
                 SelectSkinView();
             }
 
@@ -86,6 +77,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             EventSystem.current.RaycastAll(pointerEventData, _results);
 
             // For every result returned, output the name of the GameObject on the Canvas hit by the Ray
+            bool found = false;
             for (var i = 0; i < _results.Count; i++)
             {
                 var result = _results[i];
@@ -94,27 +86,39 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 {
                     Debug.Log("Pointer is over " + gameObject.name);
                     var skinView = result.gameObject.GetComponent<SkinView>();
-                    if (skinView != null)
+
+                    if (skinView != null && skinView.SkinIndex != _firstSkinIndex)
                     {
+                        found = true;
                         if (_firstSkinIndex == -1)
                         {
                             _firstSkinTransform = skinView.transform;
                             _firstSkinIndex = skinView.SkinIndex;
                             _firstSkinPosition = skinView.transform.position;
                             _firstSkinTransform.SetAsLastSibling();
-                            Debug.Log(_firstSkinIndex);
+                            Debug.Log($"First: {_firstSkinIndex}");
                         }
                         else if (_secondSkinIndex == -1)
                         {
                             _secondSkinIndex = skinView.SkinIndex;
-                            Debug.Log(_secondSkinIndex);
+                            Debug.Log($"Second: {_secondSkinIndex}");
                             _skinService.Swap(_firstSkinIndex, _secondSkinIndex);
                             _firstSkinIndex = -1;
                             _secondSkinIndex = -1;
+                            _firstSkinTransform.position = _firstSkinPosition;
+                            _firstSkinTransform = null;
                             UpdateSprite();
                         }
                     }
                 }
+            }
+
+            if (!found)
+            {
+                _firstSkinTransform.position = _firstSkinPosition;
+                _firstSkinTransform = null;
+                _firstSkinIndex = -1;
+                _secondSkinIndex = -1;
             }
         }
     }
