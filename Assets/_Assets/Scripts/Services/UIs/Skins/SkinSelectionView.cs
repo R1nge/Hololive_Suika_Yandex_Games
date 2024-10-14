@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Assets.Scripts.Services.Skins;
+using _Assets.Scripts.Services.UIs.StateMachine;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,14 +13,22 @@ namespace _Assets.Scripts.Services.UIs.Skins
     public class SkinSelectionView : MonoBehaviour
     {
         [SerializeField] private SkinView[] skins;
+        [SerializeField] private Button backButton;
         [SerializeField] private LayerMask layerMask;
         [Inject] private SkinService _skinService;
+        [Inject] private UIStateMachine _uiStateMachine;
         private int _firstSkinIndex = -1, _secondSkinIndex = -1;
         private readonly List<RaycastResult> _results = new(10);
 
         private void Start()
         {
+            backButton.onClick.AddListener(Back);
             Init();
+        }
+
+        private void Back()
+        {
+            _uiStateMachine.SwitchToPreviousState().Forget();
         }
 
         public async void Init()

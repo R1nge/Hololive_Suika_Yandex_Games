@@ -1,6 +1,7 @@
 ﻿using _Assets.Scripts.Configs;
 using _Assets.Scripts.Gameplay;
 using _Assets.Scripts.Services.Audio;
+using _Assets.Scripts.Services.Skins;
 using _Assets.Scripts.Services.StateMachine;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -18,12 +19,13 @@ namespace _Assets.Scripts.Services.Factories
         private readonly ResetService _resetService;
         private readonly AudioService _audioService;
         private readonly ComboService _comboService;
+        private readonly SkinService skinService;
         private readonly ContinueService _continueService;
 
         private SuikasFactory(IObjectResolver objectResolver, ConfigProvider configProvider,
             RandomNumberGenerator randomNumberGenerator, ScoreService scoreService, ResetService resetService,
             AudioService audioService,
-            ComboService comboService)
+            ComboService comboService, SkinService skinService)
         {
             _objectResolver = objectResolver;
             _configProvider = configProvider;
@@ -32,6 +34,7 @@ namespace _Assets.Scripts.Services.Factories
             _resetService = resetService;
             _audioService = audioService;
             _comboService = comboService;
+            this.skinService = skinService;
         }
 
         public async UniTask<Rigidbody2D> CreateKinematic(Vector3 position, Transform parent)
@@ -47,7 +50,7 @@ namespace _Assets.Scripts.Services.Factories
 
                 suikaInstance.SetIndex(index);
                 AddToResetService(suikaInstance);
-                var sprite = await _configProvider.SuikaConfig.GetSprite(index);
+                var sprite = await skinService.GetSprite(index);
                 suikaInstance.SetSprite(sprite);
             }
 
@@ -66,7 +69,7 @@ namespace _Assets.Scripts.Services.Factories
             }
 
             var suikaPrefab = _configProvider.SuikaConfig.GetPrefab(index);
-            var sprite = await _configProvider.SuikaConfig.GetSprite(index);
+            var sprite = await skinService.GetSprite(index);
             var suikaInstance = _objectResolver.Instantiate(suikaPrefab.gameObject, position, Quaternion.identity).GetComponent<Suika>();
             suikaInstance.SetSprite(sprite);
             suikaInstance.SetIndex(index);
@@ -85,7 +88,7 @@ namespace _Assets.Scripts.Services.Factories
         public async UniTask CreateContinue(int index, Vector3 position)
         {
             var suikaPrefab = _configProvider.SuikaConfig.GetPrefab(index);
-            var sprite = await _configProvider.SuikaConfig.GetSprite(index);
+            var sprite = await skinService.GetSprite(index);
             var suikaInstance = _objectResolver.Instantiate(suikaPrefab.gameObject, position, Quaternion.identity).GetComponent<Suika>();
             suikaInstance.SetSprite(sprite);
             suikaInstance.SetIndex(index);
@@ -99,7 +102,7 @@ namespace _Assets.Scripts.Services.Factories
         {
             var index = _randomNumberGenerator.Current;
             var suikaPrefab = _configProvider.SuikaConfig.GetPrefab(index);
-            var sprite = await _configProvider.SuikaConfig.GetSprite(index);
+            var sprite = await skinService.GetSprite(index);
             var suikaInstance = _objectResolver.Instantiate(suikaPrefab.gameObject, position, Quaternion.identity, parent).GetComponent<Suika>();
             suikaInstance.SetSprite(sprite);
             suikaInstance.SetIndex(index);

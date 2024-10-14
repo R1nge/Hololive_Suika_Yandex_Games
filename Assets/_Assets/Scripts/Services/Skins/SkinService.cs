@@ -91,7 +91,7 @@ namespace _Assets.Scripts.Services.Skins
             foreach (var skin in _configProvider.SuikaConfig.SuikaSkins)
             {
                 _selected[i].SuikaSkin = skin;
-                _selected[i].IsLocked = Random.Range(0, 2) == 0;
+                _selected[i].IsLocked = false;//Random.Range(0, 2) == 0;
                 i++;
             }
         }
