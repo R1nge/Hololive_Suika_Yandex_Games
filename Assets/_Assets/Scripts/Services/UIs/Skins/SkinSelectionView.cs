@@ -58,6 +58,8 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 {
                     _firstSkinTransform.position = _firstSkinPosition;
                     _firstSkinTransform = null;
+                    _firstSkinIndex = -1;
+                    _secondSkinIndex = -1;
                 }
 
                 Debug.Log("Ray");
@@ -99,6 +101,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
                             _firstSkinTransform = skinView.transform;
                             _firstSkinIndex = skinView.SkinIndex;
                             _firstSkinPosition = skinView.transform.position;
+                            _firstSkinTransform.SetAsLastSibling();
                             Debug.Log(_firstSkinIndex);
                         }
                         else if (_secondSkinIndex == -1)
