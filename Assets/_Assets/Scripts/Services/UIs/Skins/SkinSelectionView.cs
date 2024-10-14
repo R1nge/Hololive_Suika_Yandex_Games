@@ -115,8 +115,12 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
             if (!found)
             {
-                _firstSkinTransform.position = _firstSkinPosition;
-                _firstSkinTransform = null;
+                if (_firstSkinTransform != null)
+                {
+                    _firstSkinTransform.position = _firstSkinPosition;
+                    _firstSkinTransform = null;
+                }
+
                 _firstSkinIndex = -1;
                 _secondSkinIndex = -1;
             }
