@@ -20,6 +20,9 @@ namespace _Assets.Scripts.Services.UIs.Skins
         private int _firstSkinIndex = -1, _secondSkinIndex = -1;
         private readonly List<RaycastResult> _results = new(10);
 
+        private Transform _firstSkinTransform;
+        private Vector3 _firstSkinPosition;
+
         private void Start()
         {
             backButton.onClick.AddListener(Back);
@@ -51,8 +54,22 @@ namespace _Assets.Scripts.Services.UIs.Skins
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (_firstSkinTransform != null)
+                {
+                    _firstSkinTransform.position = _firstSkinPosition;
+                    _firstSkinTransform = null;
+                }
+
                 Debug.Log("Ray");
                 SelectSkinView();
+            }
+
+            if (_firstSkinTransform != null)
+            {
+                Vector3 mousePosition = Camera.main.WorldToScreenPoint(Input.mousePosition);
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                Vector3 localPosition = _firstSkinTransform.root.InverseTransformPoint(worldPosition);
+                _firstSkinTransform.localPosition = localPosition;
             }
         }
 
@@ -64,14 +81,14 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 position = Input.mousePosition
             };
 
-            
             EventSystem.current.RaycastAll(pointerEventData, _results);
 
             // For every result returned, output the name of the GameObject on the Canvas hit by the Ray
             for (var i = 0; i < _results.Count; i++)
             {
                 var result = _results[i];
-                if (result.gameObject.layer == LayerMask.NameToLayer("SkinSelection")) // Check if the hit UI element is this element
+                if (result.gameObject.layer ==
+                    LayerMask.NameToLayer("SkinSelection")) // Check if the hit UI element is this element
                 {
                     Debug.Log("Pointer is over " + gameObject.name);
                     var skinView = result.gameObject.GetComponent<SkinView>();
@@ -79,7 +96,9 @@ namespace _Assets.Scripts.Services.UIs.Skins
                     {
                         if (_firstSkinIndex == -1)
                         {
+                            _firstSkinTransform = skinView.transform;
                             _firstSkinIndex = skinView.SkinIndex;
+                            _firstSkinPosition = skinView.transform.position;
                             Debug.Log(_firstSkinIndex);
                         }
                         else if (_secondSkinIndex == -1)
