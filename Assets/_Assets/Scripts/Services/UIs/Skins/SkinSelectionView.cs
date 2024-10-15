@@ -37,28 +37,30 @@ namespace _Assets.Scripts.Services.UIs.Skins
         public async void Init()
         {
             float scaleFactor = 0.75f;
-            float angleStep = 360f / (skins.Length - 1);
-            var scaleIndex = 1f;
+            float totalScale = 0f;
+            float[] scales = new float[skins.Length];
+
+            // First, calculate the total scale sum to determine the normalized angle step
+            for (int i = 0; i < skins.Length; i++)
+            {
+                scales[i] = scaleFactor * (1f + i * 0.5f);
+                totalScale += scales[i];
+            }
+
+            float angleStep = 360f / totalScale;
+            float currentAngle = 0f;
 
             for (int i = 0; i < skins.Length; i++)
             {
-                skins[i].transform.localScale = new Vector3(scaleFactor * scaleIndex * scaleFactor, scaleFactor * scaleIndex * scaleFactor, 1f);
-                
-                float angle = i * angleStep * Mathf.Deg2Rad / skins[i].transform.localScale.x;
+                skins[i].transform.localScale = new Vector3(scales[i], scales[i], 1f);
+
+                float angle = currentAngle * Mathf.Deg2Rad;
                 float x = Mathf.Cos(angle) * radius;
                 float y = Mathf.Sin(angle) * radius;
 
-                skins[i].transform.localPosition = new Vector3(
-                    x + scaleFactor * scaleIndex * skins[i].transform.localScale.x,
-                    y + scaleFactor * scaleIndex * skins[i].transform.localScale.y
-                );
+                skins[i].transform.localPosition = new Vector3(x, y, skins[i].transform.localPosition.z);
 
-                if (i == skins.Length - 1)
-                {
-                    skins[i].transform.localPosition = Vector3.zero;
-                }
-
-                scaleIndex += .5f;
+                currentAngle += angleStep * scales[i]; // Increment current angle based on the normalized angle step and skin scale
             }
 
             for (int i = 0; i < _skinService.SelectedSkinLength; i++)
