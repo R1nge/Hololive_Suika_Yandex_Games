@@ -14,7 +14,6 @@ namespace _Assets.Scripts.Services.UIs.Skins
         [SerializeField] private float radius = 50f;
         [SerializeField] private SkinView[] skins;
         [SerializeField] private Button backButton;
-        [SerializeField] private LayerMask layerMask;
         [Inject] private SkinService _skinService;
         [Inject] private UIStateMachine _uiStateMachine;
         private int _firstSkinIndex = -1, _secondSkinIndex = -1;
