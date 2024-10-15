@@ -42,24 +42,23 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
             for (int i = 0; i < skins.Length; i++)
             {
-                float angle = i * angleStep * Mathf.Deg2Rad;
+                skins[i].transform.localScale = new Vector3(scaleFactor * scaleIndex * scaleFactor, scaleFactor * scaleIndex * scaleFactor, 1f);
+                
+                float angle = i * angleStep * Mathf.Deg2Rad / skins[i].transform.localScale.x;
                 float x = Mathf.Cos(angle) * radius;
                 float y = Mathf.Sin(angle) * radius;
-                //skins[i].transform.localPosition = new Vector3(x + scaleIndex * scaleFactor, y + scaleIndex * scaleFactor, 0f)Vector3 skinScale = skins[i].transform.localScale;
-                var skinScale = skins[i].transform.localScale;
+
                 skins[i].transform.localPosition = new Vector3(
-                    x + scaleFactor * scaleIndex + skinScale.x,
-                    y + scaleFactor * scaleIndex + skinScale.y
-                    //skins[i].transform.localPosition.z * skinScale.z
-                );;
+                    x + scaleFactor * scaleIndex * skins[i].transform.localScale.x,
+                    y + scaleFactor * scaleIndex * skins[i].transform.localScale.y
+                );
 
                 if (i == skins.Length - 1)
                 {
                     skins[i].transform.localPosition = Vector3.zero;
                 }
-                
+
                 scaleIndex += .5f;
-                skins[i].transform.localScale = new Vector3(scaleFactor * scaleIndex * scaleFactor, scaleFactor * scaleIndex * scaleFactor, 1f);
             }
 
             for (int i = 0; i < _skinService.SelectedSkinLength; i++)
