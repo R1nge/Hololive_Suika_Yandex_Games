@@ -1,5 +1,6 @@
 ﻿using System;
 using _Assets.Scripts.Configs;
+using _Assets.Scripts.Services.Skins;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
@@ -17,7 +18,7 @@ namespace _Assets.Scripts.Services.UIs
         [Inject] private InGameUIController _inGameUIController;
         [Inject] private RandomNumberGenerator _randomNumberGenerator;
         [Inject] private ScoreService _scoreService;
-        [Inject] private ConfigProvider _configProvider;
+        [Inject] private SkinService _skinService;
         private int _currentScore;
 
         private void Awake()
@@ -44,7 +45,7 @@ namespace _Assets.Scripts.Services.UIs
 
         private async void SuikaPicked(int previous, int current, int next)
         {
-            var sprite = await _configProvider.SuikaConfig.GetSprite(_randomNumberGenerator.Next);
+            var sprite = await _skinService.GetSprite(_randomNumberGenerator.Next);
             nextSuikaImage.sprite = sprite;
         }
 
