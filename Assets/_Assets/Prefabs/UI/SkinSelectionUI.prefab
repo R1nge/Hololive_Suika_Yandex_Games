@@ -574,11 +574,11 @@ RectTransform:
   - {fileID: 1195894914489653551}
   m_Father: {fileID: 4712560909229979687}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -275.00003}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 204}
   m_SizeDelta: {x: 440, y: 204}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &4197450567728678993
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1321,6 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f50ddb7b5f04df8b1000ecee86b7aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 400
   skins:
   - {fileID: 5205769372483788242}
   - {fileID: 8789674536681938912}

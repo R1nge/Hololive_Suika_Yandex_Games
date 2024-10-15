@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Assets.Scripts.Services.Skins;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using Cysharp.Threading.Tasks;
@@ -12,6 +11,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
 {
     public class SkinSelectionView : MonoBehaviour
     {
+        [SerializeField] private float radius = 50f;
         [SerializeField] private SkinView[] skins;
         [SerializeField] private Button backButton;
         [SerializeField] private LayerMask layerMask;
@@ -36,6 +36,32 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
         public async void Init()
         {
+            float scaleFactor = 0.75f;
+            float angleStep = 360f / (skins.Length - 1);
+            var scaleIndex = 1f;
+
+            for (int i = 0; i < skins.Length; i++)
+            {
+                float angle = i * angleStep * Mathf.Deg2Rad;
+                float x = Mathf.Cos(angle) * radius;
+                float y = Mathf.Sin(angle) * radius;
+                //skins[i].transform.localPosition = new Vector3(x + scaleIndex * scaleFactor, y + scaleIndex * scaleFactor, 0f)Vector3 skinScale = skins[i].transform.localScale;
+                var skinScale = skins[i].transform.localScale;
+                skins[i].transform.localPosition = new Vector3(
+                    x + scaleFactor * scaleIndex + skinScale.x,
+                    y + scaleFactor * scaleIndex + skinScale.y
+                    //skins[i].transform.localPosition.z * skinScale.z
+                );;
+
+                if (i == skins.Length - 1)
+                {
+                    skins[i].transform.localPosition = Vector3.zero;
+                }
+                
+                scaleIndex += .5f;
+                skins[i].transform.localScale = new Vector3(scaleFactor * scaleIndex * scaleFactor, scaleFactor * scaleIndex * scaleFactor, 1f);
+            }
+
             for (int i = 0; i < _skinService.SelectedSkinLength; i++)
             {
                 skins[i].Init(await _skinService.GetSprite(i), i);
