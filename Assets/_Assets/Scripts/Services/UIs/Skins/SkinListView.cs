@@ -43,6 +43,11 @@ namespace _Assets.Scripts.Services.UIs.Skins
         {
             if (_init)
             {
+                for (int i = 0; i < _skins.Length; i++)
+                {
+                    _skins[i].Select();
+                }
+
                 return;
             }
 

@@ -17,6 +17,8 @@ namespace _Assets.Scripts.Configs
         private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> _loadingSprites = new();
         public Suika GetPrefab(int index) => suikaData[index].Prefab;
 
+        public SuikaSkin GetSkin(int index) => suikaSkins[index];
+
         public int GetPoints(int index)
         {
             index = Mathf.Clamp(index, 0, suikaData.Length - 1);

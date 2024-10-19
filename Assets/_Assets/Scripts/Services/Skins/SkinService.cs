@@ -117,14 +117,16 @@ namespace _Assets.Scripts.Services.Skins
             _selected = new SuikaSkinData[11];
             _suikaSkinData = new SuikaSkinData[_configProvider.SuikaConfig.SuikaSkins.Count];
 
+            for (int j = 0; j < _selected.Length; j++)
+            {
+                _selected[j].SuikaSkin = _configProvider.SuikaConfig.GetSkin(j);
+                _selected[j].IsLocked = false;
+            }
+
             var i = 0;
             foreach (var skin in _configProvider.SuikaConfig.SuikaSkins)
             {
-                _selected[i].SuikaSkin = skin;
-                _selected[i].IsLocked = false; //Random.Range(0, 2) == 0;
-
                 _suikaSkinData[i].SuikaSkin = skin;
-                _selected[i].IsLocked = false;
                 i++;
             }
         }
