@@ -161,7 +161,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             {
                 Debug.Log("Pointer is over " + gameObject.name);
                 var skinView = result.gameObject.GetComponent<SkinView>();
-                if (skinView != null && skinView.SkinIndex != _skinService.FirstSkinIndex)
+                if (skinView != null && skinView.SkinIndex != _skinService.FirstSkinIndex && !_skinService.Selected(skinView.SkinIndex))
                 {
                     found = true;
                     if (_skinService.FirstSkinIndex == -1)
