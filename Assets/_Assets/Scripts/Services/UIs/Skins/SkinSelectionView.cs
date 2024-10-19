@@ -12,7 +12,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
 {
     public class SkinSelectionView : MonoBehaviour
     {
-        [SerializeField] private float radius = 50f;
+        [SerializeField] private float radius = 500f;
         [SerializeField] private SkinView[] skins;
         [SerializeField] private Button backButton;
         [Inject] private SkinService _skinService;
@@ -40,11 +40,11 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 totalScale += scales[i];
             }
 
-            float angleStep = 360f / totalScale;
             float currentAngle = 0f;
 
             for (int i = 0; i < skins.Length; i++)
             {
+                float angleStep = (360f / skins.Length) + scales[i];
                 skins[i].transform.localScale = new Vector3(scales[i], scales[i], 1f);
 
                 float angle = currentAngle * Mathf.Deg2Rad;
@@ -53,8 +53,12 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
                 skins[i].transform.localPosition = new Vector3(x, y, skins[i].transform.localPosition.z);
 
-                currentAngle +=
-                    angleStep * scales[i]; // Increment current angle based on the normalized angle step and skin scale
+                currentAngle += angleStep;
+
+                if (i == skins.Length - 1)
+                {
+                    skins[i].transform.localPosition = new Vector3(0, 0, skins[i].transform.localPosition.z);
+                }
             }
 
             var initTasks = new List<UniTask>();
@@ -63,7 +67,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 var index = i;
                 initTasks.Add(InitializeSkin(index));
             }
-            
+
             await UniTask.WhenAll(initTasks);
         }
 

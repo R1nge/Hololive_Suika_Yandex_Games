@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f50ddb7b5f04df8b1000ecee86b7aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 400
+  radius: 500
   skins:
   - {fileID: 5205769372483788242}
   - {fileID: 1952890868330392575}
