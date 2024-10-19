@@ -43,16 +43,20 @@ namespace _Assets.Scripts.Services.UIs.Skins
             {
                 return;
             }
-            
+
             _skins = new SkinView[_configProvider.SuikaConfig.SuikaSkins.Count];
             for (int i = 0; i < _configProvider.SuikaConfig.SuikaSkins.Count; i++)
             {
                 var skin = Instantiate(skinView, parent);
                 _skins[i] = skin;
                 skin.gameObject.layer = LayerMask.NameToLayer("SkinsList");
+            }
+
+            for (int i = 0; i < _skins.Length; i++)
+            {
                 var sprite = await _configProvider.SuikaConfig.GetSprite(i);
-                skin.Init(sprite, i);
-                skin.UpdateSprite(sprite);
+                _skins[i].Init(sprite, i);
+                _skins[i].UpdateSprite(sprite);
             }
 
             _init = true;
