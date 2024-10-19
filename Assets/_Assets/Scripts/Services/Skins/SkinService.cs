@@ -11,14 +11,35 @@ namespace _Assets.Scripts.Services.Skins
     {
         private readonly ConfigProvider _configProvider;
 
-        //private SuikaSkinData[] _suikaSkinData;
+        private SuikaSkinData[] _suikaSkinData;
         private SuikaSkinData[] _selected;
         private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> _loadingSprites = new();
         public int SelectedSkinLength => _selected.Length;
+        
+        public int FirstSkinIndex => _firstSkinIndex;
+        public int SecondSkinIndex => _secondSkinIndex;
+        private int _firstSkinIndex = -1, _secondSkinIndex = -1; 
+
+        public event Action OnSwap;
+        public event Action OnSet;
+        
+        public event Action OnSetFirstSkin, OnSetSecondSkin;
 
         private SkinService(ConfigProvider configProvider)
         {
             _configProvider = configProvider;
+        }
+
+        public void SetFirstSkin(int index)
+        {
+            _firstSkinIndex = index;
+            OnSetFirstSkin?.Invoke();
+        }
+        
+        public void SetSecondSkin(int index)
+        {
+            _secondSkinIndex = index;
+            OnSetSecondSkin?.Invoke();
         }
 
         public async UniTask<Sprite> GetSprite(int index)
@@ -85,13 +106,16 @@ namespace _Assets.Scripts.Services.Skins
         public void Init()
         {
             _selected = new SuikaSkinData[11];
-            //_suikaSkinData = new SuikaSkinData[_configProvider.SuikaConfig.SuikaSkins.Count];
+            _suikaSkinData = new SuikaSkinData[_configProvider.SuikaConfig.SuikaSkins.Count];
 
             var i = 0;
             foreach (var skin in _configProvider.SuikaConfig.SuikaSkins)
             {
                 _selected[i].SuikaSkin = skin;
                 _selected[i].IsLocked = false;//Random.Range(0, 2) == 0;
+
+                _suikaSkinData[i].SuikaSkin = skin;
+                _selected[i].IsLocked = false;
                 i++;
             }
         }
@@ -99,11 +123,13 @@ namespace _Assets.Scripts.Services.Skins
         public void Swap(int index, int targetIndex)
         {
             (_selected[index], _selected[targetIndex]) = (_selected[targetIndex], _selected[index]);
+            OnSwap?.Invoke();
         }
 
         public void Set(int skinIndex, int positionIndex)
         {
-            //_selected[positionIndex] = _suikaSkinData[skinIndex];
+            _selected[positionIndex] = _suikaSkinData[skinIndex];
+            OnSet?.Invoke();
         }
 
         public SuikaSkinData Get(int index)

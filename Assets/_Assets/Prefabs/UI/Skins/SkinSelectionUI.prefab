@@ -798,10 +798,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skinView: {fileID: 8387455415252809514, guid: 2990c42878a9240439f393bc431b6934, type: 3}
+  listSkinsMask:
+    serializedVersion: 2
+    m_Bits: 256
   open: {fileID: 8082660783187168020}
   close: {fileID: 0}
   parent: {fileID: 4106726382862818635}
   child: {fileID: 4339463418806767479}
+  grid: {fileID: 2685969827046913037}
 --- !u!1 &7363083201615867523
 GameObject:
   m_ObjectHideFlags: 0
