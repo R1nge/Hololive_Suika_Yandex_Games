@@ -39,6 +39,11 @@ namespace _Assets.Scripts.Services.Skins
             OnSetFirstSkin?.Invoke(index);
         }
 
+        public void SetFirstSkinWithoutNotify(int index)
+        {
+            _firstSkinIndex = index;
+        }
+
         public void SetSecondSkin(int index)
         {
             _secondSkinIndex = index;

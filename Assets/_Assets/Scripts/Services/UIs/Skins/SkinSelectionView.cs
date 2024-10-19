@@ -131,7 +131,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
                     if (_skinService.FirstSkinIndex == -1)
                     {
                         _firstSkinTransform = skinView.transform;
-                        _skinService.SetFirstSkin(skinView.SkinIndex);
+                        _skinService.SetFirstSkinWithoutNotify(skinView.SkinIndex);
                         _firstSkinPosition = skinView.transform.position;
                         _firstSkinTransform.SetAsLastSibling();
                         Debug.Log($"First: {_skinService.FirstSkinIndex}");
