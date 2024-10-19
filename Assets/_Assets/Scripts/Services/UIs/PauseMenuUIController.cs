@@ -1,4 +1,5 @@
 ﻿using _Assets.Scripts.Services.Audio;
+using _Assets.Scripts.Services.StateMachine;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using Cysharp.Threading.Tasks;
 
@@ -12,10 +13,11 @@ namespace _Assets.Scripts.Services.UIs
         private readonly PlayerInput _playerInput;
         private readonly ContinueService _continueService;
         private readonly TimeRushTimer _timeRushTimer;
+        private readonly ResetService _resetService;
 
         private PauseMenuUIController(AudioService audioService, UIStateMachine uiStateMachine,
             LocalizationService localizationService, PlayerInput playerInput, ContinueService continueService,
-            TimeRushTimer timeRushTimer)
+            TimeRushTimer timeRushTimer, ResetService resetService)
         {
             _audioService = audioService;
             _uiStateMachine = uiStateMachine;
@@ -23,6 +25,7 @@ namespace _Assets.Scripts.Services.UIs
             _playerInput = playerInput;
             _continueService = continueService;
             _timeRushTimer = timeRushTimer;
+            _resetService = resetService;
         }
 
         public LocalizationService.Language CurrentLanguage => _localizationService.CurrentLanguage;
@@ -46,6 +49,7 @@ namespace _Assets.Scripts.Services.UIs
         public async void MainMenu()
         {
             _continueService.Save();
+            _resetService.Reset();
             await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
         }
 
