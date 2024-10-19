@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using _Assets.Scripts.Configs;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -15,16 +16,16 @@ namespace _Assets.Scripts.Services.Skins
         private SuikaSkinData[] _selected;
         private readonly Dictionary<int, UniTaskCompletionSource<Sprite>> _loadingSprites = new();
         public int SelectedSkinLength => _selected.Length;
-        
+
         public int FirstSkinIndex => _firstSkinIndex;
         public int SecondSkinIndex => _secondSkinIndex;
-        private int _firstSkinIndex = -1, _secondSkinIndex = -1; 
+        private int _firstSkinIndex = -1, _secondSkinIndex = -1;
 
         public event Action OnSwap;
         public event Action OnSet;
-        
+
         public event Action<int> OnSetFirstSkin, OnSetSecondSkin;
-        
+
         private bool IsInitialized => _suikaSkinData != null;
 
         private SkinService(ConfigProvider configProvider)
@@ -37,7 +38,7 @@ namespace _Assets.Scripts.Services.Skins
             _firstSkinIndex = index;
             OnSetFirstSkin?.Invoke(index);
         }
-        
+
         public void SetSecondSkin(int index)
         {
             _secondSkinIndex = index;
@@ -112,7 +113,7 @@ namespace _Assets.Scripts.Services.Skins
                 Debug.Log("Skin service already initialized");
                 return;
             }
-            
+
             _selected = new SuikaSkinData[11];
             _suikaSkinData = new SuikaSkinData[_configProvider.SuikaConfig.SuikaSkins.Count];
 
@@ -120,7 +121,7 @@ namespace _Assets.Scripts.Services.Skins
             foreach (var skin in _configProvider.SuikaConfig.SuikaSkins)
             {
                 _selected[i].SuikaSkin = skin;
-                _selected[i].IsLocked = false;//Random.Range(0, 2) == 0;
+                _selected[i].IsLocked = false; //Random.Range(0, 2) == 0;
 
                 _suikaSkinData[i].SuikaSkin = skin;
                 _selected[i].IsLocked = false;
@@ -136,6 +137,12 @@ namespace _Assets.Scripts.Services.Skins
 
         public void Set(int skinIndex, int positionIndex)
         {
+            if (_selected.Contains(_suikaSkinData[skinIndex]))
+            {
+                Debug.LogWarning("Skin already selected");
+                return;
+            }
+
             _selected[positionIndex] = _suikaSkinData[skinIndex];
             OnSet?.Invoke();
         }
