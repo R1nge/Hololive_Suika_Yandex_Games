@@ -78,13 +78,16 @@ namespace _Assets.Scripts.Services.UIs.Skins
         public void Hide(int indexToIgnore)
         {
             //child.SetActive(false);
-            background.enabled = false;
-
-            for (int i = 0; i < _skins.Length; i++)
+            if (_init)
             {
-                if (i != indexToIgnore)
+                background.enabled = false;
+
+                for (int i = 0; i < _skins.Length; i++)
                 {
-                    _skins[i].gameObject.SetActive(false);
+                    if (i != indexToIgnore)
+                    {
+                        _skins[i].gameObject.SetActive(false);
+                    }
                 }
             }
         }
