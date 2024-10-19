@@ -1,115 +1,19 @@
 {
-    "idSave": 778,
+    "idSave": 819,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
     "highScoreEndless": 82611,
-    "highScoreTimeRush": 0,
+    "highScoreTimeRush": 250275,
     "musicVolume": 0.37125885486602785,
     "vfxVolume": 0.06728348881006241,
     "continueData": {
-        "SuikasContinueData": [
-            {
-                "Index": 5,
-                "PositionX": 3.2774901390075685,
-                "PositionY": -6.387650012969971
-            },
-            {
-                "Index": 8,
-                "PositionX": 2.7332847118377687,
-                "PositionY": -2.5804288387298586
-            },
-            {
-                "Index": 4,
-                "PositionX": -3.3412563800811769,
-                "PositionY": -5.891734600067139
-            },
-            {
-                "Index": 1,
-                "PositionX": 2.3432810306549074,
-                "PositionY": -7.253994941711426
-            },
-            {
-                "Index": 2,
-                "PositionX": -3.659945249557495,
-                "PositionY": -7.125723838806152
-            },
-            {
-                "Index": 3,
-                "PositionX": 3.5331878662109377,
-                "PositionY": -4.878335952758789
-            },
-            {
-                "Index": 8,
-                "PositionX": 0.8633683919906616,
-                "PositionY": -6.197020530700684
-            },
-            {
-                "Index": 1,
-                "PositionX": 2.490760326385498,
-                "PositionY": -5.384585857391357
-            },
-            {
-                "Index": 4,
-                "PositionX": 0.7923276424407959,
-                "PositionY": -3.6264398097991945
-            },
-            {
-                "Index": 5,
-                "PositionX": -1.7196558713912964,
-                "PositionY": -6.749083042144775
-            },
-            {
-                "Index": 0,
-                "PositionX": -3.6603729724884035,
-                "PositionY": -4.6578168869018559
-            },
-            {
-                "Index": 1,
-                "PositionX": -2.2370314598083498,
-                "PositionY": -5.582576751708984
-            },
-            {
-                "Index": 5,
-                "PositionX": -2.383263111114502,
-                "PositionY": -4.079834461212158
-            },
-            {
-                "Index": 2,
-                "PositionX": 0.76310133934021,
-                "PositionY": -2.3499104976654054
-            },
-            {
-                "Index": 4,
-                "PositionX": -1.154875636100769,
-                "PositionY": -5.192099571228027
-            },
-            {
-                "Index": 4,
-                "PositionX": -3.4038889408111574,
-                "PositionY": -2.770819664001465
-            },
-            {
-                "Index": 1,
-                "PositionX": -0.888738751411438,
-                "PositionY": -4.076126575469971
-            },
-            {
-                "Index": 2,
-                "PositionX": -0.11334889382123947,
-                "PositionY": -4.5175957679748539
-            },
-            {
-                "Index": 4,
-                "PositionX": -1.1586627960205079,
-                "PositionY": -2.9602432250976564
-            }
-        ],
-        "CurrentSuikaIndex": 3,
-        "NextSuikaIndex": 3,
-        "Score": 2568,
-        "TimeRushTime": 180.0,
-        "GameMode": 1
+        "SuikasContinueData": [],
+        "CurrentSuikaIndex": 0,
+        "NextSuikaIndex": 0,
+        "Score": 0,
+        "TimeRushTime": 0.0,
+        "GameMode": 0
     },
     "coins": 0
 }

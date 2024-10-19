@@ -70,6 +70,10 @@ namespace _Assets.Scripts.Services.StateMachine
                     return new ContinueTimeRush(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService, _timeRushTimer);
                 case GameStateType.Continue:
                     return new Continue(_gameModeService, gameStateMachine);
+                case GameStateType.SkinSelection:
+                    return new SkinSelectionGameState(_uiStateMachine, _skinService);
+                case GameStateType.MainMenu:
+                    return new MainMenuGameState(_uiStateMachine);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gameStateType), gameStateType, null);
             }

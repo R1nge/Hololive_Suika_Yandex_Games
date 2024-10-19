@@ -24,6 +24,8 @@ namespace _Assets.Scripts.Services.Skins
         public event Action OnSet;
         
         public event Action<int> OnSetFirstSkin, OnSetSecondSkin;
+        
+        private bool IsInitialized => _suikaSkinData != null;
 
         private SkinService(ConfigProvider configProvider)
         {
@@ -105,6 +107,12 @@ namespace _Assets.Scripts.Services.Skins
 
         public void Init()
         {
+            if (IsInitialized)
+            {
+                Debug.Log("Skin service already initialized");
+                return;
+            }
+            
             _selected = new SuikaSkinData[11];
             _suikaSkinData = new SuikaSkinData[_configProvider.SuikaConfig.SuikaSkins.Count];
 

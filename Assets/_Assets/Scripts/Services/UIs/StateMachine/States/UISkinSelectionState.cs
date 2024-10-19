@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using _Assets.Scripts.Services.UIs.Skins;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace _Assets.Scripts.Services.UIs.StateMachine.States
@@ -10,7 +11,11 @@ namespace _Assets.Scripts.Services.UIs.StateMachine.States
 
         public UISkinSelectionState(UIFactory uiFactory) => _uiFactory = uiFactory;
 
-        public async UniTask Enter() => _ui = await _uiFactory.CreateUI(UIStateType.SkinSelection);
+        public async UniTask Enter()
+        {
+            _ui = await _uiFactory.CreateUI(UIStateType.SkinSelection);
+            await _ui.GetComponent<SkinSelectionView>().Init();
+        }
 
         public async UniTask Exit() => Object.Destroy(_ui);
     }

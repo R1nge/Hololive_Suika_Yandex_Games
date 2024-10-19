@@ -21,7 +21,8 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly SkinService _skinService;
 
         public InitState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, YandexService yandexService,
-            PlayerInput playerInput, AudioService audioService, LocalizationService localizationService, ContinueService continueService, Wallet wallet, SkinService skinService)
+            PlayerInput playerInput, AudioService audioService, LocalizationService localizationService,
+            ContinueService continueService, Wallet wallet, SkinService skinService)
         {
             _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
@@ -44,7 +45,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _skinService.Init();
             await _yandexService.Init();
             await _localizationService.InitYandex(YandexGame.lang);
-            await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
+            await _stateMachine.SwitchState(GameStateType.MainMenu);
             YandexMetrica.Send("id");
         }
 

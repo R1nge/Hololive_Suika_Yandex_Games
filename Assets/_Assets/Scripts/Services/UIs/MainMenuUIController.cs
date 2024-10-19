@@ -24,7 +24,7 @@ namespace _Assets.Scripts.Services.UIs
         public async void Play() => await _uiStateMachine.SwitchStateUI(UIStateType.GameModeSelection);
 
         public async void Settings() => await _uiStateMachine.SwitchStateUI(UIStateType.Settings);
-        
-        public async void SkinSelection() => await _uiStateMachine.SwitchStateUI(UIStateType.SkinSelection);
+
+        public async void SkinSelection() => await _gameStateMachine.SwitchState(GameStateType.SkinSelection);
     }
 }

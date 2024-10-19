@@ -10,6 +10,8 @@
         GameOverTimeRush = 5,
         ContinueEndless = 6,
         ContinueTimeRush = 8,
-        Continue = 9
+        Continue = 9,
+        SkinSelection = 10,
+        MainMenu = 11
     }
 }

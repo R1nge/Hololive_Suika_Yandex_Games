@@ -15,7 +15,9 @@ namespace _Assets.Scripts.Services.StateMachine
                 { GameStateType.TimeRush, gameStatesFactory.CreateAsyncState(GameStateType.TimeRush, this) },
                 { GameStateType.GameOverTimeRush, gameStatesFactory.CreateAsyncState(GameStateType.GameOverTimeRush, this) },
                 { GameStateType.ContinueTimeRush, gameStatesFactory.CreateAsyncState(GameStateType.ContinueTimeRush, this) },
-                { GameStateType.Continue , gameStatesFactory.CreateAsyncState(GameStateType.Continue, this) }
+                { GameStateType.Continue , gameStatesFactory.CreateAsyncState(GameStateType.Continue, this) },
+                { GameStateType.SkinSelection, gameStatesFactory.CreateAsyncState(GameStateType.SkinSelection, this) },
+                { GameStateType.MainMenu , gameStatesFactory.CreateAsyncState(GameStateType.MainMenu, this) }
             };
         }
     }

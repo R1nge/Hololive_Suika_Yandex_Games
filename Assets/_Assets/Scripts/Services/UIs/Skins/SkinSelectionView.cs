@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Assets.Scripts.Services.Skins;
+using _Assets.Scripts.Services.StateMachine;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -15,25 +16,18 @@ namespace _Assets.Scripts.Services.UIs.Skins
         [SerializeField] private SkinView[] skins;
         [SerializeField] private Button backButton;
         [Inject] private SkinService _skinService;
-        [Inject] private UIStateMachine _uiStateMachine;
+        [Inject] private GameStateMachine _gameStateMachine;
         private readonly List<RaycastResult> _results = new(10);
 
         private bool _fromSkinList;
         private Transform _firstSkinTransform;
         private Vector3 _firstSkinPosition;
 
-        private void Start()
-        {
-            backButton.onClick.AddListener(Back);
-            Init();
-        }
+        private void Start() => backButton.onClick.AddListener(Back);
 
-        private void Back()
-        {
-            _uiStateMachine.SwitchToPreviousState().Forget();
-        }
+        private void Back() => _gameStateMachine.SwitchState(GameStateType.MainMenu).Forget();
 
-        public async void Init()
+        public async UniTask Init()
         {
             float scaleFactor = 0.75f;
             float totalScale = 0f;
@@ -128,10 +122,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
                         if (_skinService.SecondSkinIndex == -1)
                         {
                             _skinService.SetSecondSkin(skinView.SkinIndex);
-                            ;
                             Debug.Log($"Second: {_skinService.SecondSkinIndex}");
-
-                            //TODO: 
 
                             if (_fromSkinList)
                             {
