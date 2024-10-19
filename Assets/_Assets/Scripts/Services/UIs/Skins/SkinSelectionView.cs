@@ -88,7 +88,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             {
                 Vector3 mousePosition = Camera.main.WorldToScreenPoint(Input.mousePosition);
                 Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-                Vector3 localPosition = _firstSkinTransform.root.InverseTransformPoint(worldPosition);
+                Vector3 localPosition = _firstSkinTransform.parent.InverseTransformPoint(worldPosition);
                 _firstSkinTransform.localPosition = localPosition;
             }
         }
