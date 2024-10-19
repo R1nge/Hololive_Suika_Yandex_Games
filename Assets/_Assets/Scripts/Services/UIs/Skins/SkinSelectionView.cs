@@ -57,10 +57,20 @@ namespace _Assets.Scripts.Services.UIs.Skins
                     angleStep * scales[i]; // Increment current angle based on the normalized angle step and skin scale
             }
 
+            var initTasks = new List<UniTask>();
             for (int i = 0; i < _skinService.SelectedSkinLength; i++)
             {
-                skins[i].Init(await _skinService.GetSprite(i), i);
+                var index = i;
+                initTasks.Add(InitializeSkin(index));
             }
+            
+            await UniTask.WhenAll(initTasks);
+        }
+
+        private async UniTask InitializeSkin(int index)
+        {
+            var sprite = await _skinService.GetSprite(index);
+            skins[index].Init(sprite, index);
         }
 
         private async void UpdateSprite()
