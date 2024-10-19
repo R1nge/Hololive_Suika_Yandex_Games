@@ -16,7 +16,6 @@ namespace _Assets.Scripts.Services.UIs.Skins
         [SerializeField] private Button backButton;
         [Inject] private SkinService _skinService;
         [Inject] private UIStateMachine _uiStateMachine;
-        private int _firstSkinIndex = -1, _secondSkinIndex = -1;
         private readonly List<RaycastResult> _results = new(10);
 
         private bool _fromSkinList;
@@ -113,33 +112,34 @@ namespace _Assets.Scripts.Services.UIs.Skins
                     Debug.Log("Pointer is over " + gameObject.name);
                     var skinView = result.gameObject.GetComponent<SkinView>();
 
-                    if (skinView != null && skinView.SkinIndex != _firstSkinIndex)
+                    if (skinView != null && skinView.SkinIndex != _skinService.FirstSkinIndex)
                     {
                         found = true;
-                        if (_firstSkinIndex == -1)
+                        if (_skinService.FirstSkinIndex == -1)
                         {
                             _firstSkinTransform = skinView.transform;
-                            _firstSkinIndex = skinView.SkinIndex;
+                            _skinService.SetFirstSkin(skinView.SkinIndex);
                             _firstSkinPosition = skinView.transform.position;
                             _firstSkinTransform.SetAsLastSibling();
-                            Debug.Log($"First: {_firstSkinIndex}");
+                            Debug.Log($"First: {_skinService.FirstSkinIndex}");
                             break;
                         }
 
-                        if (_secondSkinIndex == -1)
+                        if (_skinService.SecondSkinIndex == -1)
                         {
-                            _secondSkinIndex = skinView.SkinIndex;
-                            Debug.Log($"Second: {_secondSkinIndex}");
+                            _skinService.SetSecondSkin(skinView.SkinIndex);
+                            ;
+                            Debug.Log($"Second: {_skinService.SecondSkinIndex}");
 
                             //TODO: 
 
                             if (_fromSkinList)
                             {
-                                _skinService.Set(_firstSkinIndex, _secondSkinIndex);
+                                _skinService.Set(_skinService.FirstSkinIndex, _skinService.SecondSkinIndex);
                             }
                             else
                             {
-                                _skinService.Swap(_firstSkinIndex, _secondSkinIndex);
+                                _skinService.Swap(_skinService.FirstSkinIndex, _skinService.SecondSkinIndex);
                             }
 
                             ResetSelection();
@@ -152,17 +152,17 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 {
                     Debug.Log("Pointer is over " + gameObject.name);
                     var skinView = result.gameObject.GetComponent<SkinView>();
-                    if (skinView != null && skinView.SkinIndex != _firstSkinIndex)
+                    if (skinView != null && skinView.SkinIndex != _skinService.FirstSkinIndex)
                     {
                         found = true;
-                        if (_firstSkinIndex == -1)
+                        if (_skinService.FirstSkinIndex == -1)
                         {
                             _firstSkinTransform = skinView.transform;
-                            _firstSkinIndex = skinView.SkinIndex;
+                            _skinService.SetFirstSkin(skinView.SkinIndex);
                             _firstSkinPosition = skinView.transform.position;
                             _firstSkinTransform.SetAsLastSibling();
                             _fromSkinList = true;
-                            Debug.Log($"First: {_firstSkinIndex}");
+                            Debug.Log($"First: {_skinService.FirstSkinIndex}");
                             break;
                         }
                     }
@@ -171,26 +171,21 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
             if (!found)
             {
-                if (_firstSkinTransform != null)
-                {
-                    _firstSkinTransform.position = _firstSkinPosition;
-                    _firstSkinTransform = null;
-                }
+                ResetSelection();
             }
         }
 
         private void ResetSelection()
         {
-            _firstSkinIndex = -1;
-            _secondSkinIndex = -1;
-
             if (_firstSkinTransform != null)
             {
                 _firstSkinTransform.position = _firstSkinPosition;
                 _firstSkinTransform = null;
-            }
 
-            _fromSkinList = false;
+                _skinService.SetFirstSkin(-1);
+                _skinService.SetSecondSkin(-1);
+                _fromSkinList = false;
+            }
         }
     }
 }
