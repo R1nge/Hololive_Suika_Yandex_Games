@@ -23,7 +23,7 @@ namespace _Assets.Scripts.Services.Skins
         public event Action OnSwap;
         public event Action OnSet;
         
-        public event Action OnSetFirstSkin, OnSetSecondSkin;
+        public event Action<int> OnSetFirstSkin, OnSetSecondSkin;
 
         private SkinService(ConfigProvider configProvider)
         {
@@ -33,13 +33,13 @@ namespace _Assets.Scripts.Services.Skins
         public void SetFirstSkin(int index)
         {
             _firstSkinIndex = index;
-            OnSetFirstSkin?.Invoke();
+            OnSetFirstSkin?.Invoke(index);
         }
         
         public void SetSecondSkin(int index)
         {
             _secondSkinIndex = index;
-            OnSetSecondSkin?.Invoke();
+            OnSetSecondSkin?.Invoke(index);
         }
 
         public async UniTask<Sprite> GetSprite(int index)

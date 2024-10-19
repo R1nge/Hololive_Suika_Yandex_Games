@@ -15,6 +15,8 @@ namespace _Assets.Scripts.Services.UIs.Skins
         [SerializeField] private Transform parent;
         [SerializeField] private GameObject child;
         [SerializeField] private GridLayoutGroup grid;
+        [SerializeField] private Image background;
+        private SkinView[] _skins;
         private bool _init;
         [Inject] private ConfigProvider _configProvider;
         [Inject] private SkinService _skinService;
@@ -25,7 +27,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             open.onClick.AddListener(Open);
             //close.onClick.AddListener(Close);
             _skinService.OnSet += RebuildLayout;
-            _skinService.OnSetFirstSkin += Close;
+            _skinService.OnSetFirstSkin += Hide;
         }
 
         private void RebuildLayout()
@@ -42,9 +44,11 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 return;
             }
             
+            _skins = new SkinView[_configProvider.SuikaConfig.SuikaSkins.Count];
             for (int i = 0; i < _configProvider.SuikaConfig.SuikaSkins.Count; i++)
             {
                 var skin = Instantiate(skinView, parent);
+                _skins[i] = skin;
                 skin.gameObject.layer = LayerMask.NameToLayer("SkinsList");
                 var sprite = await _configProvider.SuikaConfig.GetSprite(i);
                 skin.Init(sprite, i);
@@ -56,16 +60,35 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
         public void Open()
         {
-            child.SetActive(true);
             Init();
+            background.enabled = true;
+
+            for (int i = 0; i < _skins.Length; i++)
+            {
+                _skins[i].gameObject.SetActive(true);
+            }
+
+            child.SetActive(true);
         }
 
-        public void Close() => child.SetActive(false);
+        public void Hide(int indexToIgnore)
+        {
+            //child.SetActive(false);
+            background.enabled = false;
+
+            for (int i = 0; i < _skins.Length; i++)
+            {
+                if (i != indexToIgnore)
+                {
+                    _skins[i].gameObject.SetActive(false);
+                }
+            }
+        }
 
         private void OnDestroy()
         {
             _skinService.OnSet -= RebuildLayout;
-            _skinService.OnSetFirstSkin -= Close;
+            _skinService.OnSetFirstSkin -= Hide;
         }
     }
 }
