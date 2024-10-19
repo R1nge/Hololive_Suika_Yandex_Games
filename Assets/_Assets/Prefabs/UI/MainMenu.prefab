@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8228871911875231015}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
@@ -1074,7 +1074,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ad3bffbd0a237c841a44c8ec0c3a28de
     m_TableEntryReference:
-      m_KeyId: 25276375040
+      m_KeyId: 43069633881104384
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 1
