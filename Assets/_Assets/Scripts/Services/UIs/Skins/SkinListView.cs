@@ -15,6 +15,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
         [SerializeField] private Transform parent;
         [SerializeField] private GameObject child;
         [SerializeField] private GridLayoutGroup grid;
+        private bool _init;
         [Inject] private ConfigProvider _configProvider;
         [Inject] private SkinService _skinService;
 
@@ -24,6 +25,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             open.onClick.AddListener(Open);
             //close.onClick.AddListener(Close);
             _skinService.OnSet += RebuildLayout;
+            _skinService.OnSetFirstSkin += Close;
         }
 
         private void RebuildLayout()
@@ -35,6 +37,11 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
         private async void Init()
         {
+            if (_init)
+            {
+                return;
+            }
+            
             for (int i = 0; i < _configProvider.SuikaConfig.SuikaSkins.Count; i++)
             {
                 var skin = Instantiate(skinView, parent);
@@ -43,6 +50,8 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 skin.Init(sprite, i);
                 skin.UpdateSprite(sprite);
             }
+
+            _init = true;
         }
 
         public void Open()
@@ -56,6 +65,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
         private void OnDestroy()
         {
             _skinService.OnSet -= RebuildLayout;
+            _skinService.OnSetFirstSkin -= Close;
         }
     }
 }
