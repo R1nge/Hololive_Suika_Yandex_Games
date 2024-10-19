@@ -147,6 +147,11 @@ namespace _Assets.Scripts.Services.Skins
             OnSet?.Invoke();
         }
 
+        public bool Selected(int index)
+        {
+            return _selected.Contains(_suikaSkinData[index]);
+        }
+
         public SuikaSkinData Get(int index)
         {
             return _selected[index];

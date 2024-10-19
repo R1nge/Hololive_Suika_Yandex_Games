@@ -4,6 +4,7 @@ using _Assets.Scripts.Services.Skins;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
+using VContainer.Unity;
 
 namespace _Assets.Scripts.Services.UIs.Skins
 {
@@ -18,6 +19,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
         [SerializeField] private Image background;
         private SkinView[] _skins;
         private bool _init;
+        [Inject] private IObjectResolver _objectResolver;
         [Inject] private ConfigProvider _configProvider;
         [Inject] private SkinService _skinService;
 
@@ -47,7 +49,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             _skins = new SkinView[_configProvider.SuikaConfig.SuikaSkins.Count];
             for (int i = 0; i < _configProvider.SuikaConfig.SuikaSkins.Count; i++)
             {
-                var skin = Instantiate(skinView, parent);
+                var skin = _objectResolver.Instantiate(skinView, parent);
                 _skins[i] = skin;
                 skin.gameObject.layer = LayerMask.NameToLayer("SkinsList");
             }
@@ -57,6 +59,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 var sprite = await _configProvider.SuikaConfig.GetSprite(i);
                 _skins[i].Init(sprite, i);
                 _skins[i].UpdateSprite(sprite);
+                _skins[i].Select();
             }
 
             _init = true;
