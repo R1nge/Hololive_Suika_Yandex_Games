@@ -1,4 +1,5 @@
-﻿using _Assets.Scripts.Services.UIs.StateMachine;
+﻿using _Assets.Scripts.Services.Quests;
+using _Assets.Scripts.Services.UIs.StateMachine;
 using _Assets.Scripts.Services.Yandex;
 using Cysharp.Threading.Tasks;
 using YG;
@@ -12,15 +13,17 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly ScoreService _scoreService;
         private readonly ResetService _resetService;
         private readonly ContinueService _continueService;
+        private readonly QuestsService questsService;
 
         public GameOverEndlessGameState(YandexService yandexService, UIStateMachine uiStateMachine,
-            ScoreService scoreService, ResetService resetService, ContinueService continueService)
+            ScoreService scoreService, ResetService resetService, ContinueService continueService, QuestsService questsService)
         {
             _yandexService = yandexService;
             _uiStateMachine = uiStateMachine;
             _scoreService = scoreService;
             _resetService = resetService;
             _continueService = continueService;
+            this.questsService = questsService;
         }
 
         public async UniTask Enter()
@@ -44,6 +47,8 @@ namespace _Assets.Scripts.Services.StateMachine.States
             //_yandexService.ShowVideoAd();
             
             YandexMetrica.Send("game_over_endless");
+            
+            questsService.CompleteQuest(QuestType.CompleteEndless);
             
             await _uiStateMachine.SwitchStateUI(UIStateType.GameOverEndless);
         }

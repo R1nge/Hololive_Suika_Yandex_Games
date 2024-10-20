@@ -60,7 +60,7 @@ namespace _Assets.Scripts.Services.StateMachine
                 case GameStateType.Endless:
                     return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _gameModeService, inGameTimeCounter);
                 case GameStateType.GameOverEndless:
-                    return new GameOverEndlessGameState(_yandexService, _uiStateMachine, _scoreService, _resetService, _continueService);
+                    return new GameOverEndlessGameState(_yandexService, _uiStateMachine, _scoreService, _resetService, _continueService, _questsService);
                 case GameStateType.ContinueEndless:
                     return new ContinueEndless(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService, inGameTimeCounter);
                 case GameStateType.TimeRush:
