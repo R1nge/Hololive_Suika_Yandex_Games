@@ -16,10 +16,10 @@ namespace _Assets.Scripts.Services.Quests
 
         private void Start()
         {
-            title.text = _questsService.GetQuestProgress(questType).title;
-            description.text = _questsService.GetQuestProgress(questType).description;
-            progress.maxValue = _questsService.GetQuestProgress(questType).maxProgress;
-            progress.value = _questsService.GetQuestProgress(questType).progress;
+            title.text = _questsService.GetQuest(questType).title;
+            description.text = _questsService.GetQuest(questType).description;
+            progress.maxValue = _questsService.GetQuest(questType).maxProgress;
+            progress.value = _questsService.GetQuest(questType).progress;
         }
     }
 }

@@ -22,11 +22,14 @@ namespace _Assets.Scripts.Services.Quests
 
         private void CheckTime(double time)
         {
-            //TODO: use quest max progress time
-            if (time >= 60 * 20)
+            if (time >= 60 * questsService.GetQuest(QuestType.Playtime).maxProgress)
             {
                 questsService.CompleteQuest(QuestType.Playtime);
                 inGameTimeCounter.Disable();
+            }
+            else
+            {
+                questsService.SetQuestProgress(QuestType.Playtime, (int) time / 60);
             }
         }
 

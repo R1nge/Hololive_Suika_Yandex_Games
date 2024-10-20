@@ -8,7 +8,7 @@ namespace _Assets.Scripts.Services.Quests
     {
         [SerializeField] private Quest[] quests; 
         
-        public Quest GetQuestProgress(QuestType questType)
+        public Quest GetQuest(QuestType questType)
         {
             return quests.First(quest => quest.progressData.questType == questType);
         }
@@ -17,6 +17,12 @@ namespace _Assets.Scripts.Services.Quests
         {
             var quest = quests.Where(quest => quest.progressData.questType == questType).Select(quest => quest).First();
             quest.Complete();
+        }
+
+        public void SetQuestProgress(QuestType questType, int progress)
+        {
+            var quest = quests.Where(quest => quest.progressData.questType == questType).Select(quest => quest).First();
+            quest.progress = progress;
         }
 
         public void ResetQuest(QuestType questType)
