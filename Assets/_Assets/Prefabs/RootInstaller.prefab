@@ -88,3 +88,24 @@ MonoBehaviour:
     progressData:
       questType: 1
       isCompleted: 0
+  - title: Play endless once
+    description: Play endless once description
+    progress: 0
+    maxProgress: 1
+    progressData:
+      questType: 2
+      isCompleted: 0
+  - title: Daily streak
+    description: Daily streak description
+    progress: 0
+    maxProgress: 7
+    progressData:
+      questType: 3
+      isCompleted: 0
+  - title: Play 20 minutes
+    description: Continue playing for 20 minutes
+    progress: 0
+    maxProgress: 20
+    progressData:
+      questType: 4
+      isCompleted: 0

@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using VContainer;
 
 namespace _Assets.Scripts.Services.Quests
@@ -9,14 +10,16 @@ namespace _Assets.Scripts.Services.Quests
     {
         [SerializeField] private TextMeshProUGUI title;
         [SerializeField] private TextMeshProUGUI description;
-        [SerializeField] private TextMeshProUGUI progress;
+        [SerializeField] private Slider progress;
+        [SerializeField] private QuestType questType;
         [Inject] private QuestsService _questsService;
 
         private void Start()
         {
-            title.text = _questsService.GetQuestProgress(QuestType.CompleteTimeRush).title;
-            description.text = _questsService.GetQuestProgress(QuestType.CompleteTimeRush).description;
-            progress.text = _questsService.GetQuestProgress(QuestType.CompleteTimeRush).progress + "/" + _questsService.GetQuestProgress(QuestType.CompleteTimeRush).maxProgress;
+            title.text = _questsService.GetQuestProgress(questType).title;
+            description.text = _questsService.GetQuestProgress(questType).description;
+            progress.value = _questsService.GetQuestProgress(questType).progress;
+            progress.maxValue = _questsService.GetQuestProgress(questType).maxProgress;
         }
     }
 }
