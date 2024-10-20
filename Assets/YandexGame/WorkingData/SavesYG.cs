@@ -1,5 +1,6 @@
 ﻿
 using _Assets.Scripts.Services;
+using _Assets.Scripts.Services.Quests;
 
 namespace YG
 {
@@ -22,6 +23,8 @@ namespace YG
         public ContinueData continueData;
 
         public int coins;
+
+        public Quest[] quests;
         
         public SavesYG()
         {

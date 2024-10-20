@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using YG;
 
 namespace _Assets.Scripts.Services.Quests
 {
     public class QuestsService : MonoBehaviour
     {
-        [SerializeField] private Quest[] quests; 
-        
+        [SerializeField] private Quest[] quests;
+
         public Quest GetQuest(QuestType questType)
         {
             return quests.First(quest => quest.progressData.questType == questType);
@@ -17,18 +18,34 @@ namespace _Assets.Scripts.Services.Quests
         {
             var quest = quests.Where(quest => quest.progressData.questType == questType).Select(quest => quest).First();
             quest.Complete();
+            Save();
         }
 
         public void SetQuestProgress(QuestType questType, int progress)
         {
             var quest = quests.Where(quest => quest.progressData.questType == questType).Select(quest => quest).First();
             quest.progress = progress;
+            Save();
         }
 
         public void ResetQuest(QuestType questType)
         {
             var quest = quests.Where(quest => quest.progressData.questType == questType).Select(quest => quest).First();
             quest.Reset();
+            Save();
+        }
+
+        public void Save()
+        {
+            YandexGame.savesData.quests = quests;
+        }
+
+        public void Load()
+        {
+            if (YandexGame.savesData.quests != null)
+            {
+                quests = YandexGame.savesData.quests;
+            }
         }
     }
 
@@ -73,7 +90,7 @@ namespace _Assets.Scripts.Services.Quests
         public void Complete()
         {
             progressData.isCompleted = true;
-            progress = maxProgress;    
+            progress = maxProgress;
         }
     }
 }

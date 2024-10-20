@@ -56,7 +56,7 @@ namespace _Assets.Scripts.Services.StateMachine
             switch (gameStateType)
             {
                 case GameStateType.Init:
-                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput, _audioService, _localizationService, _continueService, _wallet);
+                    return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput, _audioService, _localizationService, _continueService, _wallet, _questsService);
                 case GameStateType.Endless:
                     return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _gameModeService, inGameTimeCounter);
                 case GameStateType.GameOverEndless:
