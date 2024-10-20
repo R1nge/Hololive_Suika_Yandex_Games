@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Skins_ru
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ru
+  m_SharedData: {fileID: 11400000, guid: cbc2450cfc116544fab4e4c0dbc99572, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 148840570880
+    m_Localized: Gawr Gura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 208634568704
+    m_Localized: "\u042D\u0442\u043E Gawr Gura"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 403829088256
+    m_Localized: Kobo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 407096451072
+    m_Localized: "\u042D\u0442\u043E Kobo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1060296384512
+    m_Localized: Fubuki
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1108308582400
+    m_Localized: "\u042D\u0442\u043E Fubuki"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1174909935616
+    m_Localized: Hakoz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1367021641728
+    m_Localized: Mori
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1573075214336
+    m_Localized: Towa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1460563009536
+    m_Localized: Amelia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1646584586240
+    m_Localized: Rushia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757171605504
+    m_Localized: Korone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1857532911616
+    m_Localized: Fuwawa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1948322816000
+    m_Localized: Mococo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1182929444864
+    m_Localized: "\u042D\u0442\u043E Hakoz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1371027202048
+    m_Localized: "\u042D\u0442\u043E Mori"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1467785601024
+    m_Localized: "\u042D\u0442\u043E Amelia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1575319166976
+    m_Localized: "\u042D\u0442\u043E Towa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1649189249024
+    m_Localized: "\u042D\u0442\u043E Rushia"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1759105179648
+    m_Localized: "\u042D\u0442\u043E Korone"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1861156790272
+    m_Localized: "\u042D\u0442\u043E Fuwawa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1975388659712
+    m_Localized: "\u042D\u0442\u043E Mococo"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

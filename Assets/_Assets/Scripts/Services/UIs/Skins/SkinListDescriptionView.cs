@@ -26,7 +26,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             _skinService.OnSetFirstSkin += Hide;
         }
 
-        public void Init() => _init = true;
+        private void Init() => _init = true;
 
         private void Hide(int obj)
         {
@@ -73,7 +73,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
                     _index = skinView.SkinIndex;
                     var data = _configProvider.SuikaConfig.GetSkin(skinView.SkinIndex);
-                    Set(data.Name, data.Description);
+                    Set(data.Name.GetLocalizedString(), data.Description.GetLocalizedString());
                 }
             }
         }

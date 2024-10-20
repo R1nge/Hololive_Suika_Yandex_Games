@@ -5,6 +5,7 @@ using _Assets.Scripts.Misc;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Localization;
 
 namespace _Assets.Scripts.Configs
 {
@@ -128,8 +129,8 @@ namespace _Assets.Scripts.Configs
             public AssetReferenceAudioClip Sound;
             public AssetReferenceSprite SpriteUnlocked;
             public AssetReferenceSprite SpriteLocked;
-            public string Name;
-            public string Description;
+            public LocalizedString Name;
+            public LocalizedString Description;
         }
     }
 }
