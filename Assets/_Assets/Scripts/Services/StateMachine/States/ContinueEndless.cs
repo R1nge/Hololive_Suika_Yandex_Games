@@ -3,7 +3,6 @@ using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.Quests;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using Cysharp.Threading.Tasks;
-using Microsoft.Unity.VisualStudio.Editor;
 
 namespace _Assets.Scripts.Services.StateMachine.States
 {
