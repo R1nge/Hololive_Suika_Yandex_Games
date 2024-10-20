@@ -38,6 +38,7 @@ namespace _Assets.Scripts.Services.Quests
         public void Save()
         {
             YandexGame.savesData.quests = quests;
+            YandexGame.SaveProgress();
         }
 
         public void Load()

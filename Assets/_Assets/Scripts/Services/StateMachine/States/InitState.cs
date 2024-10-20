@@ -37,12 +37,12 @@ namespace _Assets.Scripts.Services.StateMachine.States
         public async UniTask Enter()
         {
             await _uiStateMachine.SwitchStateUI(UIStateType.Loading);
+            await _yandexService.Init();
             _audioService.Init();
             _playerInput.Init();
             _continueService.Load();
             _wallet.Load();
             questsService.Load();
-            await _yandexService.Init();
             await _localizationService.InitYandex(YandexGame.lang);
             await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
             YandexMetrica.Send("id");
