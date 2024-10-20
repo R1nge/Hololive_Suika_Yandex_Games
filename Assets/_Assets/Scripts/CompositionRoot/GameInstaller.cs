@@ -2,6 +2,7 @@ using _Assets.Scripts.Misc;
 using _Assets.Scripts.Services;
 using _Assets.Scripts.Services.Audio;
 using _Assets.Scripts.Services.Factories;
+using _Assets.Scripts.Services.Quests;
 using _Assets.Scripts.Services.StateMachine;
 using _Assets.Scripts.Services.UIs;
 using _Assets.Scripts.Services.UIs.StateMachine;
@@ -22,6 +23,10 @@ namespace _Assets.Scripts.CompositionRoot
 
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.Register<InGameTimeCounter>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+            builder.Register<InGameTimeChecker>(Lifetime.Singleton).AsImplementedInterfaces().AsSelf();
+
+
             builder.Register<Wallet>(Lifetime.Singleton);
             
             builder.RegisterComponent(coroutineRunner);

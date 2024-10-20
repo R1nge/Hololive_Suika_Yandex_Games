@@ -67,7 +67,7 @@ namespace _Assets.Scripts.Services.Quests
         public void Complete()
         {
             progressData.isCompleted = true;
-            progress = maxProgress;
+            progress = maxProgress;    
         }
     }
 }

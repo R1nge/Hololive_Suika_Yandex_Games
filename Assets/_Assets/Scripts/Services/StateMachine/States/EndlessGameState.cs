@@ -1,7 +1,9 @@
 ﻿using _Assets.Scripts.Gameplay;
 using _Assets.Scripts.Services.Factories;
+using _Assets.Scripts.Services.Quests;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using Cysharp.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 using YG;
 
@@ -15,9 +17,10 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly PlayerFactory _playerFactory;
         private readonly PlayerInput _playerInput;
         private readonly GameModeService _gameModeService;
+        private readonly InGameTimeCounter inGameTimeCounter;
         private readonly ResetService _resetService;
 
-        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory,PlayerInput playerInput, GameModeService gameModeService)
+        public EndlessGameState(GameStateMachine stateMachine, UIStateMachine uiStateMachine, ContainerFactory containerFactory, PlayerFactory playerFactory,PlayerInput playerInput, GameModeService gameModeService, InGameTimeCounter inGameTimeCounter)
         {
             _stateMachine = stateMachine;
             _uiStateMachine = uiStateMachine;
@@ -25,10 +28,12 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _playerFactory = playerFactory;
             _playerInput = playerInput;
             _gameModeService = gameModeService;
+            this.inGameTimeCounter = inGameTimeCounter;
         }
 
         public async UniTask Enter()
         {
+            inGameTimeCounter.Enable();
             _playerInput.Disable();
             _gameModeService.SetGameMode(GameModeService.GameMode.Endless);
             await _uiStateMachine.SwitchStateUI(UIStateType.Endless);
@@ -41,6 +46,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
         public async UniTask Exit()
         {
+            inGameTimeCounter.Disable();
         }
     }
 }

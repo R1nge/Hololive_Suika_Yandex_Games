@@ -27,10 +27,11 @@ namespace _Assets.Scripts.Services.StateMachine
         private readonly GameModeService _gameModeService;
         private readonly Wallet _wallet;
         private readonly QuestsService _questsService;
+        private readonly InGameTimeCounter inGameTimeCounter;
 
         private GameStatesFactory(UIStateMachine uiStateMachine, YandexService yandexService,
             ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory,
-            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService, TimeRushTimer timeRushTimer, GameModeService gameModeService, Wallet wallet, QuestsService questsService)
+            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService, TimeRushTimer timeRushTimer, GameModeService gameModeService, Wallet wallet, QuestsService questsService, InGameTimeCounter inGameTimeCounter)
         {
             _uiStateMachine = uiStateMachine;
             _yandexService = yandexService;
@@ -47,6 +48,7 @@ namespace _Assets.Scripts.Services.StateMachine
             _gameModeService = gameModeService;
             _wallet = wallet;
             _questsService = questsService;
+            this.inGameTimeCounter = inGameTimeCounter;
         }
 
         public IAsyncState CreateAsyncState(GameStateType gameStateType, GameStateMachine gameStateMachine)
@@ -56,17 +58,17 @@ namespace _Assets.Scripts.Services.StateMachine
                 case GameStateType.Init:
                     return new InitState(gameStateMachine, _uiStateMachine, _yandexService, _playerInput, _audioService, _localizationService, _continueService, _wallet);
                 case GameStateType.Endless:
-                    return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _gameModeService);
+                    return new EndlessGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _gameModeService, inGameTimeCounter);
                 case GameStateType.GameOverEndless:
                     return new GameOverEndlessGameState(_yandexService, _uiStateMachine, _scoreService, _resetService, _continueService);
                 case GameStateType.ContinueEndless:
-                    return new ContinueEndless(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService);
+                    return new ContinueEndless(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService, inGameTimeCounter);
                 case GameStateType.TimeRush:
-                    return new TimeRushGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _timeRushTimer, _gameModeService);
+                    return new TimeRushGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _timeRushTimer, _gameModeService, inGameTimeCounter);
                 case GameStateType.GameOverTimeRush:
                     return new GameOverTimeRushGameState(_yandexService, _uiStateMachine, _scoreService, _resetService, _continueService, _questsService);
                 case GameStateType.ContinueTimeRush:
-                    return new ContinueTimeRush(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService, _timeRushTimer);
+                    return new ContinueTimeRush(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService, _timeRushTimer, inGameTimeCounter);
                 case GameStateType.Continue:
                     return new Continue(_gameModeService, gameStateMachine);
                 default:

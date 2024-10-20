@@ -18,8 +18,8 @@ namespace _Assets.Scripts.Services.Quests
         {
             title.text = _questsService.GetQuestProgress(questType).title;
             description.text = _questsService.GetQuestProgress(questType).description;
-            progress.value = _questsService.GetQuestProgress(questType).progress;
             progress.maxValue = _questsService.GetQuestProgress(questType).maxProgress;
+            progress.value = _questsService.GetQuestProgress(questType).progress;
         }
     }
 }
