@@ -1,19 +1,45 @@
 {
-    "idSave": 819,
+    "idSave": 930,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
     "highScoreEndless": 82611,
     "highScoreTimeRush": 250275,
-    "musicVolume": 0.37125885486602785,
+    "musicVolume": 0.0052558365277945999,
     "vfxVolume": 0.06728348881006241,
     "continueData": {
-        "SuikasContinueData": [],
-        "CurrentSuikaIndex": 0,
-        "NextSuikaIndex": 0,
-        "Score": 0,
-        "TimeRushTime": 0.0,
-        "GameMode": 0
+        "SuikasContinueData": [
+            {
+                "Index": 1,
+                "PositionX": 2.2697339057922365,
+                "PositionY": -7.253500938415527
+            },
+            {
+                "Index": 2,
+                "PositionX": 3.661162853240967,
+                "PositionY": -7.1255011558532719
+            },
+            {
+                "Index": 2,
+                "PositionX": -1.0514401197433472,
+                "PositionY": -7.1255011558532719
+            },
+            {
+                "Index": 5,
+                "PositionX": -2.7190780639648439,
+                "PositionY": -6.7415008544921879
+            },
+            {
+                "Index": 5,
+                "PositionX": 0.9430955648422241,
+                "PositionY": -6.7415008544921879
+            }
+        ],
+        "CurrentSuikaIndex": 2,
+        "NextSuikaIndex": 3,
+        "Score": 225,
+        "TimeRushTime": 180.0,
+        "GameMode": 1
     },
     "coins": 0
 }

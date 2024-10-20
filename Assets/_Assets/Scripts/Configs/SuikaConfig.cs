@@ -128,6 +128,8 @@ namespace _Assets.Scripts.Configs
             public AssetReferenceAudioClip Sound;
             public AssetReferenceSprite SpriteUnlocked;
             public AssetReferenceSprite SpriteLocked;
+            public string Name;
+            public string Description;
         }
     }
 }
