@@ -13,6 +13,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
     public class SkinListDescriptionView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI nameText, descriptionText;
+        [SerializeField] private Image previewImage;
         [SerializeField] private Button open;
         private readonly List<RaycastResult> _results = new(10);
         private int _index = -1;
@@ -34,6 +35,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             _index = -1;
             nameText.text = string.Empty;
             descriptionText.text = string.Empty;
+            previewImage.color = Color.clear;
         }
 
         private void Update()
@@ -44,7 +46,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             }
         }
 
-        private void Raycast()
+        private async void Raycast()
         {
             PointerEventData pointerEventData = new PointerEventData(EventSystem.current)
             {
@@ -73,15 +75,17 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
                     _index = skinView.SkinIndex;
                     var data = _configProvider.SuikaConfig.GetSkin(skinView.SkinIndex);
-                    Set(data.Name.GetLocalizedString(), data.Description.GetLocalizedString());
+                    Set(data.Name.GetLocalizedString(), data.Description.GetLocalizedString(), await _configProvider.SuikaConfig.GetSprite(skinView.SkinIndex));
                 }
             }
         }
 
-        private void Set(string name, string description)
+        private void Set(string name, string description, Sprite sprite)
         {
             nameText.text = name;
             descriptionText.text = description;
+            previewImage.sprite = sprite;
+            previewImage.color = Color.white;
         }
 
         private void OnDestroy()
