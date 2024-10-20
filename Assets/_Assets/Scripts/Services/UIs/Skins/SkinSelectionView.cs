@@ -29,23 +29,12 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
         public async UniTask Init()
         {
-            float scaleFactor = 0.75f;
-            float totalScale = 0f;
-            float[] scales = new float[skins.Length];
-
-            // First, calculate the total scale sum to determine the normalized angle step
-            for (int i = 0; i < skins.Length; i++)
-            {
-                scales[i] = scaleFactor * (1f + i * 0.5f);
-                totalScale += scales[i];
-            }
-
             float currentAngle = 0f;
+            float angleStep = 360f / (skins.Length - 1);
 
-            for (int i = 0; i < skins.Length; i++)
+            for (int i = 0; i < skins.Length - 1; i++)
             {
-                float angleStep = (360f / skins.Length) + scales[i];
-                skins[i].transform.localScale = new Vector3(scales[i], scales[i], 1f);
+                skins[i].transform.localScale = Vector3.one * 3f;
 
                 float angle = currentAngle * Mathf.Deg2Rad;
                 float x = Mathf.Cos(angle) * radius;
@@ -54,12 +43,10 @@ namespace _Assets.Scripts.Services.UIs.Skins
                 skins[i].transform.localPosition = new Vector3(x, y, skins[i].transform.localPosition.z);
 
                 currentAngle += angleStep;
-
-                if (i == skins.Length - 1)
-                {
-                    skins[i].transform.localPosition = new Vector3(0, 0, skins[i].transform.localPosition.z);
-                }
             }
+
+            skins[^1].transform.localPosition = new Vector3(0, 0, skins[^1].transform.localPosition.z);
+            skins[^1].transform.localScale = Vector3.one * 5f;
 
             var initTasks = new List<UniTask>();
             for (int i = 0; i < _skinService.SelectedSkinLength; i++)
@@ -119,7 +106,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
             {
                 result = _results[1];
             }
-            
+
             if (result.gameObject.layer == LayerMask.NameToLayer("SkinSelection"))
             {
                 Debug.Log("Pointer is over " + gameObject.name);
@@ -161,7 +148,8 @@ namespace _Assets.Scripts.Services.UIs.Skins
             {
                 Debug.Log("Pointer is over " + gameObject.name);
                 var skinView = result.gameObject.GetComponent<SkinView>();
-                if (skinView != null && skinView.SkinIndex != _skinService.FirstSkinIndex && !_skinService.Selected(skinView.SkinIndex))
+                if (skinView != null && skinView.SkinIndex != _skinService.FirstSkinIndex &&
+                    !_skinService.Selected(skinView.SkinIndex))
                 {
                     found = true;
                     if (_skinService.FirstSkinIndex == -1)
