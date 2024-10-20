@@ -2,6 +2,7 @@
 using _Assets.Scripts.Gameplay;
 using _Assets.Scripts.Services.Audio;
 using _Assets.Scripts.Services.Factories;
+using _Assets.Scripts.Services.Quests;
 using _Assets.Scripts.Services.StateMachine.States;
 using _Assets.Scripts.Services.UIs.StateMachine;
 using _Assets.Scripts.Services.Wallets;
@@ -25,10 +26,11 @@ namespace _Assets.Scripts.Services.StateMachine
         private readonly TimeRushTimer _timeRushTimer;
         private readonly GameModeService _gameModeService;
         private readonly Wallet _wallet;
+        private readonly QuestsService _questsService;
 
         private GameStatesFactory(UIStateMachine uiStateMachine, YandexService yandexService,
             ContainerFactory containerFactory, PlayerFactory playerFactory, SuikasFactory suikasFactory,
-            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService, TimeRushTimer timeRushTimer, GameModeService gameModeService, Wallet wallet)
+            PlayerInput playerInput, ResetService resetService, AudioService audioService, LocalizationService localizationService, ScoreService scoreService, ContinueService continueService, TimeRushTimer timeRushTimer, GameModeService gameModeService, Wallet wallet, QuestsService questsService)
         {
             _uiStateMachine = uiStateMachine;
             _yandexService = yandexService;
@@ -44,6 +46,7 @@ namespace _Assets.Scripts.Services.StateMachine
             _timeRushTimer = timeRushTimer;
             _gameModeService = gameModeService;
             _wallet = wallet;
+            _questsService = questsService;
         }
 
         public IAsyncState CreateAsyncState(GameStateType gameStateType, GameStateMachine gameStateMachine)
@@ -61,7 +64,7 @@ namespace _Assets.Scripts.Services.StateMachine
                 case GameStateType.TimeRush:
                     return new TimeRushGameState(gameStateMachine, _uiStateMachine, _containerFactory, _playerFactory, _playerInput, _timeRushTimer, _gameModeService);
                 case GameStateType.GameOverTimeRush:
-                    return new GameOverTimeRushGameState(_yandexService, _uiStateMachine, _scoreService, _resetService, _continueService);
+                    return new GameOverTimeRushGameState(_yandexService, _uiStateMachine, _scoreService, _resetService, _continueService, _questsService);
                 case GameStateType.ContinueTimeRush:
                     return new ContinueTimeRush(_uiStateMachine, _containerFactory, _playerFactory, _playerInput, _continueService, _timeRushTimer);
                 case GameStateType.Continue:

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8304366444469896982}
   - component: {fileID: 7713444256785749341}
   - component: {fileID: 4024468410440143804}
+  - component: {fileID: 6329245261530054549}
   m_Layer: 0
   m_Name: RootInstaller
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   configProvider: {fileID: 4024468410440143804}
+  questsService: {fileID: 6329245261530054549}
 --- !u!114 &4024468410440143804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,3 +68,23 @@ MonoBehaviour:
   gameConfig: {fileID: 11400000, guid: e16e7f2ddf5bf664fa66f87a020d49f2, type: 2}
   suikaConfig: {fileID: 11400000, guid: 36ee2da75953b0142b08b4b3bc697cdd, type: 2}
   soundsConfig: {fileID: 11400000, guid: f58c94e0c8ab58340b4bc802c4d6c0fb, type: 2}
+--- !u!114 &6329245261530054549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829775663503394278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946475a2a0604685a6edc9b7b45b189c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - title: Play time rush once
+    description: Play time rush once description
+    progress: 0
+    maxProgress: 1
+    progressData:
+      questType: 1
+      isCompleted: 0
