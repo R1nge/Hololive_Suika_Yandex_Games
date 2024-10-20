@@ -18,6 +18,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
         private readonly List<RaycastResult> _results = new(10);
         private int _index = -1;
         private bool _init;
+        private SkinView _lastSkinView;
         [Inject] private ConfigProvider _configProvider;
         [Inject] private SkinService _skinService;
 
@@ -56,6 +57,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
 
             EventSystem.current.RaycastAll(pointerEventData, _results);
 
+
             if (_results.Count == 0)
             {
                 return;
@@ -73,9 +75,18 @@ namespace _Assets.Scripts.Services.UIs.Skins
                         return;
                     }
 
+                    if (_lastSkinView != null)
+                    {
+                        _lastSkinView.UnPreview();
+                    }
+
+                    _lastSkinView = skinView;
+
                     _index = skinView.SkinIndex;
                     var data = _configProvider.SuikaConfig.GetSkin(skinView.SkinIndex);
-                    Set(data.Name.GetLocalizedString(), data.Description.GetLocalizedString(), await _configProvider.SuikaConfig.GetSprite(skinView.SkinIndex));
+                    Set(data.Name.GetLocalizedString(), data.Description.GetLocalizedString(),
+                        await _configProvider.SuikaConfig.GetSprite(skinView.SkinIndex));
+                    skinView.Preview();
                 }
             }
         }

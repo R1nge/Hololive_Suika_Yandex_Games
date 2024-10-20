@@ -9,6 +9,7 @@ namespace _Assets.Scripts.Services.UIs.Skins
     {
         [SerializeField] private Image skinImage;
         [SerializeField] private GameObject selection;
+        [SerializeField] private Outline outline;
         [Inject] private SkinService _skinService;
         private int _skinIndex;
         public int SkinIndex => _skinIndex;
@@ -22,11 +23,32 @@ namespace _Assets.Scripts.Services.UIs.Skins
         {
             skinImage.sprite = sprite;
             _skinIndex = skinIndex;
+            outline.enabled = false;
         }
 
         public void Select()
         {
             selection.SetActive(_skinService.Selected(_skinIndex));
+        }
+
+        public void Preview()
+        {
+            if (outline.enabled)
+            {
+                return;
+            }
+
+            outline.enabled = true;
+        }
+
+        public void UnPreview()
+        {
+            if (!outline.enabled)
+            {
+                return;
+            }
+
+            outline.enabled = false;
         }
     }
 }
