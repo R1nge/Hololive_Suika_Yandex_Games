@@ -30,23 +30,14 @@ namespace _Assets.Scripts.Services.Quests
 
         public void ResetQuests()
         {
-            var timeFromLastLogin = (DateTime.Now.ToUniversalTime() - YandexGame.savesData.lastLogin.ToUniversalTime());
+            var timeFromLastLogin = YandexGame.savesData.lastLogin;
+            var currentTime = DateTime.Now.ToUniversalTime();
             //if last login is more than 24 hours  or less than 1 day if it's midnight of the next day
-            if (timeFromLastLogin > timeFromLastLogin.Add(TimeSpan.FromDays(1)) || (YandexGame.savesData.lastLogin.Day != DateTime.Now.Day))
+            if (currentTime > timeFromLastLogin.Add(TimeSpan.FromDays(1)) || timeFromLastLogin.Day != DateTime.Now.Day)
             {
                 foreach (var quest in quests)
                 {
                     quest.Reset();
-                }
-                
-                Save();
-            }
-
-            if (timeFromLastLogin > timeFromLastLogin.Add(TimeSpan.FromMinutes(5)))
-            {
-                foreach (var quest in quests)
-                {
-                   quest.Reset(); 
                 }
                 
                 Save();
