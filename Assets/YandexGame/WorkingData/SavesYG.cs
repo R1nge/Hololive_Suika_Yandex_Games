@@ -1,4 +1,5 @@
 ﻿
+using System;
 using _Assets.Scripts.Services;
 using _Assets.Scripts.Services.Quests;
 
@@ -25,6 +26,7 @@ namespace YG
         public int coins;
 
         public Quest[] quests;
+        public DateTime lastLogin;
         
         public SavesYG()
         {

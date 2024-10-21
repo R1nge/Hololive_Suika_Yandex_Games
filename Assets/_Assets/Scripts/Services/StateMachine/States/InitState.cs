@@ -43,9 +43,13 @@ namespace _Assets.Scripts.Services.StateMachine.States
             _continueService.Load();
             _wallet.Load();
             questsService.Load();
+            questsService.ResetQuests();
             await _localizationService.InitYandex(YandexGame.lang);
             await _uiStateMachine.SwitchStateUI(UIStateType.MainMenu);
             YandexMetrica.Send("id");
+            
+            YandexGame.savesData.lastLogin = System.DateTime.Now.ToUniversalTime();
+            YandexGame.SaveProgress();
         }
 
         public async UniTask Exit()

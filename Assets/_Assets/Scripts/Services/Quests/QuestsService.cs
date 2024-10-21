@@ -28,7 +28,32 @@ namespace _Assets.Scripts.Services.Quests
             Save();
         }
 
-        public void ResetQuest(QuestType questType)
+        public void ResetQuests()
+        {
+            var timeFromLastLogin = (DateTime.Now.ToUniversalTime() - YandexGame.savesData.lastLogin.ToUniversalTime());
+            //if last login is more than 24 hours  or less than 1 day if it's midnight of the next day
+            if (timeFromLastLogin > timeFromLastLogin.Add(TimeSpan.FromDays(1)) || (YandexGame.savesData.lastLogin.Day != DateTime.Now.Day))
+            {
+                foreach (var quest in quests)
+                {
+                    quest.Reset();
+                }
+                
+                Save();
+            }
+
+            if (timeFromLastLogin > timeFromLastLogin.Add(TimeSpan.FromMinutes(5)))
+            {
+                foreach (var quest in quests)
+                {
+                   quest.Reset(); 
+                }
+                
+                Save();
+            }
+        }
+
+        private void ResetQuest(QuestType questType)
         {
             var quest = quests.Where(quest => quest.progressData.questType == questType).Select(quest => quest).First();
             quest.Reset();
@@ -43,7 +68,7 @@ namespace _Assets.Scripts.Services.Quests
 
         public void Load()
         {
-            if (YandexGame.savesData.quests != null)
+            if (YandexGame.savesData.quests != null && YandexGame.savesData.quests.Length > 0)
             {
                 quests = YandexGame.savesData.quests;
             }
