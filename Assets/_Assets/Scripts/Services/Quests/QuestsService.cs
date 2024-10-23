@@ -32,16 +32,17 @@ namespace _Assets.Scripts.Services.Quests
         {
             var timeFromLastLogin = YandexGame.savesData.lastLogin;
             var currentTime = DateTime.Now.ToUniversalTime();
-            //if last login is more than 24 hours  or less than 1 day if it's midnight of the next day
-            if (currentTime > timeFromLastLogin.Add(TimeSpan.FromDays(1)) || timeFromLastLogin.Day != DateTime.Now.Day)
+
+            for (int i = 0; i < quests.Length; i++)
             {
-                foreach (var quest in quests)
+                var completeDate = quests[i].completeDate;
+                if (currentTime >= completeDate.AddDays(1))
                 {
-                    quest.Reset();
+                    ResetQuest(quests[i].progressData.questType);
                 }
-                
-                Save();
             }
+            
+            Save();
         }
 
         private void ResetQuest(QuestType questType)
@@ -89,25 +90,30 @@ namespace _Assets.Scripts.Services.Quests
         public string description;
         public int progress, maxProgress;
         public QuestProgressData progressData;
+        public DateTime completeDate;
 
-        public Quest(string title, string description, int progress, int maxProgress, QuestProgressData progressData)
+        public Quest(string title, string description, int progress, int maxProgress, QuestProgressData progressData, DateTime completeDate)
         {
             this.title = title;
             this.description = description;
             this.progress = progress;
             this.maxProgress = maxProgress;
             this.progressData = progressData;
+            this.completeDate = completeDate;
         }
 
         public void Reset()
         {
             progressData.isCompleted = false;
+            progress = 0;
+            completeDate = DateTime.MinValue.ToUniversalTime();
         }
 
         public void Complete()
         {
             progressData.isCompleted = true;
             progress = maxProgress;
+            completeDate = DateTime.Now.ToUniversalTime();
         }
     }
 }

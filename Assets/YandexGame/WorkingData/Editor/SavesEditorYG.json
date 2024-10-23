@@ -1,61 +1,59 @@
 {
-    "idSave": 3063,
-    "isFirstSession": false,
-    "language": "ru",
-    "promptDone": false,
-    "highScoreEndless": 73557,
-    "highScoreTimeRush": 0,
-    "musicVolume": 0.10000000149011612,
-    "vfxVolume": 0.10000000149011612,
-    "continueData": {
-        "SuikasContinueData": [],
-        "CurrentSuikaIndex": 0,
-        "NextSuikaIndex": 0,
-        "Score": 0,
-        "TimeRushTime": 0.0,
-        "GameMode": 0
+  "idSave": 1426,
+  "isFirstSession": false,
+  "language": "ru",
+  "promptDone": false,
+  "highScoreEndless": 9,
+  "highScoreTimeRush": 0,
+  "musicVolume": 0.1,
+  "vfxVolume": 0.1,
+  "continueData": null,
+  "coins": 0,
+  "quests": [
+    {
+      "title": "Play time rush once",
+      "description": "Play time rush once description",
+      "progress": 0,
+      "maxProgress": 1,
+      "progressData": {
+        "questType": 1,
+        "isCompleted": false
+      },
+      "completeDate": "0001-01-01T00:00:00Z"
     },
-    "coins": 0,
-    "quests": [
-        {
-            "title": "Play time rush once",
-            "description": "Play time rush once description",
-            "progress": 0,
-            "maxProgress": 1,
-            "progressData": {
-                "questType": 1,
-                "isCompleted": false
-            }
-        },
-        {
-            "title": "Play endless once",
-            "description": "Play endless once description",
-            "progress": 1,
-            "maxProgress": 1,
-            "progressData": {
-                "questType": 2,
-                "isCompleted": true
-            }
-        },
-        {
-            "title": "Daily streak",
-            "description": "Daily streak description",
-            "progress": 0,
-            "maxProgress": 7,
-            "progressData": {
-                "questType": 3,
-                "isCompleted": false
-            }
-        },
-        {
-            "title": "Play 20 minutes",
-            "description": "Continue playing for 20 minutes",
-            "progress": 0,
-            "maxProgress": 20,
-            "progressData": {
-                "questType": 4,
-                "isCompleted": false
-            }
-        }
-    ]
+    {
+      "title": "Play endless once",
+      "description": "Play endless once description",
+      "progress": 0,
+      "maxProgress": 1,
+      "progressData": {
+        "questType": 2,
+        "isCompleted": false
+      },
+      "completeDate": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Daily streak",
+      "description": "Daily streak description",
+      "progress": 0,
+      "maxProgress": 7,
+      "progressData": {
+        "questType": 3,
+        "isCompleted": false
+      },
+      "completeDate": "0001-01-01T00:00:00Z"
+    },
+    {
+      "title": "Play 20 minutes",
+      "description": "Continue playing for 20 minutes",
+      "progress": 0,
+      "maxProgress": 20,
+      "progressData": {
+        "questType": 4,
+        "isCompleted": false
+      },
+      "completeDate": "0001-01-01T00:00:00Z"
+    }
+  ],
+  "lastLogin": "2024-10-23T04:44:30.9866218Z"
 }

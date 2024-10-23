@@ -1,2 +1,2 @@
 Build path: E:/UnityProjects/Hololive_Suika_Yandex_Games/Build/WebGL
-Build number: 94
+Build number: 98
