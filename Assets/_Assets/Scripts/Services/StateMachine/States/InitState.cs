@@ -3,6 +3,7 @@ using _Assets.Scripts.Services.UIs.StateMachine;
 using _Assets.Scripts.Services.Wallets;
 using _Assets.Scripts.Services.Yandex;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 using YG;
 
 namespace _Assets.Scripts.Services.StateMachine.States
@@ -33,6 +34,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
         public async UniTask Enter()
         {
+            Application.targetFrameRate = 90;
             await _uiStateMachine.SwitchStateUI(UIStateType.Loading);
             _audioService.Init();
             _playerInput.Init();
