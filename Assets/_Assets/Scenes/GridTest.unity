@@ -316,6 +316,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &915456776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4398930092681052138, guid: 83fe636b03c33e24fa64526b08552666, type: 3}
+  m_PrefabInstance: {fileID: 707186010845325685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1165663851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165663853}
+  - component: {fileID: 1165663852}
+  m_Layer: 0
+  m_Name: HouseIntaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1165663852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165663851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896f14ad9ee240acbc0e08e4f69c4635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects:
+  - {fileID: 915456776}
+  - {fileID: 1593053467}
+--- !u!4 &1165663853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165663851}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1593053467
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +495,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7192562547705906936, guid: 83fe636b03c33e24fa64526b08552666, type: 3}
   m_PrefabInstance: {fileID: 707186010845325685}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 915456776}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a987262cad04461cbd04a6a17e20078e, type: 3}
@@ -533,6 +588,50 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2101469636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2101469638}
+  - component: {fileID: 2101469637}
+  m_Layer: 0
+  m_Name: InteractableController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2101469637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101469636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f06fae4e2a44bf901c227c507f6daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2101469638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101469636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -679,11 +778,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7192562547705906936, guid: 83fe636b03c33e24fa64526b08552666, type: 3}
       propertyPath: width
-      value: 24
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7192562547705906936, guid: 83fe636b03c33e24fa64526b08552666, type: 3}
       propertyPath: height
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7192562547705906936, guid: 83fe636b03c33e24fa64526b08552666, type: 3}
       propertyPath: astarPath
@@ -698,9 +797,11 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1165663853}
   - {fileID: 2128828338}
   - {fileID: 2068673863}
   - {fileID: 237553135}
   - {fileID: 856035024}
   - {fileID: 707186010845325685}
   - {fileID: 1593053468}
+  - {fileID: 2101469638}

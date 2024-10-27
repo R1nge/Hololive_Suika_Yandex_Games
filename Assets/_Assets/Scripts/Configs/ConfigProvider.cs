@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Assets.Scripts.Houses;
+using UnityEngine;
 
 namespace _Assets.Scripts.Configs
 {
@@ -8,9 +9,11 @@ namespace _Assets.Scripts.Configs
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private SuikaConfig suikaConfig;
         [SerializeField] private SoundsConfig soundsConfig;
+        [SerializeField] private HouseItemsConfig houseItemsConfig;
         public UIConfig UIConfig => uiConfig;
         public GameConfig GameConfig => gameConfig;
         public SuikaConfig SuikaConfig => suikaConfig;
         public SoundsConfig SoundsConfig => soundsConfig;
+        public HouseItemsConfig HouseItemsConfig => houseItemsConfig;
     }
 }

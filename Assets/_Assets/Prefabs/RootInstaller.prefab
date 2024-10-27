@@ -66,3 +66,4 @@ MonoBehaviour:
   gameConfig: {fileID: 11400000, guid: e16e7f2ddf5bf664fa66f87a020d49f2, type: 2}
   suikaConfig: {fileID: 11400000, guid: 36ee2da75953b0142b08b4b3bc697cdd, type: 2}
   soundsConfig: {fileID: 11400000, guid: f58c94e0c8ab58340b4bc802c4d6c0fb, type: 2}
+  houseItemsConfig: {fileID: 11400000, guid: d27eac2ede79c434b964b7f5dc7247af, type: 2}
