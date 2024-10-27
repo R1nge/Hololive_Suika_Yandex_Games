@@ -25,14 +25,16 @@ namespace _Assets.Scripts.Houses
                         type = CellType.Door;
                     }
 
-                    cells[x, y] = _gridCellFactory.Create(x, y, type, transform);
-                    cells[x, y].gameObject.name = $"Cell_{x}_{y}";
-                    cells[x, y].transform.position = new Vector3(x - width / 2, y - height / 2, 0);
-                    cells[x, y].Init(x - width / 2, y - height / 2, CellType.Empty);
+                    var selectedCell = cells[x, y];
+                    selectedCell = _gridCellFactory.Create(x, y, type, transform);
+                    selectedCell.gameObject.name = $"Cell_{x}_{y}";
+                    selectedCell.transform.position = new Vector3(x - width / 2, y - height / 2, 0);
+                    var data = selectedCell.Data;
+                    data.X = x;
+                    data.Y = y;
+                    selectedCell.Init(data);
                 }
             }
-
-            //transform.position = new Vector3((-width + 1) / 2f, (-height + 1) / 2f, 0);
         }
 
         private void Start()
