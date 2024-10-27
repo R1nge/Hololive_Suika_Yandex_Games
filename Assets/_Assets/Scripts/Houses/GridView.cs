@@ -28,10 +28,12 @@ namespace _Assets.Scripts.Houses
                     var selectedCell = cells[x, y];
                     selectedCell = _gridCellFactory.Create(x, y, type, transform);
                     selectedCell.gameObject.name = $"Cell_{x}_{y}";
-                    selectedCell.transform.position = new Vector3(x - width / 2, y - height / 2, 0);
+                    var xPos = x - width / 2;
+                    var yPos = y - height / 2;
+                    selectedCell.transform.position = new Vector3(xPos, yPos, 0);
                     var data = selectedCell.Data;
-                    data.X = x;
-                    data.Y = y;
+                    data.X = xPos;
+                    data.Y = yPos;
                     selectedCell.Init(data);
                 }
             }
