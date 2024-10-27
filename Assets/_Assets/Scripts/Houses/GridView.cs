@@ -18,12 +18,12 @@ namespace _Assets.Scripts.Houses
                 {
                     cells[x, y] = Instantiate(cellViewPrefab, transform);
                     cells[x, y].gameObject.name = $"Cell_{x}_{y}";
-                    cells[x, y].transform.position = new Vector3(x, y, 0);
-                    cells[x, y].Init(x, y, CellType.Empty);
+                    cells[x, y].transform.position = new Vector3(x - width / 2, y - height / 2, 0);
+                    cells[x, y].Init(x - width / 2, y - height / 2, CellType.Empty);
                 }
             }
 
-            transform.position = new Vector3((-width + 1) / 2f, (-height + 1) / 2f, 0);
+            //transform.position = new Vector3((-width + 1) / 2f, (-height + 1) / 2f, 0);
         }
 
         public GridCellView GetCellFromMousePosition()
