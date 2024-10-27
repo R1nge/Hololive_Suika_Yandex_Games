@@ -13,5 +13,9 @@ namespace _Assets.Scripts.Houses
             _y = y;
             _cellType = cellType;
         }
+        
+        public int X => _x;
+        public int Y => _y;
+        public CellType CellType => _cellType;
     }
 }

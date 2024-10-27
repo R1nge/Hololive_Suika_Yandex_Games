@@ -22,8 +22,26 @@ namespace _Assets.Scripts.Houses
                     cells[x, y].Init(x, y, CellType.Empty);
                 }
             }
-            
+
             transform.position = new Vector3((-width + 1) / 2f, (-height + 1) / 2f, 0);
+        }
+
+        public GridCellView GetCellFromMousePosition()
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            
+            if (hit.collider == null)
+            {
+                return null;
+            }
+
+            if (hit.transform.TryGetComponent(out GridCellView cell))
+            {
+                return cell;
+            }
+
+            return null;
         }
     }
 }
