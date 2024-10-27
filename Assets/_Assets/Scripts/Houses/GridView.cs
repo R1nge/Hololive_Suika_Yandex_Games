@@ -1,4 +1,5 @@
 ﻿using System;
+using Pathfinding;
 using UnityEngine;
 
 namespace _Assets.Scripts.Houses
@@ -8,7 +9,8 @@ namespace _Assets.Scripts.Houses
         [SerializeField] private GridCellView cellViewPrefab;
         [SerializeField] private int width, height;
         [SerializeField] private GridCellView[,] cells;
-
+        [SerializeField] private AstarPath astarPath;
+        
         private void Awake()
         {
             cells = new GridCellView[width, height];
@@ -24,6 +26,18 @@ namespace _Assets.Scripts.Houses
             }
 
             //transform.position = new Vector3((-width + 1) / 2f, (-height + 1) / 2f, 0);
+        }
+
+        private void Start()
+        {
+            var data = AstarPath.active.data;
+            var newGrid = data.AddGraph(typeof(GridGraph)) as GridGraph;
+            
+            newGrid.is2D = true;
+            newGrid.collision.use2D = true;
+            newGrid.center = new Vector3(-0.5f, -0.5f, 0);
+            newGrid.SetDimensions(width, height, 1);
+            AstarPath.active.Scan();
         }
 
         public GridCellView GetCellFromMousePosition()
