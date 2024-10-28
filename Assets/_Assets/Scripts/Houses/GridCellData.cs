@@ -10,15 +10,13 @@ namespace _Assets.Scripts.Houses
         public int Y;
         public CellType CellType;
         public bool IsMovable;
-        public Vector2Int InteractionOffset;
 
-        public GridCellData(int x, int y, CellType cellType, bool isMovable, Vector2Int interactionOffset)
+        public GridCellData(int x, int y, CellType cellType, bool isMovable)
         {
             X = x;
             Y = y;
             CellType = cellType;
             IsMovable = isMovable;
-            InteractionOffset = interactionOffset;
         }
     }
 }

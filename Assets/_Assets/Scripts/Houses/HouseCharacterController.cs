@@ -1,4 +1,5 @@
-﻿using Pathfinding;
+﻿using System.Linq;
+using Pathfinding;
 using UnityEngine;
 
 namespace _Assets.Scripts.Houses
@@ -25,9 +26,16 @@ namespace _Assets.Scripts.Houses
 
         private void MoveTo(GridCellView cell)
         {
-            aiPath.destination = new Vector3(cell.Data.X + cell.Data.InteractionOffset.x,
-                cell.Data.Y + cell.Data.InteractionOffset.y, 0);
-            Debug.Log(cell.Data.X + " " + cell.Data.Y);
+            var closestPosition = cell.ClosePositions
+                .OrderBy(transform1 => Vector2.Distance(transform.position, transform1.position)).FirstOrDefault();
+            if (closestPosition != null)
+            {
+                aiPath.destination = closestPosition.position;
+            }
+            else
+            {
+                aiPath.destination = new Vector3(cell.Data.X, cell.Data.Y);
+            }
         }
     }
 }

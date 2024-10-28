@@ -6,7 +6,10 @@ namespace _Assets.Scripts.Houses
     {
         [SerializeField]
         private GridCellData data;
-        public GridCellData Data => data; 
+        public GridCellData Data => data;
+
+        [SerializeField] private Transform[] closePositions;
+        public Transform[] ClosePositions => closePositions;
         
         public void Init(GridCellData data)
         {

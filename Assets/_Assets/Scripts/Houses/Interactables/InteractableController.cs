@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Pathfinding;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ namespace _Assets.Scripts.Houses.Interactables
                         if (hit.transform.TryGetComponent(out GridCellView cell))
                         {
                             _targetTransform = cell.transform;
+
                             if (Vector2.Distance(character.position, cell.transform.position) > 1f)
                             {
                                 return;
@@ -35,11 +37,11 @@ namespace _Assets.Scripts.Houses.Interactables
                 }
             }
 
-            if (!float.IsPositiveInfinity(character.remainingDistance) && character.remainingDistance < 1f)
+            if (!float.IsPositiveInfinity(character.remainingDistance) && character.remainingDistance < 0.01f)
             {
                 if (_target == null || _targetTransform == null) return;
 
-                if (Vector2.Distance(character.position, _targetTransform.position) > 1f)
+                if (Vector2.Distance(character.position, _targetTransform.position) > 1.05f)
                 {
                     return;
                 }

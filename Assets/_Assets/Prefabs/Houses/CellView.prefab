@@ -51,6 +51,7 @@ MonoBehaviour:
     Y: 0
     CellType: 0
     IsMovable: 0
+  closePositions: []
 --- !u!61 &8493472504869440804
 BoxCollider2D:
   m_ObjectHideFlags: 0
