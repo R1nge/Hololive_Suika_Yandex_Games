@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 1593053470}
   - component: {fileID: 1593053469}
   - component: {fileID: 1593053473}
+  - component: {fileID: 1593053474}
   - component: {fileID: 1593053472}
   m_Layer: 0
   m_Name: HouseCharacter
@@ -527,6 +528,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aiPath: {fileID: 1593053470}
   animator: {fileID: 1593053472}
+--- !u!114 &1593053474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593053467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6978d4f1a7814a08851a16dbfa6fc4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiPath: {fileID: 1593053470}
+  spriteRenderer: {fileID: 735916999}
 --- !u!114 &2029335128 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7192562547705906936, guid: 83fe636b03c33e24fa64526b08552666, type: 3}
