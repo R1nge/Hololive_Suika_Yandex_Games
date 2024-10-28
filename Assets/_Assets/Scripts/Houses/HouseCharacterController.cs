@@ -1,5 +1,4 @@
-﻿using System;
-using Pathfinding;
+﻿using Pathfinding;
 using UnityEngine;
 
 namespace _Assets.Scripts.Houses
@@ -26,9 +25,9 @@ namespace _Assets.Scripts.Houses
 
         private void MoveTo(GridCellView cell)
         {
-            aiPath.destination = new Vector3(cell.Data.X, cell.Data.Y, 0);
+            aiPath.destination = new Vector3(cell.Data.X + cell.Data.InteractionOffset.x,
+                cell.Data.Y + cell.Data.InteractionOffset.y, 0);
             Debug.Log(cell.Data.X + " " + cell.Data.Y);
-            
         }
     }
 }

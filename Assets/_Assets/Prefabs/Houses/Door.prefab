@@ -52,6 +52,7 @@ MonoBehaviour:
     Y: 0
     CellType: 1
     IsMovable: 0
+    InteractionOffset: {x: 0, y: 1}
 --- !u!61 &8493472504869440804
 BoxCollider2D:
   m_ObjectHideFlags: 0
