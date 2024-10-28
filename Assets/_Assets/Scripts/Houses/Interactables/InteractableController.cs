@@ -26,7 +26,7 @@ namespace _Assets.Scripts.Houses.Interactables
                         {
                             _targetTransform = cell.transform;
 
-                            if (Vector2.Distance(character.position, cell.transform.position) > 1f)
+                            if (Vector2.Distance(character.position, cell.transform.position) > 1.05f)
                             {
                                 return;
                             }
