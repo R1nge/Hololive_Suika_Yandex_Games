@@ -12,12 +12,14 @@ namespace _Assets.Scripts.Houses
 
         private void Update()
         {
-           UpdateAnimation();
+            UpdateAnimation();
         }
 
         private void UpdateAnimation()
         {
-            if (aiPath.reachedDestination)
+            if (aiPath.reachedDestination || (float.IsInfinity(aiPath.destination.x) ||
+                                              float.IsInfinity(aiPath.destination.y) ||
+                                              float.IsInfinity(aiPath.destination.z)))
             {
                 animator.SetBool(Running, false);
             }
