@@ -439,7 +439,7 @@ MonoBehaviour:
   radius: 0.5
   height: 2
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 2
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -540,7 +540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6978d4f1a7814a08851a16dbfa6fc4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiPath: {fileID: 1593053470}
   spriteRenderer: {fileID: 735916999}
 --- !u!114 &2029335128 stripped
 MonoBehaviour:
