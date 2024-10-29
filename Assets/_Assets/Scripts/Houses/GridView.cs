@@ -1,54 +1,34 @@
-﻿using System;
-using Pathfinding;
-using UnityEngine;
+﻿using UnityEngine;
 using VContainer;
 
 namespace _Assets.Scripts.Houses
 {
     public class GridView : MonoBehaviour
     {
-        [SerializeField] private int width, height;
-        [SerializeField] private GridCellView[,] cells;
+        private GridCellView[,] cells;
         [Inject] private GridCellFactory _gridCellFactory;
+        [Inject] private GridService _gridService;
 
-        private void Awake()
+        public void Init(GridCellData[,] data)
         {
-            cells = new GridCellView[width, height];
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    var type = CellType.Empty;
-
-                    if (x == 0 && y == 0)
-                    {
-                        type = CellType.Door;
-                    }
-
-                    var selectedCell = cells[x, y];
-                    selectedCell = _gridCellFactory.Create(x, y, type, transform);
-                    selectedCell.gameObject.name = $"Cell_{x}_{y}";
-                    var xPos = x - width / 2;
-                    var yPos = y - height / 2;
-                    selectedCell.transform.position = new Vector3(xPos, yPos, 0);
-                    var data = selectedCell.Data;
-                    data.X = xPos;
-                    data.Y = yPos;
-                    selectedCell.Init(data);
-                }
-            }
+            Generate(data);
         }
 
-        private void Start()
+        private void Generate(GridCellData[,] data)
         {
-            var data = AstarPath.active.data;
-            var newGrid = data.AddGraph(typeof(GridGraph)) as GridGraph;
-
-            newGrid.is2D = true;
-            newGrid.collision.use2D = true;
-            newGrid.center = new Vector3(-0.5f, -0.5f, 0);
-            newGrid.SetDimensions(width, height, 1);
-            AstarPath.active.Scan();
+            cells = new GridCellView[data.GetLength(0), data.GetLength(1)];
+            for (int x = 0; x < data.GetLength(0); x++)
+            {
+                for (int y = 0; y < data.GetLength(1); y++)
+                {
+                    var cell = _gridCellFactory.Create(x, y, data[x, y].CellType, transform);
+                    cells[x, y] = cell;
+                    var xPos = x - data.GetLength(0) / 2;
+                    var yPos = y - data.GetLength(1) / 2;
+                    cells[x,y].transform.position = new Vector3(xPos, yPos, 0);
+                    cell.Init(data[x, y]);
+                }
+            }
         }
 
         public GridCellView GetCellFromMousePosition()

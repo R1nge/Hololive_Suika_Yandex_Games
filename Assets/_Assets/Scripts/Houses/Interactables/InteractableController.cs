@@ -7,9 +7,14 @@ namespace _Assets.Scripts.Houses.Interactables
 {
     public class InteractableController : MonoBehaviour
     {
-        [SerializeField] private AIPath character;
+        private AIPath _character;
         private IInteractable _target;
         private Transform _targetTransform;
+        
+        public void Init(AIPath character)
+        {
+            _character = character;
+        }
 
         private void Update()
         {
@@ -26,7 +31,7 @@ namespace _Assets.Scripts.Houses.Interactables
                         {
                             _targetTransform = cell.transform;
 
-                            if (Vector2.Distance(character.position, cell.transform.position) > 1.05f)
+                            if (Vector2.Distance(_character.position, cell.transform.position) > 1.05f)
                             {
                                 return;
                             }
@@ -37,11 +42,11 @@ namespace _Assets.Scripts.Houses.Interactables
                 }
             }
 
-            if (!float.IsPositiveInfinity(character.remainingDistance) && character.remainingDistance < 0.01f)
+            if (!float.IsPositiveInfinity(_character.remainingDistance) && _character.remainingDistance < 0.01f)
             {
                 if (_target == null || _targetTransform == null) return;
 
-                if (Vector2.Distance(character.position, _targetTransform.position) > 1.05f)
+                if (Vector2.Distance(_character.position, _targetTransform.position) > 1.05f)
                 {
                     return;
                 }

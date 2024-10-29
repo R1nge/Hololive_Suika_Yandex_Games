@@ -9,6 +9,7 @@ namespace _Assets.Scripts.CompositionRoot
         protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<GridCellFactory>(Lifetime.Singleton);
+            builder.Register<GridService>(Lifetime.Singleton);
         }
     }
 }

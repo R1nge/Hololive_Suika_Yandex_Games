@@ -6,19 +6,20 @@ namespace _Assets.Scripts.Houses
 {
     public class HouseCharacterController : MonoBehaviour
     {
-        [SerializeField] private GridView gridView;
         [SerializeField] private AIPath aiPath;
+        private GridView _gridView;
 
-        private void Awake()
+        public void Init(GridView gridView)
         {
-            transform.parent = gridView.transform;
+            _gridView = gridView;
+            transform.parent = _gridView.transform;
         }
 
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                var cell = gridView.GetCellFromMousePosition();
+                var cell = _gridView.GetCellFromMousePosition();
                 if (cell == null) return;
                 MoveTo(cell);
             }
