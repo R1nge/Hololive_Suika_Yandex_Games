@@ -5,6 +5,6 @@ namespace _Assets.Scripts.Misc
 {
     public class Boot : MonoBehaviour
     {
-        private void Start() => SceneManager.LoadSceneAsync("GridTest", LoadSceneMode.Single);
+        private void Start() => SceneManager.LoadSceneAsync("House", LoadSceneMode.Single);
     }
 }

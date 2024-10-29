@@ -11,6 +11,7 @@ namespace _Assets.Scripts.Services.UIs
         [SerializeField] private Button continueButton;
         [SerializeField] private Button playButton;
         [SerializeField] private Button settingsButton;
+        [SerializeField] private Button houseButton;
         [Inject] private MainMenuUIController _mainMenuUIController;
         [Inject] private ContinueService _continueService;
         [Inject] private ResetService _resetService;
@@ -20,6 +21,7 @@ namespace _Assets.Scripts.Services.UIs
            continueButton.onClick.AddListener(Continue);
            playButton.onClick.AddListener(Play); 
            settingsButton.onClick.AddListener(Settings);
+           houseButton.onClick.AddListener(House);
         }
 
         private void Start()
@@ -34,6 +36,8 @@ namespace _Assets.Scripts.Services.UIs
         private void Play() => _mainMenuUIController.Play();
 
         private void Settings() => _mainMenuUIController.Settings();
+
+        private void House() => _mainMenuUIController.House();
 
         private void OnDestroy()
         {
